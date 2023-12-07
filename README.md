@@ -1,22 +1,26 @@
-# Project Title
+# Zürich Accessibility
 
 [[_TOC_]]
 
 ## Team Members
-1. Team member 1
-2. Team member 2
-3. Team member 3
-4. ...
+1. Linus Meierhöfer
+2. Tae Kim
+3. Igor Martinelli
+4. Nils Küstahler
 
 ## Project Description 
-Describe here your project in detail and define your goals.
+Implement a website where information about transportation with reducced mobility is accessible and centralized to make it easier for them to navigate te city
 
 ### Users
-List your projects target Users.
+People with disabilities or reduced mobility
 
 ### Datasets
 Add here all used datasets.\
-Document here where to find the data and how to download it. 
+Document here where to find the data and how to download it.\
+https://opendata.swiss/de/dataset/behindertenparkplatze\
+https://opendata.swiss/de/dataset/bestandsaufnahme-behig\
+https://data.stadt-zuerich.ch/dataset/vbz_fahrplandaten_gtfs
+
 
 ### Tasks
 Define all the tasks you want your dashboard solve.

@@ -1,4 +1,4 @@
-var pointJson = {"type":"FeatureCollection",
+export const pointJson = {"type":"FeatureCollection",
 "features":[
     {
         "type":"Feature",

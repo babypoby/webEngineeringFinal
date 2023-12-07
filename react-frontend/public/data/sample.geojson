@@ -1,0 +1,22 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            47.3642485188943,8.530827162960605
+          ]
+        },
+        "properties": {
+          "rollstuhl_billet": true,
+          "rollstuhl_wc": true,
+          "rollstuhl_verlad": true,
+          "mobilift": true,
+          "stufenloser_perronzugang": true,
+          "autelca": true,
+          "sprechanlage": false
+        }
+    }]
+}

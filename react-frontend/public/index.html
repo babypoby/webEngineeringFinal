@@ -1,107 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Tutorial</title>
-
-    <!-- leaflet css-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        #map{
-            width: 100%;
-            height: 100vh;
-
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+  <title>Your React Leaflet App</title>
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <style>
+    
+  </style>
 </head>
 <body>
-    <div id="map"></div>
+    <div id="root"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </body>
 </html>
-
-<!-- leaflet js-->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="./data/point.js"></script>
-
-<script>
-    //map initialization
-    var map = L.map('map').setView([47.36667, 8.55], 13);
-
-    /*==================================================
-                        TILE LAYER
-    ====================================================*/
-
-    //google street
-    googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3']
-    });
-    googleStreets.addTo(map)
-
-    //google satellite
-    googleSat = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',{
-        maxZoom: 20,
-        subdomains:['mt0','mt1','mt2','mt3']
-    });
-
-    /*==================================================
-                        MARKER
-    ====================================================*/
-
-    //Marker icon (we can customize this later)
-    var myIcon = L.icon({
-        iconUrl: 'my-icon.png',
-        iconSize: [38, 95],
-        iconAnchor: [22, 94],
-        popupAnchor: [-3, -76],
-        shadowUrl: 'my-icon-shadow.png',
-        shadowSize: [68, 95],
-        shadowAnchor: [22, 94]
-    });
-    //Marker
-    //var singleMarker = L.marker([50.505, 30.57], {icon: myIcon}) <-- marker with custom icon
-    var singleMarker = L.marker([47.36667, 8.55]);
-    var popup = singleMarker.bindPopup('This is Zurich center').openPopup()
-    popup.addTo(map)
-
-
-    /*==================================================
-                        GEOJSON
-    ====================================================*/
-
-    var pointData = L.geoJSON(pointJson , {
-        onEachFeature: function (feature, layer){
-            layer.bindPopup(feature.properties.name)
-        }
-    }).addTo(map)
-
-    /*==================================================
-                    LAYER CONTROL
-    ====================================================*/
-    var baseMaps = {
-        'Google Street': googleStreets,
-        'Google Satellite': googleSat
-    };
-
-    var overlayMaps = {
-        "Marker": singleMarker,
-        "Point Data": pointData
-    }
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map)
-
-    /*==================================================
-                        LEAFLET EVENT
-    ====================================================*/
-
-    map.on('mouseover', function(){
-        console.log('your mouse is over the  map')
-    })
-    
-
-</script>

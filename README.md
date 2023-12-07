@@ -16,9 +16,9 @@ People with disabilities or reduced mobility
 
 ### Datasets
 Add here all used datasets.\
-Document here where to find the data and how to download it. 
-https://opendata.swiss/de/dataset/behindertenparkplatze
-https://opendata.swiss/de/dataset/bestandsaufnahme-behig
+Document here where to find the data and how to download it.\
+https://opendata.swiss/de/dataset/behindertenparkplatze\
+https://opendata.swiss/de/dataset/bestandsaufnahme-behig\
 https://data.stadt-zuerich.ch/dataset/vbz_fahrplandaten_gtfs
 
 

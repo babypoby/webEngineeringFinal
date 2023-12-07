@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
-import { pointJson } from './data/point.js'; // Import directly from the stations.js file
 
 
 const Map = () => {
@@ -27,8 +26,8 @@ const Map = () => {
       popupAnchor: [0, -20], // Adjust the popup anchor if needed
     });
     const customMarkerOrange = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/marker-icon-blue.png',
-      iconSize: [100, 100], // Set the size of your custom marker
+      iconUrl: process.env.PUBLIC_URL + '/marker-icon-orange.png',
+      iconSize: [10, 10], // Set the size of your custom marker
       iconAnchor: [50, 50], // Adjust the anchor point if needed
       popupAnchor: [0, -20], // Adjust the popup anchor if needed
     });
@@ -42,9 +41,6 @@ const Map = () => {
     fetch(process.env.PUBLIC_URL + '/data/sample.geojson')
       .then((response) => response.json())
       .then((geojson) => {
-        // Create a new layer group for GeoJSON markers
-        const geojsonLayer = L.layerGroup();
-
         // Use L.geoJSON to add the GeoJSON data to the layer group
         L.geoJSON(geojson, {
           pointToLayer: (feature, latlng) => {

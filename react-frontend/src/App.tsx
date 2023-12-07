@@ -3,7 +3,6 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 
-
 const Map = () => {
   useEffect(() => {
     // Initialize the map
@@ -38,7 +37,7 @@ const Map = () => {
 
     const geojsonLayer = L.layerGroup();
     // Load GeoJSON data from the file
-    fetch(process.env.PUBLIC_URL + '/data/sample.geojson')
+    fetch(process.env.PUBLIC_URL + '/data/accessability_1.geojson')
       .then((response) => response.json())
       .then((geojson) => {
         // Use L.geoJSON to add the GeoJSON data to the layer group
@@ -56,6 +55,7 @@ const Map = () => {
         // Add the layer group to the map
         geojsonLayer.addTo(map);
       });
+      
 
     const baseMaps = {
       'Google Street': googleStreets,

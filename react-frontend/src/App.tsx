@@ -38,24 +38,24 @@ const Map = () => {
 
     const geojsonLayer = L.layerGroup();
     // Load GeoJSON data from the file
-    fetch(process.env.PUBLIC_URL + '/data/sample.geojson')
+    fetch("http://localhost:8000/api/data")
       .then((response) => response.json())
       .then((geojson) => {
         // Use L.geoJSON to add the GeoJSON data to the layer group
-        L.geoJSON(geojson, {
-          pointToLayer: (feature, latlng) => {
-            // Create a marker for each feature in the GeoJSON data
-            return L.marker(latlng, { icon: customMarkerOrange });
-          },
-          onEachFeature: (feature, layer) => {
-            // Add a popup for each feature in the GeoJSON data
-            layer.bindPopup('Popup content'); // You can customize the content here
-          },
-        }).addTo(geojsonLayer);
+        geojson.features.map(point => {
+          const singleMarker = L.marker([point.geometry.coordinates[0],point.geometry.coordinates[1]], {icon: customMarkerBlue})
+          const desc = JSON
+          .stringify(point.properties, null, "\t")
+          .replaceAll(
+              "],\n\t\"", 
+              "],\n\n\t\""
+          );
+      
 
-        // Add the layer group to the map
-        geojsonLayer.addTo(map);
-      });
+          const popup = singleMarker.bindPopup(desc).openPopup()
+          popup.addTo(map)
+        });
+      })
 
     const baseMaps = {
       'Google Street': googleStreets,

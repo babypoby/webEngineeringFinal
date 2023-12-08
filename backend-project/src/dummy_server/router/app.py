@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
 import json
+from flask_cors import CORS 
 
 app = Flask(__name__)
+CORS(app) 
 
-@app.route('/geojson')
+@app.route('/api/data', methods=['GET'])
 def get_geojson():
     try:
         with open('/Users/linusmeiehofer/Documents/Code/FundamentalsWebEngineering/lmeierhoefer_project_flask/backend-project/src/dummy_server/resources/accessibility_1.geojson', 'r') as file:
@@ -15,4 +17,4 @@ def get_geojson():
         return jsonify(error="Error decoding GeoJSON file."), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='localhost', port=8000, debug=True)

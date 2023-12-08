@@ -47,10 +47,10 @@ const Map = () => {
           const desc = JSON
           .stringify(point.properties, null, "\t")
           .replaceAll(
-              "],\n\t\"", 
+              "],\n\t\"",
               "],\n\n\t\""
           );
-      
+
 
           const popup = singleMarker.bindPopup(desc).openPopup()
           popup.addTo(map)

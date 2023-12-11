@@ -4,13 +4,20 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app) 
-
-@app.route('/api/data', methods=['GET'])
-def get_geojson():
+geojson_paths = {
+    'trainstations': 'dummy_server/resources/accessibility_1.geojson',
+    'parkingspaces': 'dummy_server/resources/taz.behindertenparkplaetze_dav_p.json'
+}
+@app.route('/api/data/<file_name>', methods=['GET'])
+def get_geojson(file_name):
     try:
-        with open('/Users/linusmeiehofer/Documents/Code/FundamentalsWebEngineering/lmeierhoefer_project_flask/backend-project/src/dummy_server/resources/accessibility_1.geojson', 'r') as file:
-            geojson_data = json.load(file)
-            return jsonify(geojson_data)
+        file_path = geojson_paths.get(file_name)
+        if file_path:
+             with open(file_path, 'r') as file:
+                geojson_data = json.load(file)
+                return jsonify(geojson_data)
+        else:
+            return jsonify(error="GeoJSON file not found."), 404
     except FileNotFoundError:
         return jsonify(error="GeoJSON file not found."), 404
     except json.JSONDecodeError:

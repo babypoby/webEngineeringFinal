@@ -5,6 +5,7 @@ import './App.css';
 
 
 const Map = () => {
+
   useEffect(() => {
     // Initialize the map
     const map = L.map('map').setView([47.36667, 8.55], 13);
@@ -20,54 +21,93 @@ const Map = () => {
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     });
     const customMarkerBlue = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/marker-icon-blue.png',
+      iconUrl: '/icons' + '/icon-blue.png',
       iconSize: [100, 100], // Set the size of your custom marker
       iconAnchor: [50, 50], // Adjust the anchor point if needed
       popupAnchor: [0, -20], // Adjust the popup anchor if needed
     });
     const customMarkerOrange = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/marker-icon-orange.png',
-      iconSize: [10, 10], // Set the size of your custom marker
+      iconUrl: '/icons' + '/icon-orange.png',
+      iconSize: [100, 100], // Set the size of your custom marker
       iconAnchor: [50, 50], // Adjust the anchor point if needed
       popupAnchor: [0, -20], // Adjust the popup anchor if needed
     });
 
-    const singleMarker = L.marker([47.3642485188943,8.530827162960605], {icon: customMarkerBlue})
-    const popup = singleMarker.bindPopup('This is Zurich center').openPopup()
-    popup.addTo(map)
 
-    const geojsonLayer = L.layerGroup();
+
+    const train_stations = L.layerGroup();
+    const parking_spaces = L.layerGroup();
     // Load GeoJSON data from the file
-    fetch("http://localhost:8000/api/data")
+    fetch("http://localhost:8000/api/data/trainstations")
+      .then((response) => response.json())
+      .then((geojson) => {
+        geojson.features.map(point => {
+          const singleMarker = L.marker([point.geometry.coordinates[0], point.geometry.coordinates[1]], { icon: customMarkerBlue })
+          const desc = JSON
+            .stringify(point.properties, null, "\t")
+            .replaceAll(
+              "],\n\t\"",
+              "],\n\n\t\""
+            );
+          const popup = singleMarker.bindPopup(desc).openPopup()
+          popup.addTo(train_stations)
+        });
+      })
+
+    fetch("http://localhost:8000/api/data/parkingspaces")
       .then((response) => response.json())
       .then((geojson) => {
         // Use L.geoJSON to add the GeoJSON data to the layer group
-        geojson.features.map(point => {
-          const singleMarker = L.marker([point.geometry.coordinates[0],point.geometry.coordinates[1]], {icon: customMarkerBlue})
-          const desc = JSON
-          .stringify(point.properties, null, "\t")
-          .replaceAll(
-              "],\n\t\"",
-              "],\n\n\t\""
-          );
+        const groups = groupByAddress(geojson.features);
 
+        Object.values(groups).forEach(group => {
+          const coordinates = group[0].geometry.coordinates;
+          const properties = group[0].properties;
+          const count = group.length;
+
+          const singleMarker = L.marker([coordinates[1], coordinates[0]], { icon: customMarkerOrange });
+
+          // Create popup content with information from properties
+          const desc = `
+            <strong>Address:</strong> ${properties.adresse}<br>
+            <strong>Type:</strong> ${properties.art}<br>
+            <strong>Number of spaces:</strong> ${count}<br>
+            <strong>Fee Required:</strong> ${properties.gebpflicht === '1' ? 'Yes' : 'No'}<br>
+          `;
 
           const popup = singleMarker.bindPopup(desc).openPopup()
-          popup.addTo(map)
+          popup.addTo(parking_spaces)
         });
+
       })
+      
+    
+    
 
     const baseMaps = {
       'Google Street': googleStreets,
       'Google Satellite': googleSat,
     };
     const overlayMaps = {
-      "Marker": singleMarker,
-      "sample geoJSON": geojsonLayer
+      "Train stations": train_stations,
+      "Parking spaces": parking_spaces
     }
 
     L.control.layers(baseMaps, overlayMaps).addTo(map)
   }, []);
+
+  function groupByAddress(features: any[]) {
+    const groups: { [key: string]: any[] } = {};
+    features.forEach((feature: any) => {
+      const address = feature.properties.adresse;
+      if (!groups[address]) {
+        groups[address] = [feature];
+      }
+      groups[address].push(feature);
+    });
+    return groups;
+  }
+
 
 
   return <div id="map" style={{ height: '100vh' }}></div>;

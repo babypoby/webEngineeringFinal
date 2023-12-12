@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import L from 'leaflet';
+import 'leaflet-search'
+import 'leaflet-search/dist/leaflet-search.src.css'
 import 'leaflet/dist/leaflet.css';
 import './App.css';
-
 
 const Map = () => {
 
@@ -36,23 +37,23 @@ const Map = () => {
 
 
     const train_stations = L.layerGroup();
-    const parking_spaces = L.layerGroup();
+    const parking_spaces = L.geoJSON();
     // Load GeoJSON data from the file
     fetch("http://localhost:8000/api/data/trainstations")
-      .then((response) => response.json())
-      .then((geojson) => {
-        geojson.features.map(point => {
-          const singleMarker = L.marker([point.geometry.coordinates[0], point.geometry.coordinates[1]], { icon: customMarkerBlue })
-          const desc = JSON
-            .stringify(point.properties, null, "\t")
-            .replaceAll(
-              "],\n\t\"",
-              "],\n\n\t\""
-            );
-          const popup = singleMarker.bindPopup(desc).openPopup()
-          popup.addTo(train_stations)
-        });
-      })
+    .then((response) => response.json())
+    .then((geojson) => {
+      geojson.features.map(point => {
+        const singleMarker = L.marker([point.geometry.coordinates[0],point.geometry.coordinates[1]], {icon: customMarkerBlue})
+        const desc = JSON
+        .stringify(point.properties, null, "\t")
+        .replaceAll(
+            "],\n\t\"",
+            "],\n\n\t\""
+        );
+        const popup = singleMarker.bindPopup(desc).openPopup()
+        popup.addTo(train_stations)
+      });
+    })
 
     fetch("http://localhost:8000/api/data/parkingspaces")
       .then((response) => response.json())
@@ -65,7 +66,7 @@ const Map = () => {
           const properties = group[0].properties;
           const count = group.length;
 
-          const singleMarker = L.marker([coordinates[1], coordinates[0]], { icon: customMarkerOrange });
+          const singleMarker = L.marker([coordinates[1], coordinates[0]], { icon: customMarkerOrange, title: properties.adresse });
 
           // Create popup content with information from properties
           const desc = `
@@ -76,13 +77,15 @@ const Map = () => {
           `;
 
           const popup = singleMarker.bindPopup(desc).openPopup()
-          popup.addTo(parking_spaces)
+          popup.addTo(parking_spaces);
+          parking_spaces.addLayer(popup);
         });
 
       })
-      
-    
-    
+
+
+
+
 
     const baseMaps = {
       'Google Street': googleStreets,
@@ -93,7 +96,16 @@ const Map = () => {
       "Parking spaces": parking_spaces
     }
 
-    L.control.layers(baseMaps, overlayMaps).addTo(map)
+    parking_spaces.addTo(map);
+
+    const controlSearch = new (L.Control as any).Search({ 
+      position: 'topright', 
+      layer: parking_spaces, 
+      initial: false,
+      zoom: 12, 
+      propertyName: 'adresse'});
+    map.addControl(controlSearch);
+
   }, []);
 
   function groupByAddress(features: any[]) {

@@ -1,84 +1,51 @@
-import React, { useEffect } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 
+const App = () => {
+  /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
+  const [coordinates, setCoordinates] = useState([]);
 
-const Map = () => {
+  /* Query the backend on mount to load the data into the state */
   useEffect(() => {
-    // Initialize the map
-    const map = L.map('map').setView([47.36667, 8.55], 13);
-
-    const googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-    });
-    googleStreets.addTo(map);
-
-    const googleSat = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}', {
-      maxZoom: 20,
-      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-    });
-    const customMarkerBlue = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/icons/icon-blue.png',
-      iconSize: [100, 100], // Set the size of your custom marker
-      iconAnchor: [50, 50], // Adjust the anchor point if needed
-      popupAnchor: [0, -20], // Adjust the popup anchor if needed
-    });
-    const customMarkerOrange = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/icons/icon-orange.png',
-      iconSize: [10, 10], // Set the size of your custom marker
-      iconAnchor: [50, 50], // Adjust the anchor point if needed
-      popupAnchor: [0, -20], // Adjust the popup anchor if needed
-    });
-
-    const singleMarker = L.marker([47.3642485188943,8.530827162960605], {icon: customMarkerBlue})
-    const popup = singleMarker.bindPopup('This is Zurich center').openPopup()
-    popup.addTo(map)
-
-    const geojsonLayer = L.layerGroup();
-    // Load GeoJSON data from the file
     fetch("http://localhost:8000/api/data")
       .then((response) => response.json())
       .then((geojson) => {
-        // Use L.geoJSON to add the GeoJSON data to the layer group
-        geojson.features.map(point => {
-          const singleMarker = L.marker([point.geometry.coordinates[0],point.geometry.coordinates[1]], {icon: customMarkerBlue})
-          const desc = JSON
-          .stringify(point.properties, null, "\t")
-          .replaceAll(
-              "],\n\t\"",
-              "],\n\n\t\""
-          );
-
-
-          const popup = singleMarker.bindPopup(desc).openPopup()
-          popup.addTo(map)
-        });
+        const formattedCoordinates = geojson.features.map(x => ({
+          coordinates: x.geometry.coordinates, 
+          properties: x.properties
+        }));
+        setCoordinates(formattedCoordinates);
       })
-
-    const baseMaps = {
-      'Google Street': googleStreets,
-      'Google Satellite': googleSat,
-    };
-    const overlayMaps = {
-      "Marker": singleMarker,
-      "sample geoJSON": geojsonLayer
-    }
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map)
+      .catch(error => console.error('Error fetching data: ', error));
   }, []);
 
 
-  return <div id="map" style={{ height: '100vh' }}></div>;
-};
-
-const App = () => {
-  return (
+  return( 
     <div>
-      <Map />
+      <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+
+      {coordinates.map((item, index) => (
+          <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({iconUrl: "/icons/icon-blue.png",
+              iconSize: [100, 100],
+              iconAnchor: [50, 50],
+              popupAnchor: [0, -20],})}>
+            <Popup>
+              {item.properties.name || 'No Name'}
+            </Popup>
+          </Marker>
+        ))}
+    </MapContainer>
+
     </div>
   );
+
 };
 
 export default App;

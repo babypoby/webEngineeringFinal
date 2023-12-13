@@ -20,13 +20,13 @@ const Map = () => {
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
     });
     const customMarkerBlue = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/marker-icon-blue.png',
+      iconUrl: process.env.PUBLIC_URL + '/icons/icon-blue.png',
       iconSize: [100, 100], // Set the size of your custom marker
       iconAnchor: [50, 50], // Adjust the anchor point if needed
       popupAnchor: [0, -20], // Adjust the popup anchor if needed
     });
     const customMarkerOrange = L.icon({
-      iconUrl: process.env.PUBLIC_URL + '/marker-icon-orange.png',
+      iconUrl: process.env.PUBLIC_URL + '/icons/icon-orange.png',
       iconSize: [10, 10], // Set the size of your custom marker
       iconAnchor: [50, 50], // Adjust the anchor point if needed
       popupAnchor: [0, -20], // Adjust the popup anchor if needed

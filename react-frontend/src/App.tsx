@@ -37,7 +37,14 @@ const App = () => {
               iconAnchor: [50, 50],
               popupAnchor: [0, -20],})}>
             <Popup>
-              {item.properties.name || 'No Name'}
+              {
+                JSON
+                .stringify(item.properties, null, "\t")
+                .replaceAll(
+                    "],\n\t\"", 
+                    "],\n\n\t\""
+                )
+              }
             </Popup>
           </Marker>
         ))}

@@ -7,20 +7,13 @@ import L, { Layer } from 'leaflet';
 
 
 
-
-
-
-
-
-
-
-
 const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState([]);
   const [parkingcoordinates, setParkingCoordinates] = useState([]);
   /* Query the backend on mount to load the data into the state */
   useEffect(() => {
+    console.log("Effect is running");
     fetch("http://localhost:8000/api/data/trainstations")
       .then((response) => response.json())
       .then((geojson) => {

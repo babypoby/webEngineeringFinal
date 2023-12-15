@@ -25,9 +25,10 @@ const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState([]);
   const [parkingcoordinates, setParkingCoordinates] = useState([]);
+  const [activeLayer, setActiveLayer] = useState(null);
 
   /* State to store the current map reference */
-  const map = useRef(null);
+  const mapRef = useRef(null);
 
   /* State to store the current geopositional map bounds */
   const [bounds, setBounds] = useState(null);
@@ -39,14 +40,14 @@ const App = () => {
 
   // Function to update bounds
   const updateBounds = () => {
-    if (map.current) {
-      setBounds(map.current.getBounds());
+    if (mapRef.current) {
+      setBounds(mapRef.current.getBounds());
     }
   };
 
   const updateBoundsRecompute = () => {
     updateBounds();
-    compute_statistics(traincoordinates, bounds, setStatistics);
+    compute_statistics(activeLayer, bounds, setStatistics);
   };
 
   // Map Event Handler
@@ -54,9 +55,17 @@ const App = () => {
     useMapEvents({
       moveend: updateBoundsRecompute,
       zoomend: updateBoundsRecompute,
+      overlayadd: (e) => { 
+        setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
+    },
+      overlayremove: (e) => { 
+        setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
+    },
     });
     return null;
   };
+
+  
 
 
   /* Query the backend on mount to load the data into the state */
@@ -90,7 +99,7 @@ const App = () => {
     updateBounds();
   }, []);
 
-    function groupByAddress(features: any[]) {
+    function groupByAddress(features: any[]): { [key: string]: any[] } {
         const groups: { [key: string]: any[] } = {};
         features.forEach((feature: any) => {
             const address = feature.properties.adresse;
@@ -108,12 +117,14 @@ const App = () => {
         return copy;
     }
 
+  
+
 
 
     return(
     <div className='app-container'>
       <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
-      ref={map}>
+      ref={mapRef}>
         <MapEvents />
 
         <TileLayer

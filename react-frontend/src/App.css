@@ -7,7 +7,7 @@ html, body, #root, .map-container {
 
 .app-container {
     display: flex;
-    flex-wrap: column;
+    flex-direction: column;
 }
 
 .mapContainer {

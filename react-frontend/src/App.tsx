@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl, LayerGroup } from 'react-leaflet';
 import L, { Layer } from 'leaflet';
 import StatisticsPanel from './StatisticsPanel';
+import { zoom } from 'd3';
 
 const compute_statistics = (coordinates, bounds, setStatistics) => {
   if (bounds && coordinates) {
@@ -26,6 +27,8 @@ const App = () => {
   const [traincoordinates, setTrainCoordinates] = useState([]);
   const [parkingcoordinates, setParkingCoordinates] = useState([]);
   const [activeLayer, setActiveLayer] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(13);
+
 
   /* State to store the current map reference */
   const mapRef = useRef(null);
@@ -51,20 +54,36 @@ const App = () => {
   };
 
   // Map Event Handler
+  // Map Event Handler
   const MapEvents = () => {
-    useMapEvents({
+    const map = useMapEvents({
       moveend: updateBoundsRecompute,
-      zoomend: updateBoundsRecompute,
-      overlayadd: (e) => { 
+      overlayadd: (e) => {
         setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
-    },
-      overlayremove: (e) => { 
+      },
+      overlayremove: (e) => {
         setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
-    },
+      },
     });
+
+    // Handle the zoomend event
+    const handleZoomend = () => {
+      updateBoundsRecompute();
+      const zoomLevel = map.getZoom();
+      setZoomLevel(zoomLevel);
+      console.log(`Zoom Level: ${zoomLevel}`);
+    };
+
+    // Attach the zoomend event handler
+    useEffect(() => {
+      map.addEventListener("zoomend", handleZoomend);
+      return () => {
+        map.removeEventListener("zoomend", handleZoomend);
+      };
+    }, [map]);
+
     return null;
   };
-
   
 
 
@@ -137,9 +156,9 @@ const App = () => {
                       {traincoordinates.map((item, index) => (
                           <Marker key={index} position={item.coordinates} icon={L.icon({
                               iconUrl: "/icons/icon-blue.png",
-                              iconSize: [100, 100],
-                              iconAnchor: [50, 50],
-                              popupAnchor: [0, -20],
+                              iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                              iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                              popupAnchor: [0, -1.5 * zoomLevel],
                           })}>
                               <Popup>
                                   {
@@ -160,9 +179,9 @@ const App = () => {
                       {parkingcoordinates.map((item, index) => (
                           <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({
                               iconUrl: "/icons/icon-orange.png",
-                              iconSize: [100, 100],
-                              iconAnchor: [50, 50],
-                              popupAnchor: [0, -20],
+                              iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                              iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                              popupAnchor: [0, -1 * zoomLevel],
                           })}>
                               <Popup>
                                   Address: {item.properties.adresse} <br />

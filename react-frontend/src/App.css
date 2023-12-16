@@ -7,10 +7,21 @@ html, body, #root, .map-container {
 
 .app-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .mapContainer {
     height: 100vh;
     width: 100%;
+}
+.map {
+    flex: 4;
+}
+  
+.statistics-panel {
+    flex: 1;
+}
+.map-content{
+    display: flex;
+    flex-direction: row;
 }

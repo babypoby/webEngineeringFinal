@@ -1,0 +1,56 @@
+/* FilterHeader.css */
+.filter-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px 10px;
+}
+
+.filt-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+}
+
+.filter-button {
+    background-color: #eee;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+.button-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+}
+
+.filter-button.selected.Trainstations,
+.filter-button.selected.WC,
+.filter-button.selected.Ramps,
+.filter-button.selected.rampWC {
+    background-color: #0056b3;
+    color: white;
+    border-color: #054589;
+}
+
+.filter-button.selected.Parkingspaces {
+    background-color: #ff8c00;
+    color: white;
+    border-color: #ff6b00;
+}
+
+.filter-button.selected.Parkingspaces:hover {
+    background-color: #ff6b00;
+}
+
+.filter-button.selected.Trainstations:hover {
+    background-color: #054589;
+}

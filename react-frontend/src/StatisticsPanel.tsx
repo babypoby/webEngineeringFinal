@@ -4,7 +4,7 @@ import React from 'react';
 const StatisticsPanel = ({statistics}) => {
 
     return (
-        <div className='statisics-panel'>
+        <div className='statistics-panel'>
             <h2>Statistics</h2>
             <p>Currently selected markers: {statistics ? statistics.length : "0"}</p>
         </div>

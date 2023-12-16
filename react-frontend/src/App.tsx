@@ -4,6 +4,8 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl, LayerGroup } from 'react-leaflet';
 import L, { Layer } from 'leaflet';
 import StatisticsPanel from './StatisticsPanel';
+import FilterHeader from './FilterHeader';
+
 import { zoom } from 'd3';
 
 const compute_statistics = (coordinates, bounds, setStatistics) => {
@@ -28,7 +30,8 @@ const App = () => {
   const [parkingcoordinates, setParkingCoordinates] = useState([]);
   const [activeLayer, setActiveLayer] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(13);
-
+  const [filter, setFilter] = useState(null); // State to store the current filter value
+  const [selectedFilter, setSelectedFilter] = useState(null);
 
   /* State to store the current map reference */
   const mapRef = useRef(null);
@@ -136,69 +139,128 @@ const App = () => {
         return copy;
     }
 
-  
+    const handleFilterButtonClick = (filterValue) => {
+      setFilter(filterValue);
+      setSelectedFilter(filterValue);
+    };
 
 
 
     return(
     <div className='app-container'>
-      <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
-      ref={mapRef}>
-        <MapEvents />
+      <FilterHeader onFilterButtonClick={handleFilterButtonClick} />
 
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
-        />
-          <LayersControl position="topright">
-              <LayersControl.Overlay name="Trainstations">
-                  <LayerGroup>
-                      {traincoordinates.map((item, index) => (
-                          <Marker key={index} position={item.coordinates} icon={L.icon({
-                              iconUrl: "/icons/icon-blue.png",
-                              iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                              iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                              popupAnchor: [0, -1.5 * zoomLevel],
-                          })}>
-                              <Popup>
-                                  {
-                                      JSON
-                                          .stringify(item.properties, null, "\t")
-                                          .replaceAll(
-                                              "],\n\t\"",
-                                              "],\n\n\t\""
-                                          )
-                                  }
-                              </Popup>
-                          </Marker>
-                      ))}
-                  </LayerGroup>
-              </LayersControl.Overlay>
-              <LayersControl.Overlay name="Parkingspaces">
-                  <LayerGroup>
-                      {parkingcoordinates.map((item, index) => (
-                          <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({
-                              iconUrl: "/icons/icon-orange.png",
-                              iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                              iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                              popupAnchor: [0, -1 * zoomLevel],
-                          })}>
-                              <Popup>
-                                  Address: {item.properties.adresse} <br />
-                                  Type: {item.properties.art} <br />
-                                  Number of available parking spaces: {item.count}
-                                  Fee Required: {item.properties.gebpflicht === '1' ? 'Yes' : 'No'} <br />'
-                              </Popup>
-                          </Marker>
-                      ))}
-                  </LayerGroup>
-              </LayersControl.Overlay>
-          </LayersControl>
+      <div className="map-content">
+        <div className="map">
+          <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
+          ref={mapRef}>
+            <MapEvents />
 
-      </MapContainer>
-
-      <StatisticsPanel  statistics={statistics}/>
-
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
+            />
+              {selectedFilter === 'Trainstations' && (
+                      <LayerGroup>
+                          {traincoordinates.map((item, index) => (
+                              <Marker key={index} position={item.coordinates} icon={L.icon({
+                                  iconUrl: "/icons/icon-blue.png",
+                                  iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                                  iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                                  popupAnchor: [0, -1.5 * zoomLevel],
+                              })}>
+                                  <Popup>
+                                      {
+                                          JSON
+                                              .stringify(item.properties, null, "\t")
+                                              .replaceAll(
+                                                  "],\n\t\"",
+                                                  "],\n\n\t\""
+                                              )
+                                      }
+                                  </Popup>
+                              </Marker>
+                          ))}
+                      </LayerGroup>
+              )}
+              {selectedFilter === 'Parkingspaces' && (
+                      <LayerGroup>
+                          {parkingcoordinates.map((item, index) => (
+                              <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({
+                                  iconUrl: "/icons/icon-orange.png",
+                                  iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                                  iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                  popupAnchor: [0, -1 * zoomLevel],
+                              })}>
+                                  <Popup>
+                                      Address: {item.properties.adresse} <br />
+                                      Type: {item.properties.art} <br />
+                                      Number of available parking spaces: {item.count}
+                                      Fee Required: {item.properties.gebpflicht === '1' ? 'Yes' : 'No'} <br />'
+                                  </Popup>
+                              </Marker>
+                          ))}
+                      </LayerGroup>
+              )}
+              {selectedFilter === 'WC' && (
+              <LayerGroup>
+                {traincoordinates
+                  .filter(item => item.properties.rollstuhl_wc === true)
+                  .map((item, index) => (
+                    <Marker key={index} position={item.coordinates} icon={L.icon({
+                      iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
+                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                      popupAnchor: [0, -1.5 * zoomLevel],
+                    })}>
+                      <Popup>
+                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      </Popup>
+                    </Marker>
+                  ))}
+              </LayerGroup>
+            )}
+            {selectedFilter === 'Ramps' && (
+              <LayerGroup>
+                {traincoordinates
+                  .filter(item => item.properties.stufenloser_perronzugang === true)
+                  .map((item, index) => (
+                    <Marker key={index} position={item.coordinates} icon={L.icon({
+                      iconUrl: "/icons/icon-blue-ramp.png",
+                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                      popupAnchor: [0, -1.5 * zoomLevel],
+                    })}>
+                      <Popup>
+                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      </Popup>
+                    </Marker>
+                  ))}
+              </LayerGroup>
+            )}
+            {selectedFilter === 'rampWC' && (
+              <LayerGroup>
+                {traincoordinates
+                  .filter(item => item.properties.stufenloser_perronzugang === true && item.properties.rollstuhl_wc === true)
+                  .map((item, index) => (
+                    <Marker key={index} position={item.coordinates} icon={L.icon({
+                      iconUrl: "/icons/icon-blue-ramp-wc.png",
+                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                      popupAnchor: [0, -1.5 * zoomLevel],
+                    })}>
+                      <Popup>
+                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      </Popup>
+                    </Marker>
+                  ))}
+              </LayerGroup>
+            )}
+              
+          </MapContainer>
+        </div>
+        <StatisticsPanel  statistics={statistics}/>       
+      </div>
     </div>
   );
 

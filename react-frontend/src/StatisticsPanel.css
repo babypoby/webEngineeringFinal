@@ -1,5 +1,4 @@
-.statisics-panel {
-    width: 25%;
+.statistics-panel {
     display: flex;
     flex-direction: column;
 }

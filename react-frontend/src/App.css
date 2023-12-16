@@ -1,27 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-
-html, body, #root, .map-container {
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
     height: 100%;
 }
 
-
+/* Full-page container */
 .app-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    height: 100vh; /* Take up the full viewport height */
 }
 
-.mapContainer {
-    height: 100vh;
-    width: 100%;
-}
-.map {
-    flex: 4;
-}
-  
-.statistics-panel {
-    flex: 1;
-}
-.map-content{
+/* Header styling */
+.filter-header {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f2f2f2; /* Set a background color if needed */
 }
+
+/* Map and Statistics Panel styling */
+.map-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take up remaining vertical space */
+}
+
+.map {
+    flex: 1; /* Take up the left portion of the screen */
+}
+
+.statistics-panel {
+    flex: 0.25; /* Take up the right portion of the screen */
+}
+
+/* Adjust the mapContainer height to fill the remaining space */
+.mapContainer {
+    height: 100%;
+}
+
+/* Additional styles for other components as needed */

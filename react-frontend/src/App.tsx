@@ -148,9 +148,9 @@ const App = () => {
 
     return(
     <div className='app-container'>
-      <FilterHeader onFilterButtonClick={handleFilterButtonClick} />
 
       <div className="map-content">
+        <FilterHeader onFilterButtonClick={handleFilterButtonClick} />
         <div className="map">
           <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
           ref={mapRef}>
@@ -258,9 +258,9 @@ const App = () => {
             )}
               
           </MapContainer>
-        </div>
-        <StatisticsPanel  statistics={statistics}/>       
+        </div>      
       </div>
+      <StatisticsPanel  statistics={statistics}/> 
     </div>
   );
 

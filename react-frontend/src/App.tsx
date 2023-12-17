@@ -2,31 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl, LayerGroup } from 'react-leaflet';
-import L, { Layer } from 'leaflet';
+import L, { LatLngExpression, Layer } from 'leaflet';
 import StatisticsPanel from './StatisticsPanel';
-import { zoom } from 'd3';
+import type { Point, ParkingPoint, PointLayer } from './types/statistics';
 
-const compute_statistics = (coordinates, bounds, setStatistics) => {
-  if (bounds && coordinates) {
-    const northEast = bounds._northEast;
-    const southWest = bounds._southWest;
 
-    const filteredCoordinates = coordinates.filter((item) => {
-      const lat = item.coordinates[0];
-      const lng = item.coordinates[1];
 
-      return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
-    });
-
-    setStatistics(filteredCoordinates);
-  }
-};
 
 const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
-  const [traincoordinates, setTrainCoordinates] = useState([]);
-  const [parkingcoordinates, setParkingCoordinates] = useState([]);
-  const [activeLayer, setActiveLayer] = useState(null);
+  const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);
+  const [parkingcoordinates, setParkingCoordinates] = useState<ParkingPoint[]>([]);
+  const [activeLayer, setActiveLayer] = useState<string[]>([]);
   const [zoomLevel, setZoomLevel] = useState(13);
 
 
@@ -37,9 +24,43 @@ const App = () => {
   const [bounds, setBounds] = useState(null);
 
   /* State to store the current statistics */
-  const [statistics, setStatistics] = useState(null);  
+  const [statistics, setStatistics] = useState<PointLayer[]>([]);   
 
   /* Logic to handle the gepositional bound state */
+
+  const compute_statistics = (layerNames, bounds, setStatistics) => {
+    if (bounds && layerNames.length > 0) {
+      const northEast = bounds._northEast;
+      const southWest = bounds._southWest;
+     
+      const layers: PointLayer[] = [];
+  
+      layerNames.forEach((layerName: string) => {
+        if (layerName === "Trainstations") {
+          layers.push({name: layerName, coordinates: traincoordinates});
+        } else if (layerName === "Parkingspaces") {
+          layers.push({name: layerName, coordinates: parkingcoordinates});
+        }
+      })
+  
+      const updatedLayers = layers.map((layer) => {
+        const filteredCoordinates = layer.coordinates.filter((item) => {
+          const lat = item.coordinates[0];
+          const lng = item.coordinates[1];
+  
+          return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
+        });
+  
+        return { ...layer, coordinates: filteredCoordinates };
+      });
+      
+      setStatistics(updatedLayers);
+     
+    }
+    else {
+      setStatistics([]);
+    }
+  };
 
   // Function to update bounds
   const updateBounds = () => {
@@ -59,10 +80,10 @@ const App = () => {
     const map = useMapEvents({
       moveend: updateBoundsRecompute,
       overlayadd: (e) => {
-        setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
+        setActiveLayer(activeLayer.concat(e.name));
       },
       overlayremove: (e) => {
-        setActiveLayer(e.name === "Trainstations" ? traincoordinates : parkingcoordinates);
+        setActiveLayer(activeLayer.filter((item) => item !== e.name));
       },
     });
 
@@ -84,6 +105,11 @@ const App = () => {
 
     return null;
   };
+
+  useEffect(() => {
+    compute_statistics(activeLayer, bounds, setStatistics);
+    console.log("add!", activeLayer);
+  }, [activeLayer, bounds]);
   
 
 
@@ -92,11 +118,10 @@ const App = () => {
     fetch("http://localhost:8000/api/data/trainstations")
         .then((response) => response.json())
         .then((geojson) => {
-          const formattedCoordinates = geojson.features.map(x => ({
+          const formattedCoordinates: Point[] = geojson.features.map(x => ({
             coordinates: x.geometry.coordinates,
             properties: x.properties
           }));
-          console.log("trainstations", formattedCoordinates)
           setTrainCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
@@ -105,12 +130,11 @@ const App = () => {
         .then((response) => response.json())
         .then((geojson) => {
           const groups = groupByAddress(geojson.features);
-          const formattedCoordinates = Object.values(groups).map(x => ({
+          const formattedCoordinates: ParkingPoint[] = Object.values(groups).map(x => ({
             coordinates: ToReversed(x[0].geometry.coordinates),
             properties: x[0].properties,
             count: x.length
           }));
-          console.log("parkingspaces", formattedCoordinates)
           setParkingCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
@@ -154,7 +178,7 @@ const App = () => {
               <LayersControl.Overlay name="Trainstations">
                   <LayerGroup>
                       {traincoordinates.map((item, index) => (
-                          <Marker key={index} position={item.coordinates} icon={L.icon({
+                          <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                               iconUrl: "/icons/icon-blue.png",
                               iconSize: [7 * zoomLevel, 7 * zoomLevel],
                               iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
@@ -177,7 +201,7 @@ const App = () => {
               <LayersControl.Overlay name="Parkingspaces">
                   <LayerGroup>
                       {parkingcoordinates.map((item, index) => (
-                          <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({
+                          <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                               iconUrl: "/icons/icon-orange.png",
                               iconSize: [4 * zoomLevel, 4 * zoomLevel],
                               iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
@@ -197,7 +221,7 @@ const App = () => {
 
       </MapContainer>
 
-      <StatisticsPanel  statistics={statistics}/>
+      <StatisticsPanel  statistics = {statistics} />
 
     </div>
   );

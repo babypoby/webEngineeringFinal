@@ -108,7 +108,7 @@ const App = () => {
 
   useEffect(() => {
     compute_statistics(activeLayer, bounds, setStatistics);
-    console.log("add!", activeLayer);
+
   }, [activeLayer, bounds]);
   
 

@@ -1,8 +1,8 @@
 import './StatisticsPanel.css';
-import React, { useEffect, useRef } from 'react';
 import type { PointLayer} from './types/statistics';
 import Barplot from "./Barplot";
-import { PieChart } from 'recharts';
+import ParkingSpaceData from './ParkingSpaceData';
+import type { ParkingPoint } from './types/statistics';
 
 
 const StatisticsPanel = ({ statistics }: { statistics: PointLayer[] }) => {
@@ -16,11 +16,12 @@ const StatisticsPanel = ({ statistics }: { statistics: PointLayer[] }) => {
             </div>
             {
                 statistics.map((layer, index) => (
+                    <div>
                     <div key={index} className='text-center'>
-                        <h3 className="text-sm text-gray-600">{layer.name}</h3>
-                        <p>{layer.coordinates.length}</p>
+                        <h3 className="text-sm text-gray-600"><strong>{layer.name}</strong></h3>
                         {(layer.name === "Trainstations") ? <Barplot data={layer.coordinates}/> : 
-                        (layer.name == "Parkingspaces") ? <PieChart data={layer.coordinates}/> : <p></p>}  
+                        (layer.name == "Parkingspaces") ? <ParkingSpaceData data={layer.coordinates as ParkingPoint[]}/> : <p></p>}  
+                    </div> <br></br>
                     </div>
                 ))
             }

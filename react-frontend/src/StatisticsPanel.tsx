@@ -7,10 +7,12 @@ import type { ParkingPoint } from './types/statistics';
 
 const StatisticsPanel = ({ statistics }: { statistics: PointLayer[] }) => {
     
-    console.log(statistics)
+    const statisticsPanel = {
+        flex: 0.25
+    }
 
     return (
-        <div className="w-full md:w-1/4 p-4 bg-white">
+        <div className="w-full md:w-1/4 p-4 bg-white" style = {statisticsPanel}>
             <div className='text-center'>
                 <h2 className='text-lg font-semibold border-b-2 border-gray-300 py-2'>Statistics</h2>
             </div>

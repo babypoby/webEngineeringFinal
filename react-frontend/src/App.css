@@ -1,20 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-
-html, body, #root, .map-container {
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
     height: 100%;
 }
 
-
+/* Full-page container */
 .app-container {
     display: flex;
     flex-direction: row;
+    height: 100vh; /* Take up the full viewport height */
 }
 
+/* Header styling */
+.filter-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f2f2f2; /* Set a background color if needed */
+}
+
+/* Map and Statistics Panel styling */
+.map-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take up remaining vertical space */
+}
+
+.map {
+    flex: 1; /* Take up the left portion of the screen */
+}
+
+.statistics-panel {
+    flex: 0.25; /* Take up the right portion of the screen */
+}
+
+/* Adjust the mapContainer height to fill the remaining space */
 .mapContainer {
-    height: 100vh;
-    width: 100%;
+    height: 100%;
 }
 
-.header {
-    
-}
+/* Custom CSS for popup content */
+.nearpark-popup,
+.park-popup,
+.train-popup{
+    color: white;
+    border: none; /* Remove the border */
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: relative; /* Set the position to relative for the custom close button */
+  }
+
+  /* Style for the custom close button */
+  .nearpark-popup .custom-close-button,
+  .park-popup .custom-close-button,
+  .train-popup .custom-close-button {
+    color: black;
+    position: absolute; /* Position the custom close button absolutely */
+    top: 10px; /* Adjust the top position as needed */
+    right: 15px; /* Adjust the right position as needed */
+    font-size: 16px;
+    cursor: pointer; /* Add cursor pointer for hover effect */
+    border: none; /* Remove border */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style for the container */
+  .nearpark-popup .popup-container,
+  .park-popup .popup-container{
+    width: 250px; /* Set a specific width for the container */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    align-content: flex-start;
+    justify-content: center;
+    gap: 10px; /* Add some spacing between items */
+    text-align: center; /* Center the text within the flex container */
+  }
+
+  .train-popup .popup-container{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    align-content: flex-start;
+    justify-content: center;
+    gap: 10px; /* Add some spacing between items */
+    text-align: center; /* Center the text within the flex container */
+  }
+  
+  /* Style for the rectangles */
+  .rectangle {
+    background-color: #fff; /* White background */
+    padding: 10px;
+    border: 2px solid black; /* Blue border */
+    border-radius: 5px;
+    text-align: center; /* Center the text horizontally */
+  }
+  
+  /* Style for the headers */
+  .nearpark-popup .header {
+    font-weight: bold;
+    color: red; /* Blue color for headers */
+    text-align: center;
+  }
+  .park-popup .header{
+    font-weight: bold;
+    color: orange; /* Blue color for headers */
+    text-align: center;
+  }
+
+  .train-popup .header{
+    font-weight: bold;
+    color:  blue;
+    text-align: center;
+  }
+  /* Style for the values */
+  .value {
+    color: #333; /* Dark color for values */
+    text-align: center;
+  }
+  
+  
+  .leaflet-popup-close-button {
+    display: none;
+  }
+  .popup-header {
+    text-align: center; /* Center the text horizontally */
+    font-size: 16px; /* Adjust the font size as needed */
+    margin-bottom: 10px; /* Add some spacing between header and container */
+    font-weight: bold; /* Make the header text bold */
+  }
+  
+  

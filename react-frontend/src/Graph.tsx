@@ -119,9 +119,9 @@ const Graph = ({ layer }: { layer: PointLayer }) => {
 
         else if (layer.name === "Parkingspaces") {
             const gebpflicht = layer.coordinates.map(obj => obj.properties.gebpflicht)
-            const art = layer.coordinates.map(obj => obj.properties.art)
+
             const gebcount = gebpflicht.filter(value => value === '1').length
-            const artcount = art.filter(value => value === "Nur mit Geh-Behindertenausweis").length
+
             const totalcount = layer.coordinates.length;
             const gebdata = [totalcount - gebcount, gebcount];
 
@@ -129,11 +129,9 @@ const Graph = ({ layer }: { layer: PointLayer }) => {
 
             const gebpie = d3.pie();
             const gebarcs = gebpie(gebdata);
-            console.log(gebdata);
 
             const widthPercentage = 100;
             const heightPercentage = 100;
-            const margin = 0;
 
             const svgElement = svgRef1.current;
             const svgRect = svgElement.getBoundingClientRect();
@@ -141,7 +139,8 @@ const Graph = ({ layer }: { layer: PointLayer }) => {
             const width = svgRect.width;
             const height = svgRect.height;
 
-            const radius = Math.min(width, height) / 2 - margin;
+            const radius = Math.min(width, height) / 2;
+
 
 
 
@@ -150,17 +149,22 @@ const Graph = ({ layer }: { layer: PointLayer }) => {
             const svg = d3.select(svgRef1.current);
             svg.selectAll('*').remove();
 
-            svg.attr("width", `${widthPercentage}%`)
+            svg
+                .attr("width", `${widthPercentage}%`)
                 .attr("height", `${heightPercentage}%`)
                 .append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-            svg.selectAll('path')
+
+            const g = svg.selectAll(".arc")
                 .data<any>(gebarcs)
-                .enter()
-                .append('path')
+                .enter().append("g")
+                .attr("class", "arc");
+
+            g.append("path")
                 .attr('d', d3.arc()
-                    .innerRadius(10)
-                    .outerRadius(radius)
+                    .innerRadius(0)
+                    .outerRadius(radius - 10)
                 )
                 .attr('fill', function (d, i) {
                     if (i === 0) {
@@ -170,11 +174,6 @@ const Graph = ({ layer }: { layer: PointLayer }) => {
                         return 'green';
                     }
                 })
-                .attr('stroke', 'black')
-                .style('stroke-width', '2px')
-                .style('opacity', 0.7);
-            
-            
 
 
         }

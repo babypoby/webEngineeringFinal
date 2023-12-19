@@ -2,13 +2,23 @@
 import React, { useState } from 'react';
 import './FilterHeader.css';
 
-const FilterHeader = ({ onFilterButtonClick}) => {
+const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick}) => {
   const [filterValue, setFilterValue] = useState(null);
   const [textFilterValue, setTextFilterValue] = useState('');
 
   const handleFilterButtonClick = (value) => {
     setFilterValue(value);
     onFilterButtonClick(value, textFilterValue);
+  };
+
+  const handleDistanceFilterClick = () => {
+    // Add logic to toggle the selected state
+    if (filterValue === 'Distance') {
+      setFilterValue(null);
+    } else {
+      setFilterValue('Distance');
+    }
+    onDistanceFilterClick(); // Call the callback for the distance filter
   };
 
   return (
@@ -51,6 +61,17 @@ const FilterHeader = ({ onFilterButtonClick}) => {
             onClick={() => handleFilterButtonClick('rampWC')}
             >
             Ramps & WCs
+            </button>
+        </div>
+      </div>
+      <div className='filt-component'>
+        <label>Parking near stations</label>
+        <div className='buttons-component'>
+            <button
+        className={`filter-button ${filterValue === 'Distance' ? 'selected Distance' : ''}`}
+            onClick={handleDistanceFilterClick}
+            >
+            Press me
             </button>
         </div>
       </div>

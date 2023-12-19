@@ -32,6 +32,8 @@ const App = () => {
   const [zoomLevel, setZoomLevel] = useState(13);
   const [filter, setFilter] = useState(null); // State to store the current filter value
   const [selectedFilter, setSelectedFilter] = useState(null);
+  const [filteredParking, setFilteredParking] = useState([]);
+
 
   /* State to store the current map reference */
   const mapRef = useRef(null);
@@ -139,9 +141,82 @@ const App = () => {
         return copy;
     }
 
+  const calculateDistance = (coord1, coord2) => {
+    const [lat1, lon1] = coord1;
+    const [lat2, lon2] = coord2;
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c * 1000; // Convert to meters
+    return distance;
+  };
+    // Function to filter parking places within 200m of any train station
+  const filterParkingWithin200m = (trainStations, parkingPlaces) => {
+    const filteredParking = [];
+
+    for (const parking of parkingPlaces) {
+      let shortestDistance = Infinity;
+      let nearestStation = null;
+
+      for (const station of trainStations) {
+        const distance = calculateDistance(
+          parking.coordinates,
+          station.coordinates
+        );
+
+        if (distance < shortestDistance) {
+          shortestDistance = distance;
+          nearestStation = station;
+        }
+      }
+
+      if (shortestDistance <= 300) {
+        filteredParking.push({
+          ...parking,
+          nearestStationCoordinates: nearestStation.coordinates,
+        });
+      }
+    }
+    return filteredParking;
+  };
+
+  const getNearestStationName = (stationCoordinates) => {
+    // Iterate through traincoordinates to find the nearest station
+    let nearestStationName = 'N/A'; // Default value if no station is found
+    let shortestDistance = Infinity;
+  
+    for (const station of traincoordinates) {
+      const distance = calculateDistance(stationCoordinates, station.coordinates);
+  
+      if (distance < shortestDistance) {
+        shortestDistance = distance;
+        nearestStationName = station.properties.name; // Assuming the station has a 'name' property
+      }
+    }
+  
+    return nearestStationName;
+  };
+
     const handleFilterButtonClick = (filterValue) => {
       setFilter(filterValue);
       setSelectedFilter(filterValue);
+    };
+
+    // Callback function for the distance filter button
+    const handleDistanceFilterClick = () => {
+      const filteredParkingWithin200m = filterParkingWithin200m(
+        traincoordinates,
+        parkingcoordinates
+      );
+      setFilteredParking(filteredParkingWithin200m);
+      setSelectedFilter('Distance');
     };
 
 
@@ -150,7 +225,7 @@ const App = () => {
     <div className='app-container'>
 
       <div className="map-content">
-        <FilterHeader onFilterButtonClick={handleFilterButtonClick} />
+        <FilterHeader onFilterButtonClick={handleFilterButtonClick} onDistanceFilterClick={handleDistanceFilterClick} />
         <div className="map">
           <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
           ref={mapRef}>
@@ -169,15 +244,29 @@ const App = () => {
                                   iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
                                   popupAnchor: [0, -1.5 * zoomLevel],
                               })}>
-                                  <Popup>
-                                      {
-                                          JSON
-                                              .stringify(item.properties, null, "\t")
-                                              .replaceAll(
-                                                  "],\n\t\"",
-                                                  "],\n\n\t\""
-                                              )
-                                      }
+                                  <Popup className="train-popup">
+                                    {/* Custom close button */}
+                                    <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                      &times;
+                                    </span>
+                                    {/* Header with station name */}
+                                    <div className="popup-header">
+                                      stationName 
+                                    </div>
+                                    {/* Container for rectangles */}
+                                    <div className="popup-container">
+                                      {/* Address Rectangle */}
+                                      <div className="rectangle">
+                                        <div className="header">Accessible WC</div>
+                                        <div className="value">{item.properties.rollstuhl_wc ? "Yes" : "No"}</div>
+                                      </div>
+
+                                      {/* Available Places Rectangle */}
+                                      <div className="rectangle">
+                                        <div className="header">Accessible stairs</div>
+                                        <div className="value">{item.properties.stufenloser_perronzugang ? "Yes" : "No"}</div>
+                                      </div>
+                                    </div>
                                   </Popup>
                               </Marker>
                           ))}
@@ -192,11 +281,26 @@ const App = () => {
                                   iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
                                   popupAnchor: [0, -1 * zoomLevel],
                               })}>
-                                  <Popup>
-                                      Address: {item.properties.adresse} <br />
-                                      Type: {item.properties.art} <br />
-                                      Number of available parking spaces: {item.count}
-                                      Fee Required: {item.properties.gebpflicht === '1' ? 'Yes' : 'No'} <br />'
+                                  <Popup className="park-popup">
+                                    {/* Custom close button */}
+                                    <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                      &times;
+                                    </span>
+
+                                    {/* Container for rectangles */}
+                                    <div className="popup-container">
+                                      {/* Address Rectangle */}
+                                      <div className="rectangle">
+                                        <div className="header">Address</div>
+                                        <div className="value">{item.properties.adresse}</div>
+                                      </div>
+
+                                      {/* Available Places Rectangle */}
+                                      <div className="rectangle">
+                                        <div className="header">Available</div>
+                                        <div className="value">{item.count}</div>
+                                      </div>
+                                    </div>
                                   </Popup>
                               </Marker>
                           ))}
@@ -213,8 +317,15 @@ const App = () => {
                       iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
                       popupAnchor: [0, -1.5 * zoomLevel],
                     })}>
-                      <Popup>
-                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      <Popup className="train-popup">
+                        {/* Custom close button */}
+                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                          &times;
+                        </span>
+                        {/* Header with station name */}
+                        <div className="popup-header">
+                          stationName 
+                        </div>
                       </Popup>
                     </Marker>
                   ))}
@@ -231,8 +342,15 @@ const App = () => {
                       iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
                       popupAnchor: [0, -1.5 * zoomLevel],
                     })}>
-                      <Popup>
-                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      <Popup className="train-popup">
+                        {/* Custom close button */}
+                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                          &times;
+                        </span>
+                        {/* Header with station name */}
+                        <div className="popup-header">
+                          stationName 
+                        </div>
                       </Popup>
                     </Marker>
                   ))}
@@ -249,14 +367,60 @@ const App = () => {
                       iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
                       popupAnchor: [0, -1.5 * zoomLevel],
                     })}>
-                      <Popup>
-                        {JSON.stringify(item.properties, null, "\t").replaceAll("],\n\t\"", "],\n\n\t\"")}
+                      <Popup className="train-popup">
+                        {/* Custom close button */}
+                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                          &times;
+                        </span>
+                        {/* Header with station name */}
+                        <div className="popup-header">
+                          stationName 
+                        </div>
                       </Popup>
                     </Marker>
                   ))}
               </LayerGroup>
             )}
-              
+            {selectedFilter === 'Distance' && (
+              <LayerGroup>
+                {filteredParking.map((item, index) => (
+                  <Marker key={index} position={item.coordinates.reverse()} icon={L.icon({
+                    iconUrl: "/icons/icon-red.png",
+                    iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                    iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                    popupAnchor: [0, -1 * zoomLevel],
+                })}>
+                    <Popup className="nearpark-popup">
+                      {/* Custom close button */}
+                      <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                        &times;
+                      </span>
+
+                      {/* Container for rectangles */}
+                      <div className="popup-container">
+                        {/* Address Rectangle */}
+                        <div className="rectangle">
+                          <div className="header">Address</div>
+                          <div className="value">{item.properties.adresse}</div>
+                        </div>
+
+                        {/* Available Places Rectangle */}
+                        <div className="rectangle">
+                          <div className="header">Available</div>
+                          <div className="value">{item.count}</div>
+                        </div>
+
+                        {/* Nearest Station Rectangle */}
+                        <div className="rectangle">
+                          <div className="header">Nearest Station</div>
+                          <div className="value">{getNearestStationName(item.nearestStationCoordinates)}</div>
+                        </div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+              </LayerGroup>
+            )}
           </MapContainer>
         </div>      
       </div>

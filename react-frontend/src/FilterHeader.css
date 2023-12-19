@@ -35,7 +35,7 @@
 .filter-button.selected.Trainstations,
 .filter-button.selected.WC,
 .filter-button.selected.Ramps,
-.filter-button.selected.rampWC {
+.filter-button.selected.rampWC{
     background-color: #0056b3;
     color: white;
     border-color: #054589;
@@ -47,6 +47,14 @@
     border-color: #ff6b00;
 }
 
+.filter-button.selected.Distance{
+    background-color: red;
+    color: white;
+    border-color: rgb(211, 0, 0);
+}
+.filter-button.selected.Distance:hover {
+background-color: rgb(211, 0, 0);
+}
 .filter-button.selected.Parkingspaces:hover {
     background-color: #ff6b00;
 }
@@ -54,3 +62,5 @@
 .filter-button.selected.Trainstations:hover {
     background-color: #054589;
 }
+
+  

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './FilterHeader.css';
 
-const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onActiveLayer}) => {
+const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick}) => {
   const [filterValue, setFilterValue] = useState(null);
   const [textFilterValue, setTextFilterValue] = useState('');
 
@@ -12,16 +12,6 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onActiveLaye
     setFilterValue(value);
     onFilterButtonClick(value, textFilterValue);
   };
-
-  const handleActiveLayer =  (value) => {
-    if (activeLayer.includes(value)) {
-      setActiveLayer(activeLayer.filter((item) => item !== value));
-    } else {
-      setActiveLayer(activeLayer.concat(value));
-    }
-    onActiveLayer(value);
-  };
-
 
   const handleDistanceFilterClick = () => {
     // Add logic to toggle the selected state
@@ -39,14 +29,14 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onActiveLaye
         <label>What are you looking for?</label>
         <div className='buttons-component'>
             <button
-            className={`filter-button ${activeLayer.includes('Trainstations') ? 'selected Trainstations' : ''}`}
-            onClick={() => handleActiveLayer('Trainstations')}
+            className={`filter-button ${filterValue === "Trainstation" ? 'selected Trainstations' : ''}`}
+            onClick={() => handleFilterButtonClick('Trainstations')}
             >
             Train Stations
             </button>
             <button
-            className={`filter-button ${activeLayer.includes('Parkingspaces') ? 'selected Parkingspaces' : ''}`}
-            onClick={() => handleActiveLayer('Parkingspaces')}
+            className={`filter-button ${filterValue === "Parkingspaces" ? 'selected Parkingspaces' : ''}`}
+            onClick={() => handleFilterButtonClick('Parkingspaces')}
             >
             Parking Places
             </button>

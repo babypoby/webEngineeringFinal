@@ -33,39 +33,41 @@ const App = () => {
 
   /* Logic to handle the gepositional bound state */
 
-  const compute_statistics = (layerNames, bounds, setStatistics) => {
-    if (bounds && layerNames.length > 0) {
-      const northEast = bounds._northEast;
-      const southWest = bounds._southWest;
-     
-      const layers: PointLayer[] = [];
-  
-      layerNames.forEach((layerName: string) => {
-        if (layerName === "Trainstations") {
-          layers.push({name: layerName, coordinates: traincoordinates});
-        } else if (layerName === "Parkingspaces") {
-          layers.push({name: layerName, coordinates: parkingcoordinates});
-        }
-      })
-  
-      const updatedLayers = layers.map((layer) => {
-        const filteredCoordinates = layer.coordinates.filter((item) => {
-          const lat = item.coordinates[0];
-          const lng = item.coordinates[1];
-  
-          return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
+  const compute_statistics = (selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
+    if (!bounds) return;
+
+    let coordinates;
+    let layerName = selectedFilter; // Use selectedFilter as the layer name
+    switch (selectedFilter) {
+        case 'Trainstations':
+            coordinates = traincoordinates;
+            break;
+        case 'Parkingspaces':
+            coordinates = parkingcoordinates;
+            break;
+        // Add more cases for other filters if needed
+        default:
+            setStatistics([]); // Clear statistics if no valid filter is selected
+            return;
+    }
+
+    if (coordinates.length > 0) {
+        const northEast = bounds._northEast;
+        const southWest = bounds._southWest;
+
+        const filteredCoordinates = coordinates.filter((item) => {
+            const lat = item.coordinates[0];
+            const lng = item.coordinates[1];
+            return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
         });
+
+        setStatistics([{ name: layerName, coordinates: filteredCoordinates }]);
+    } else {
+        setStatistics([]); // Set to empty array if there are no coordinates to process
+    }
+};
+
   
-        return { ...layer, coordinates: filteredCoordinates };
-      });
-      
-      setStatistics(updatedLayers);
-     
-    }
-    else {
-      setStatistics([]);
-    }
-  };
 
   // Function to update bounds
   const updateBounds = () => {
@@ -76,7 +78,7 @@ const App = () => {
 
   const updateBoundsRecompute = () => {
     updateBounds();
-    compute_statistics(activeLayer, bounds, setStatistics);
+    compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
   };
 
   // Map Event Handler
@@ -106,9 +108,10 @@ const App = () => {
   };
 
   useEffect(() => {
-    compute_statistics(activeLayer, bounds, setStatistics);
-
-  }, [activeLayer, bounds]);
+    if (selectedFilter && bounds) {
+        compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    }
+}, [selectedFilter, bounds, traincoordinates, parkingcoordinates]);
   
 
 
@@ -224,7 +227,7 @@ const App = () => {
 
     const handleFilterButtonClick = (filterValue) => {
       setSelectedFilter(filterValue);
-      
+      compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
     };
 
     // Callback function for the distance filter button
@@ -237,21 +240,11 @@ const App = () => {
       setSelectedFilter('Distance');
     };
 
-    const handleActiveLayer = (value) => {
-      if (activeLayer.includes(value)) {
-        setActiveLayer(activeLayer.filter((item) => item !== value));
-      } else {
-        setActiveLayer(activeLayer.concat(value));
-      }
-    }
-
-
-
     return(
     <div className='app-container'>
 
       <div className="map-content">
-        <FilterHeader onFilterButtonClick={handleFilterButtonClick} onDistanceFilterClick={handleDistanceFilterClick} onActiveLayer ={handleActiveLayer}  />
+        <FilterHeader onFilterButtonClick={handleFilterButtonClick} onDistanceFilterClick={handleDistanceFilterClick}/>
         <div className="map">
           <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
           ref={mapRef}>

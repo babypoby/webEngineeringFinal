@@ -56,7 +56,7 @@ body, html {
     padding: 10px;
     text-align: center;
     font-weight: bold;
-    position: relative; /* Set the position to relative for the custom close button */
+    position: absolute; /* Set the position to relative for the custom close button */
   }
 
   /* Style for the custom close button */

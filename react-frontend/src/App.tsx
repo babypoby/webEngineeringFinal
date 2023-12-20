@@ -106,10 +106,12 @@ const App = () => {
 
 
   useEffect(() => {
-    updateBounds();
-    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    if(bounds){
+      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
 
-  }, [visibleLayers, bounds]);
+    }
+
+  }, [bounds]);
   
   
 
@@ -139,6 +141,7 @@ const App = () => {
           setParkingCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
+        updateBounds()
   }, []);
 
     function groupByAddress(features: any[]): { [key: string]: any[] } {
@@ -272,7 +275,7 @@ const App = () => {
                                 iconUrl: "/icons/icon-blue.png",
                                 iconSize: [7 * zoomLevel, 7 * zoomLevel],
                                 iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                                popupAnchor: [0, -14 * zoomLevel],
+                                popupAnchor: [0, -.5 * zoomLevel],
                             })}>
                                 <Popup className="train-popup">
                                   {/* Custom close button */}
@@ -309,7 +312,7 @@ const App = () => {
                                 iconUrl: "/icons/icon-orange.png",
                                 iconSize: [4 * zoomLevel, 4 * zoomLevel],
                                 iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                                popupAnchor: [0, -8 * zoomLevel],
+                                popupAnchor: [0, 0],
                             })}>
                                 <Popup className="park-popup">
                                   {/* Custom close button */}
@@ -346,7 +349,7 @@ const App = () => {
                     iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                    popupAnchor: [0, -1.5 * zoomLevel],
+                    popupAnchor: [0, -.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
                       {/* Custom close button */}
@@ -371,7 +374,7 @@ const App = () => {
                     iconUrl: "/icons/icon-blue-ramp.png",
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                    popupAnchor: [0, -1.5 * zoomLevel],
+                    popupAnchor: [0, -0.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
                       {/* Custom close button */}
@@ -396,7 +399,7 @@ const App = () => {
                     iconUrl: "/icons/icon-blue-ramp-wc.png",
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                    popupAnchor: [0, -1.5 * zoomLevel],
+                    popupAnchor: [0, -.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
                       {/* Custom close button */}
@@ -419,7 +422,7 @@ const App = () => {
                   iconUrl: "/icons/icon-red.png",
                   iconSize: [4 * zoomLevel, 4 * zoomLevel],
                   iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                  popupAnchor: [0, -1 * zoomLevel],
+                  popupAnchor: [0, 0 * zoomLevel],
               })}>
                   <Popup className="nearpark-popup">
                     {/* Custom close button */}

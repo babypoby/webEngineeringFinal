@@ -136,3 +136,11 @@ body, html {
   }
   
   
+
+  .leaflet-popup-content-wrapper {
+    padding: 6px; /* Adjust padding as needed */
+    background-color: white; /* Or any other color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+}
+

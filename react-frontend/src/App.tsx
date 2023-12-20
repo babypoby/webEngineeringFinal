@@ -20,6 +20,7 @@ const App = () => {
   const [zoomLevel, setZoomLevel] = useState(13);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [filteredParking, setFilteredParking] = useState([]);
+  const [visibleLayers, setVisibleLayers] = useState(new Set());
 
 
   /* State to store the current map reference */
@@ -33,39 +34,33 @@ const App = () => {
 
   /* Logic to handle the gepositional bound state */
 
-  const compute_statistics = (selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
-    if (!bounds) return;
-
-    let coordinates;
-    let layerName = selectedFilter; // Use selectedFilter as the layer name
-    switch (selectedFilter) {
-        case 'Trainstations':
-            coordinates = traincoordinates;
-            break;
-        case 'Parkingspaces':
-            coordinates = parkingcoordinates;
-            break;
-        // Add more cases for other filters if needed
-        default:
-            setStatistics([]); // Clear statistics if no valid filter is selected
-            return;
+  const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
+    if (!bounds || !visibleLayers) return;
+  
+    const computeForLayer = (coordinates) => {
+      const northEast = bounds._northEast;
+      const southWest = bounds._southWest;
+  
+      return coordinates.filter((item) => {
+        const lat = item.coordinates[0];
+        const lng = item.coordinates[1];
+        return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
+      });
+    };
+  
+    let stats = [];
+  
+    if (visibleLayers.has('Trainstations') && traincoordinates.length > 0) {
+      stats.push({ name: 'Trainstations', coordinates: computeForLayer(traincoordinates) });
     }
-
-    if (coordinates.length > 0) {
-        const northEast = bounds._northEast;
-        const southWest = bounds._southWest;
-
-        const filteredCoordinates = coordinates.filter((item) => {
-            const lat = item.coordinates[0];
-            const lng = item.coordinates[1];
-            return lat <= northEast.lat && lat >= southWest.lat && lng <= northEast.lng && lng >= southWest.lng;
-        });
-
-        setStatistics([{ name: layerName, coordinates: filteredCoordinates }]);
-    } else {
-        setStatistics([]); // Set to empty array if there are no coordinates to process
+  
+    if (visibleLayers.has('Parkingspaces') && parkingcoordinates.length > 0) {
+      stats.push({ name: 'Parkingspaces', coordinates: computeForLayer(parkingcoordinates) });
     }
-};
+  
+    setStatistics(stats);
+  };
+  
 
   
 
@@ -108,10 +103,11 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (selectedFilter && bounds) {
-        compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    if (bounds) {
+      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
     }
-}, [selectedFilter, bounds, traincoordinates, parkingcoordinates]);
+  }, [visibleLayers, bounds, traincoordinates, parkingcoordinates]);
+  
   
 
 
@@ -240,11 +236,26 @@ const App = () => {
       setSelectedFilter('Distance');
     };
 
+    const toggleLayerVisibility = (layerType) => {
+      setVisibleLayers(prevLayers => {
+        const newLayers = new Set(prevLayers);
+        if (newLayers.has(layerType)) {
+          newLayers.delete(layerType);
+        } else {
+          newLayers.add(layerType);
+        }
+        return newLayers;
+      });
+    };
+
     return(
     <div className='app-container'>
 
       <div className="map-content">
-        <FilterHeader onFilterButtonClick={handleFilterButtonClick} onDistanceFilterClick={handleDistanceFilterClick}/>
+        <FilterHeader onFilterButtonClick={handleFilterButtonClick}
+                      onDistanceFilterClick={handleDistanceFilterClick}
+                      onLayerToggle={toggleLayerVisibility}
+                      visibleLayers={visibleLayers} />
         <div className="map">
           <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
           ref={mapRef}>
@@ -254,14 +265,14 @@ const App = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
             />
-              {selectedFilter === 'Trainstations' && (
+            {visibleLayers.has('Trainstations') && (
                       <LayerGroup>
                           {traincoordinates.map((item, index) => (
                               <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                                   iconUrl: "/icons/icon-blue.png",
                                   iconSize: [7 * zoomLevel, 7 * zoomLevel],
                                   iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                                  popupAnchor: [0, -1.5 * zoomLevel],
+                                  popupAnchor: [0, -14 * zoomLevel],
                               })}>
                                   <Popup className="train-popup">
                                     {/* Custom close button */}
@@ -291,14 +302,14 @@ const App = () => {
                           ))}
                       </LayerGroup>
               )}
-              {selectedFilter === 'Parkingspaces' && (
+              {visibleLayers.has('Parkingspaces') && (
                       <LayerGroup>
                           {parkingcoordinates.map((item, index) => (
                               <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                                   iconUrl: "/icons/icon-orange.png",
                                   iconSize: [4 * zoomLevel, 4 * zoomLevel],
                                   iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                                  popupAnchor: [0, -1 * zoomLevel],
+                                  popupAnchor: [0, -8 * zoomLevel],
                               })}>
                                   <Popup className="park-popup">
                                     {/* Custom close button */}
@@ -325,6 +336,7 @@ const App = () => {
                           ))}
                       </LayerGroup>
               )}
+              
               {selectedFilter === 'WC' && (
               <LayerGroup>
                 {traincoordinates

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './FilterHeader.css';
 
-const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick}) => {
+const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers}) => {
   const [filterValue, setFilterValue] = useState(null);
   const [textFilterValue, setTextFilterValue] = useState('');
 
@@ -22,6 +22,13 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick}) => {
     }
     onDistanceFilterClick(); // Call the callback for the distance filter
   };
+  const handleLayerButtonClick = (layerType) => {
+    onLayerToggle(layerType);
+  };
+  // Function to check if a layer is active
+  const isLayerActive = (layerType) => {
+    return visibleLayers.has(layerType);
+  };
 
   return (
     <div className="filter-header">
@@ -29,16 +36,16 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick}) => {
         <label>What are you looking for?</label>
         <div className='buttons-component'>
             <button
-            className={`filter-button ${filterValue === "Trainstation" ? 'selected Trainstations' : ''}`}
-            onClick={() => handleFilterButtonClick('Trainstations')}
+              className={`filter-button ${isLayerActive('Trainstations') ? 'selected Trainstations' : ''}`}
+              onClick={() => handleLayerButtonClick('Trainstations')}            
             >
-            Train Stations
+              Train Stations
             </button>
             <button
-            className={`filter-button ${filterValue === "Parkingspaces" ? 'selected Parkingspaces' : ''}`}
-            onClick={() => handleFilterButtonClick('Parkingspaces')}
+              className={`filter-button ${isLayerActive('Parkingspaces') ? 'selected Parkingspaces' : ''}`}
+              onClick={() => handleLayerButtonClick('Parkingspaces')}
             >
-            Parking Places
+              Parking Places
             </button>
         </div>
         

@@ -73,7 +73,7 @@ const App = () => {
 
   const updateBoundsRecompute = () => {
     updateBounds();
-    compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
   };
 
   // Map Event Handler
@@ -104,9 +104,11 @@ const App = () => {
 
   useEffect(() => {
     if (bounds) {
-      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+        compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
     }
-  }, [visibleLayers, bounds, traincoordinates, parkingcoordinates]);
+}, [visibleLayers, bounds, traincoordinates, parkingcoordinates]);
+
+
   
   
 
@@ -223,7 +225,6 @@ const App = () => {
 
     const handleFilterButtonClick = (filterValue) => {
       setSelectedFilter(filterValue);
-      compute_statistics(selectedFilter, bounds, setStatistics, traincoordinates, parkingcoordinates);
     };
 
     // Callback function for the distance filter button

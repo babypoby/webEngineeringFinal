@@ -11,6 +11,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Flughafen",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -30,6 +31,7 @@
                 ]
             },
             "properties": {
+                "name": "Uetikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -49,6 +51,7 @@
                 ]
             },
             "properties": {
+                "name": "Uster",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -68,6 +71,7 @@
                 ]
             },
             "properties": {
+                "name": "Schwerzenbach ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -87,6 +91,7 @@
                 ]
             },
             "properties": {
+                "name": "Gibswil",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -106,6 +111,7 @@
                 ]
             },
             "properties": {
+                "name": "R\u00fcschlikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -125,6 +131,7 @@
                 ]
             },
             "properties": {
+                "name": "Thalwil",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -144,6 +151,7 @@
                 ]
             },
             "properties": {
+                "name": "Kempten",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -163,6 +171,7 @@
                 ]
             },
             "properties": {
+                "name": "Fehraltorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -182,6 +191,7 @@
                 ]
             },
             "properties": {
+                "name": "Kemptthal",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -201,6 +211,7 @@
                 ]
             },
             "properties": {
+                "name": "Steinmaur",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -220,6 +231,7 @@
                 ]
             },
             "properties": {
+                "name": "Glattfelden",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -239,6 +251,7 @@
                 ]
             },
             "properties": {
+                "name": "Otelfingen Golfpark",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -258,6 +271,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -277,6 +291,7 @@
                 ]
             },
             "properties": {
+                "name": "Kollbrunn",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -296,6 +311,7 @@
                 ]
             },
             "properties": {
+                "name": "Thalheim-Altikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -315,6 +331,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur Hegi",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -334,6 +351,7 @@
                 ]
             },
             "properties": {
+                "name": "Horgen Oberdorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -353,6 +371,7 @@
                 ]
             },
             "properties": {
+                "name": "Oberrieden Dorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -372,6 +391,7 @@
                 ]
             },
             "properties": {
+                "name": "Urdorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -391,6 +411,7 @@
                 ]
             },
             "properties": {
+                "name": "Hedingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -410,6 +431,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich HB",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -429,6 +451,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Enge",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -448,6 +471,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Wiedikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -467,6 +491,7 @@
                 ]
             },
             "properties": {
+                "name": "Birmensdorf ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -486,6 +511,7 @@
                 ]
             },
             "properties": {
+                "name": "Mettmenstetten",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -505,6 +531,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Oerlikon",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -524,6 +551,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Wipkingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -543,6 +571,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Hardbr\u00fccke",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -562,6 +591,7 @@
                 ]
             },
             "properties": {
+                "name": "Erlenbach ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -581,6 +611,7 @@
                 ]
             },
             "properties": {
+                "name": "St\u00e4fa",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -600,6 +631,7 @@
                 ]
             },
             "properties": {
+                "name": "Wetzikon ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -619,6 +651,7 @@
                 ]
             },
             "properties": {
+                "name": "K\u00fcsnacht Goldbach",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -638,6 +671,7 @@
                 ]
             },
             "properties": {
+                "name": "Stettbach",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -657,6 +691,7 @@
                 ]
             },
             "properties": {
+                "name": "Oberrieden",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -676,6 +711,7 @@
                 ]
             },
             "properties": {
+                "name": "Richterswil",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -695,6 +731,7 @@
                 ]
             },
             "properties": {
+                "name": "Illnau",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -714,6 +751,7 @@
                 ]
             },
             "properties": {
+                "name": "Sch\u00f6fflisdorf-Oberweningen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -733,6 +771,7 @@
                 ]
             },
             "properties": {
+                "name": "Niederweningen Dorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -752,6 +791,7 @@
                 ]
             },
             "properties": {
+                "name": "Zweidlen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -771,6 +811,7 @@
                 ]
             },
             "properties": {
+                "name": "Buchs-D\u00e4llikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -790,6 +831,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur Seen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -809,6 +851,7 @@
                 ]
             },
             "properties": {
+                "name": "Turbenthal",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -828,6 +871,7 @@
                 ]
             },
             "properties": {
+                "name": "Saland",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -847,6 +891,7 @@
                 ]
             },
             "properties": {
+                "name": "Stammheim",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -866,6 +911,7 @@
                 ]
             },
             "properties": {
+                "name": "Schottikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -885,6 +931,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur Wallr\u00fcti",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -904,6 +951,7 @@
                 ]
             },
             "properties": {
+                "name": "Embrach-Rorbas",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -923,6 +971,7 @@
                 ]
             },
             "properties": {
+                "name": "Pfungen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -942,6 +991,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur W\u00fclflingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -961,6 +1011,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur T\u00f6ss",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -980,6 +1031,7 @@
                 ]
             },
             "properties": {
+                "name": "Andelfingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -999,6 +1051,7 @@
                 ]
             },
             "properties": {
+                "name": "Marthalen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1018,6 +1071,7 @@
                 ]
             },
             "properties": {
+                "name": "Bonstetten-Wettswil",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1037,6 +1091,7 @@
                 ]
             },
             "properties": {
+                "name": "Affoltern am Albis",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -1056,6 +1111,7 @@
                 ]
             },
             "properties": {
+                "name": "Urdorf Weihermatt",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1075,6 +1131,7 @@
                 ]
             },
             "properties": {
+                "name": "M\u00e4nnedorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1094,6 +1151,7 @@
                 ]
             },
             "properties": {
+                "name": "D\u00fcbendorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1113,6 +1171,7 @@
                 ]
             },
             "properties": {
+                "name": "Hinwil",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1132,6 +1191,7 @@
                 ]
             },
             "properties": {
+                "name": "Steg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1151,6 +1211,7 @@
                 ]
             },
             "properties": {
+                "name": "Tann-D\u00fcrnten",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1170,6 +1231,7 @@
                 ]
             },
             "properties": {
+                "name": "Kilchberg ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1189,6 +1251,7 @@
                 ]
             },
             "properties": {
+                "name": "Horgen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1208,6 +1271,7 @@
                 ]
             },
             "properties": {
+                "name": "Pf\u00e4ffikon ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1227,6 +1291,7 @@
                 ]
             },
             "properties": {
+                "name": "Kloten",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1246,6 +1311,7 @@
                 ]
             },
             "properties": {
+                "name": "R\u00fcmlang",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1265,6 +1331,7 @@
                 ]
             },
             "properties": {
+                "name": "Oberglatt ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1284,6 +1351,7 @@
                 ]
             },
             "properties": {
+                "name": "B\u00fclach",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -1303,6 +1371,7 @@
                 ]
             },
             "properties": {
+                "name": "Eglisau",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1322,6 +1391,7 @@
                 ]
             },
             "properties": {
+                "name": "Rafz",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1341,6 +1411,7 @@
                 ]
             },
             "properties": {
+                "name": "Feuerthalen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1360,6 +1431,7 @@
                 ]
             },
             "properties": {
+                "name": "Dietikon",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -1379,6 +1451,7 @@
                 ]
             },
             "properties": {
+                "name": "Regensdorf-Watt",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1398,6 +1471,7 @@
                 ]
             },
             "properties": {
+                "name": "Winterthur Gr\u00fcze",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1417,6 +1491,7 @@
                 ]
             },
             "properties": {
+                "name": "R\u00e4mism\u00fchle-Zell",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1436,6 +1511,7 @@
                 ]
             },
             "properties": {
+                "name": "Seuzach",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1455,6 +1531,7 @@
                 ]
             },
             "properties": {
+                "name": "Reutlingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1474,6 +1551,7 @@
                 ]
             },
             "properties": {
+                "name": "Schloss Laufen am Rheinfall",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1493,6 +1571,7 @@
                 ]
             },
             "properties": {
+                "name": "Dachsen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1512,6 +1591,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Stadelhofen",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -1531,6 +1611,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Tiefenbrunnen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1550,6 +1631,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Seebach",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1569,6 +1651,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Wollishofen",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1588,6 +1671,7 @@
                 ]
             },
             "properties": {
+                "name": "Herrliberg-Feldmeilen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1607,6 +1691,7 @@
                 ]
             },
             "properties": {
+                "name": "Uerikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": false,
@@ -1626,6 +1711,7 @@
                 ]
             },
             "properties": {
+                "name": "Wallisellen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1645,6 +1731,7 @@
                 ]
             },
             "properties": {
+                "name": "Fischenthal",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1664,6 +1751,7 @@
                 ]
             },
             "properties": {
+                "name": "Au ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1683,6 +1771,7 @@
                 ]
             },
             "properties": {
+                "name": "Effretikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -1702,6 +1791,7 @@
                 ]
             },
             "properties": {
+                "name": "Dietlikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1721,6 +1811,7 @@
                 ]
             },
             "properties": {
+                "name": "Glattbrugg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1740,6 +1831,7 @@
                 ]
             },
             "properties": {
+                "name": "Niederhasli",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1759,6 +1851,7 @@
                 ]
             },
             "properties": {
+                "name": "Dielsdorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1778,6 +1871,7 @@
                 ]
             },
             "properties": {
+                "name": "Opfikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1797,6 +1891,7 @@
                 ]
             },
             "properties": {
+                "name": "H\u00fcntwangen-Wil",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1816,6 +1911,7 @@
                 ]
             },
             "properties": {
+                "name": "Schlieren",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1835,6 +1931,7 @@
                 ]
             },
             "properties": {
+                "name": "Otelfingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1854,6 +1951,7 @@
                 ]
             },
             "properties": {
+                "name": "Sennhof-Kyburg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1873,6 +1971,7 @@
                 ]
             },
             "properties": {
+                "name": "Elgg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1892,6 +1991,7 @@
                 ]
             },
             "properties": {
+                "name": "Ossingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1911,6 +2011,7 @@
                 ]
             },
             "properties": {
+                "name": "Hettlingen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1930,6 +2031,7 @@
                 ]
             },
             "properties": {
+                "name": "Henggart",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1949,6 +2051,7 @@
                 ]
             },
             "properties": {
+                "name": "Zollikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -1968,6 +2071,7 @@
                 ]
             },
             "properties": {
+                "name": "K\u00fcsnacht ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -1987,6 +2091,7 @@
                 ]
             },
             "properties": {
+                "name": "Meilen",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -2006,6 +2111,7 @@
                 ]
             },
             "properties": {
+                "name": "Feldbach",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2025,6 +2131,7 @@
                 ]
             },
             "properties": {
+                "name": "Winkel am Z\u00fcrichsee",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2044,6 +2151,7 @@
                 ]
             },
             "properties": {
+                "name": "R\u00fcti ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -2063,6 +2171,7 @@
                 ]
             },
             "properties": {
+                "name": "Bubikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -2082,6 +2191,7 @@
                 ]
             },
             "properties": {
+                "name": "Aathal",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2101,6 +2211,7 @@
                 ]
             },
             "properties": {
+                "name": "N\u00e4nikon-Greifensee",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -2120,6 +2231,7 @@
                 ]
             },
             "properties": {
+                "name": "Bauma",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": true,
@@ -2139,6 +2251,7 @@
                 ]
             },
             "properties": {
+                "name": "Wald ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2158,6 +2271,7 @@
                 ]
             },
             "properties": {
+                "name": "W\u00e4denswil",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -2177,6 +2291,7 @@
                 ]
             },
             "properties": {
+                "name": "Bassersdorf",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2196,6 +2311,7 @@
                 ]
             },
             "properties": {
+                "name": "Kloten Balsberg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2215,6 +2331,7 @@
                 ]
             },
             "properties": {
+                "name": "Niederglatt ZH",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2234,6 +2351,7 @@
                 ]
             },
             "properties": {
+                "name": "Niederweningen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": false,
@@ -2253,6 +2371,7 @@
                 ]
             },
             "properties": {
+                "name": "Langwiesen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2272,6 +2391,7 @@
                 ]
             },
             "properties": {
+                "name": "Glanzenberg",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2291,6 +2411,7 @@
                 ]
             },
             "properties": {
+                "name": "Knonau",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2310,6 +2431,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Altstetten",
                 "rollstuhl_billet": true,
                 "rollstuhl_wc": true,
                 "rollstuhl_verlad": true,
@@ -2329,6 +2451,7 @@
                 ]
             },
             "properties": {
+                "name": "Z\u00fcrich Affoltern",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2348,6 +2471,7 @@
                 ]
             },
             "properties": {
+                "name": "Rikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2367,6 +2491,7 @@
                 ]
             },
             "properties": {
+                "name": "R\u00e4terschen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2386,6 +2511,7 @@
                 ]
             },
             "properties": {
+                "name": "Oberwinterthur",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2405,6 +2531,7 @@
                 ]
             },
             "properties": {
+                "name": "Wiesendangen",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2424,6 +2551,7 @@
                 ]
             },
             "properties": {
+                "name": "Rickenbach-Attikon",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,
@@ -2443,6 +2571,7 @@
                 ]
             },
             "properties": {
+                "name": "Dinhard",
                 "rollstuhl_billet": false,
                 "rollstuhl_wc": false,
                 "rollstuhl_verlad": false,

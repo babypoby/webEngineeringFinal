@@ -6,8 +6,6 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
   const [filterValue, setFilterValue] = useState(null);
   const [textFilterValue, setTextFilterValue] = useState('');
 
-  const [activeLayer, setActiveLayer] = useState<string[]>([]);
-
   const handleFilterButtonClick = (value) => {
     setFilterValue(value);
     onFilterButtonClick(value, textFilterValue);

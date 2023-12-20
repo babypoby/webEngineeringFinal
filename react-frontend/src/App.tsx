@@ -16,7 +16,6 @@ const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);
   const [parkingcoordinates, setParkingCoordinates] = useState<ParkingPoint[]>([]);
-  const [activeLayer, setActiveLayer] = useState<string[]>([]);
   const [zoomLevel, setZoomLevel] = useState(13);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [filteredParking, setFilteredParking] = useState([]);

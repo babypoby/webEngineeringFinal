@@ -37,15 +37,14 @@ const Barplot = ({ data }) => {
 
     const plotContainerStyle = {
         backgroundColor: 'f2f2f2', // White background
-        borderRadius: '5px', // Rounded corners
+        borderRadius: '10px', // Rounded corners
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Box shadow for depth
         padding: '10px', // Padding around the chart
-        margin: '10px 0' // Margin for spacing
     };
 
     return (
         <div style={plotContainerStyle}>
-            <h4 className="barplot-title">Number of stations: {data.length}</h4>
+            <h4 className="barplot-title">Total number of stations: {data.length}</h4>
             <ResponsiveContainer width="100%" height={200}  className='barplot'>
                 <BarChart data={processDataForBarPlot(data)}>
                     <CartesianGrid strokeDasharray="3 3" />

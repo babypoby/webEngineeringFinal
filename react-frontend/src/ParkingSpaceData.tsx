@@ -10,24 +10,20 @@ const ParkingSpaceData = ({data}: {data : ParkingPoint[]} ) => {
     });
 
     const containerStyle = {
-        border: '1px solid #83a4d4', // Adjust border color
         padding: '10px',
-        borderRadius: '5px', // Rounded corners
+        borderRadius: '10px', // Rounded corners
         backgroundColor: '#f2f2f2', // Light background color
-        margin: '10px 0', // Margin for spacing
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' // Subtle shadow for depth
     };
-    const divStyle = {
-       padding: '10px'
-      };
+
 
     return (
-        <div style = {divStyle}>
+
         <div style = {containerStyle}>
-            <p className="text-sm text-gray-600">Number of distinct parking places:<br/> {number}</p>
-            <p className="text-sm text-gray-600">Total number of parking spaces:<br/> {total}</p>
+            <p className="barplot-title">Number of distinct parking places:<br/> {number}</p>
+            <p className="barplot-title">Total number of parking spaces:<br/> {total}</p>
         </div>
-        </div>
+
     )
 
 }

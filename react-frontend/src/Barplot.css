@@ -1,3 +1,16 @@
 .barplot {
     padding: 10px;
 }
+
+.barplot .recharts-legend-wrapper {
+    font-size: 12px; /* Adjust legend font size */
+}
+
+.barplot .recharts-tooltip-wrapper {
+    background-color: rgba(255, 255, 255, 0.8); /* Tooltip background */
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    font-size: 12px; /* Adjust tooltip font size */
+}
+

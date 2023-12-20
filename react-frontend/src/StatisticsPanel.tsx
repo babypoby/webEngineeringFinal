@@ -10,17 +10,23 @@ const StatisticsPanel = ({ statistics }: { statistics: PointLayer[] }) => {
     const statisticsPanel = {
         flex: 0.25
     }
+    const nameMap = {
+        "Trainstations": "Train Stations",
+        "Parkingspaces": "Parking Spaces",
+    };
 
     return (
-        <div className="w-full md:w-1/4 p-4 bg-white" style = {statisticsPanel}>
+        <div className="w-full md:w-1/4 p-4 statistics-panel" style = {statisticsPanel}>
             <div className='text-center'>
-                <h2 className='text-lg font-semibold border-b-2 border-gray-300 py-2'>Statistics</h2>
+            <h2 className='statistics-header'>Statistics</h2>
+            <hr className="divider-line" /> {/* Horizontal line */}
+
             </div>
             {
                 statistics.map((layer, index) => (
                     <div>
                     <div key={index} className='text-center'>
-                        <h3 className="text-sm text-gray-600"><strong>{layer.name}</strong></h3>
+                    <h3 className="plot-title"><strong>{nameMap[layer.name] || layer.name}</strong></h3>
                         {(layer.name === "Trainstations") ? <Barplot data={layer.coordinates}/> : 
                         (layer.name == "Parkingspaces") ? <ParkingSpaceData data={layer.coordinates as ParkingPoint[]}/> : <p></p>}  
                     </div> <br></br>

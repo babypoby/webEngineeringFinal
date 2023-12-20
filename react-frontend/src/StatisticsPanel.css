@@ -1,9 +1,48 @@
 .statistics-panel {
-    min-width: 300px; /* Or any minimum width you prefer */
+    min-width: 400px; /* Or any minimum width you prefer */
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to top, #ffc471, #f9d567);
+    gap: 15px;
+
 }
 
+/* Title Styling */
+.statistics-panel .plot-title {
+    font-size: 16px; /* Smaller font size */
+    font-weight: normal; /* Normal font weight */
+    color: black; /* Softer color */
+    background-color: #fafafa; /* Very light background */
+    padding: 5px 10px; /* Padding around the title */
+    margin-bottom: 10px; /* Margin below the title */
+    border-radius: 3px; /* Less pronounced rounded corners */
+    box-shadow: none; /* No shadow */
+}
+
+.barplot-title{
+    font-weight: bold; /* Make the title bold */
+    color: #333; /* Choose a color that fits your design */
+    text-align: center; /* Center the title */
+    margin-bottom: 10px; /* Add some space below the title */
+    padding: 5px; /* Optional: add padding for better spacing */
+
+}
+.statistics-header {
+    font-size: 20px; /* Example font size */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Example color */
+    /* Other styles... */
+
+}
+
+.divider-line {
+    border: 0;
+    height: 1.5px; /* Thickness of the line */
+    background-color: black; /* Color of the line */
+    margin: 10px 0; /* Space above and below the line */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); /* Shadow below the line */
+
+}
 
 @media (max-width: 1000px) {
     .statistics-panel {

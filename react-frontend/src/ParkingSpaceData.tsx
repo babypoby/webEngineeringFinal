@@ -10,10 +10,13 @@ const ParkingSpaceData = ({data}: {data : ParkingPoint[]} ) => {
     });
 
     const containerStyle = {
-        border: '1px solid #757575', // 2px solid black border
-        padding: '5px', // Optional padding for better appearance
-        borderRadius: '2px', // Optional rounded corners
-      };
+        border: '1px solid #83a4d4', // Adjust border color
+        padding: '10px',
+        borderRadius: '5px', // Rounded corners
+        backgroundColor: '#f2f2f2', // Light background color
+        margin: '10px 0', // Margin for spacing
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' // Subtle shadow for depth
+    };
     const divStyle = {
        padding: '10px'
       };

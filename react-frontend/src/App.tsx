@@ -17,9 +17,9 @@ const App = () => {
   const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);
   const [parkingcoordinates, setParkingCoordinates] = useState<ParkingPoint[]>([]);
   const [zoomLevel, setZoomLevel] = useState(13);
-  const [selectedFilter, setSelectedFilter] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState<String[]>([]);
   const [filteredParking, setFilteredParking] = useState([]);
-  const [visibleLayers, setVisibleLayers] = useState(new Set());
+  const [visibleLayers, setVisibleLayers] = useState<String[]>([]);
 
 
   /* State to store the current map reference */
@@ -49,11 +49,11 @@ const App = () => {
   
     let stats = [];
   
-    if (visibleLayers.has('Trainstations') && traincoordinates.length > 0) {
+    if (visibleLayers.includes('Trainstations') && traincoordinates.length > 0) {
       stats.push({ name: 'Trainstations', coordinates: computeForLayer(traincoordinates) });
     }
   
-    if (visibleLayers.has('Parkingspaces') && parkingcoordinates.length > 0) {
+    if (visibleLayers.includes('Parkingspaces') && parkingcoordinates.length > 0) {
       stats.push({ name: 'Parkingspaces', coordinates: computeForLayer(parkingcoordinates) });
     }
   
@@ -224,18 +224,18 @@ const App = () => {
     return nearestStationName;
   };
 
-    const handleFilterButtonClick = (filterValue) => {
-      if (filterValue === selectedFilter) {
-        setSelectedFilter(null);
+    const handleFilterButtonClick = (filterValue: String) => {
+      if (selectedFilter.includes(filterValue)) {
+        setSelectedFilter(selectedFilter.filter(item => item !== filterValue));
         return;
       }
-      setSelectedFilter(filterValue);
+      setSelectedFilter(selectedFilter.concat(filterValue));
     };
 
     // Callback function for the distance filter button
     const handleDistanceFilterClick = () => {
-      if (selectedFilter === 'Distance') {
-        setSelectedFilter(null);
+      if (selectedFilter.includes('Distance')) {
+        setSelectedFilter(selectedFilter.filter(item => item !== "Distance"));
         return;
       }
       const filteredParkingWithin200m = filterParkingWithin200m(
@@ -243,20 +243,27 @@ const App = () => {
         parkingcoordinates
       );
       setFilteredParking(filteredParkingWithin200m);
-      setSelectedFilter('Distance');
+      setSelectedFilter((selectedFilter.concat('Distance')))
     };
 
     const toggleLayerVisibility = (layerType) => {
-      setVisibleLayers(prevLayers => {
-        const newLayers = new Set(prevLayers);
-        if (newLayers.has(layerType)) {
-          newLayers.delete(layerType);
-        } else {
-          newLayers.add(layerType);
+      if (visibleLayers.includes(layerType)) {
+        setVisibleLayers(visibleLayers.filter(item => item !== layerType));
+        if (layerType === "Trainstations") {
+          setSelectedFilter(selectedFilter.filter(item => item !== 'WC' && item !== 'Ramps'));
         }
-        return newLayers;
-      });
+        else if (layerType === "Parkingspaces") {
+          setSelectedFilter(selectedFilter.filter(item => item !== 'Distance'));
+        }
+      }
+      else {
+        setVisibleLayers(visibleLayers.concat(layerType));
+      }
     };
+
+    useEffect(() => {
+      console.log(selectedFilter);
+    },[selectedFilter]);
 
     return(
     <div className='app-container'>
@@ -275,7 +282,7 @@ const App = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
           />
-          {visibleLayers.has('Trainstations') && (
+          {visibleLayers.includes('Trainstations') && (
                     <LayerGroup>
                         {traincoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
@@ -312,7 +319,7 @@ const App = () => {
                         ))}
                     </LayerGroup>
             )}
-            {visibleLayers.has('Parkingspaces') && (
+            {visibleLayers.includes('Parkingspaces') && (
                     <LayerGroup>
                         {parkingcoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
@@ -347,7 +354,7 @@ const App = () => {
                     </LayerGroup>
             )}
             
-            {selectedFilter === 'WC' && (
+            {selectedFilter.includes("WC") && (
             <LayerGroup>
               {traincoordinates
                 .filter(item => item.properties.rollstuhl_wc === true)
@@ -372,7 +379,7 @@ const App = () => {
                 ))}
             </LayerGroup>
           )}
-          {selectedFilter === 'Ramps' && (
+          {selectedFilter.includes("Ramps") && (
             <LayerGroup>
               {traincoordinates
                 .filter(item => item.properties.stufenloser_perronzugang === true)
@@ -397,7 +404,7 @@ const App = () => {
                 ))}
             </LayerGroup>
           )}
-          {selectedFilter === 'rampWC' && (
+          {selectedFilter.includes("WC") && selectedFilter.includes("Ramps") && (
             <LayerGroup>
               {traincoordinates
                 .filter(item => item.properties.stufenloser_perronzugang === true && item.properties.rollstuhl_wc === true)
@@ -422,7 +429,7 @@ const App = () => {
                 ))}
             </LayerGroup>
           )}
-          {selectedFilter === 'Distance' && (
+          {selectedFilter.includes("Distance") && (
             <LayerGroup>
               {filteredParking.map((item, index) => (
                 <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({

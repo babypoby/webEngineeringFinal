@@ -1,93 +1,131 @@
 // FilterHeader.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FilterHeader.css';
+import { style } from 'd3';
 
-const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers}) => {
-  const [filterValue, setFilterValue] = useState(null);
-  const [textFilterValue, setTextFilterValue] = useState('');
+const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers }) => {
+  const [filterValue, setFilterValue] = useState<String[]>([]);
+  const [layerValue, setLayerValue] = useState<String[]>([]);
 
-  const handleFilterButtonClick = (value) => {
-    if (value === filterValue) {
+  const handleFilterButtonClick = (value: String) => {
+    if (!isLayerActive('Trainstations')) return;
+    if (filterValue.includes(value)) {
       // If the button is already selected, deselect it
-      setFilterValue(null);
-      onFilterButtonClick(null, textFilterValue);
+      setFilterValue(filterValue.filter((item) => item !== value));
+      onFilterButtonClick(value);
       return;
     }
-    setFilterValue(value);
-    onFilterButtonClick(value, textFilterValue);
+    setFilterValue(filterValue.concat(value));
+    onFilterButtonClick(value);
   };
 
   const handleDistanceFilterClick = () => {
-    if (filterValue === 'Distance') {
+    if (!isLayerActive('Parkingspaces')) return;
+    if (filterValue.includes('Distance')) {
       // If the button is already selected, deselect it
-      setFilterValue(null);
+      setFilterValue(filterValue.filter((item) => item !== 'Distance'));
       onDistanceFilterClick();
       return;
     }
-    setFilterValue('Distance');
+    setFilterValue(filterValue.concat('Distance'));
     onDistanceFilterClick(); // Call the callback for the distance filter
   };
-  
+
+
+
   const handleLayerButtonClick = (layerType) => {
-    onLayerToggle(layerType);
-  };
+    if (layerValue.includes(layerType)) {
+      // If the button is already selected, deselect it
+      setLayerValue(layerValue.filter((item) => item !== layerType));
+      onLayerToggle(layerType);
+      if (layerType == "Trainstations") {
+        setFilterValue(filterValue.filter((item) => item !== 'WC' && item !== 'Ramps'));
+      }
+      else if (layerType == "Parkingspaces") {
+        setFilterValue(filterValue.filter((item) => item !== 'Distance'));
+      }
+      return;
+    }
+    else {
+      setLayerValue(layerValue.concat(layerType));
+      onLayerToggle(layerType);
+    }
+  }
   // Function to check if a layer is active
   const isLayerActive = (layerType) => {
-    return visibleLayers.has(layerType);
+    return visibleLayers.includes(layerType);
   };
+  const styleButton = (value: String) => {
+    if (value == "Distance") {
+      if (isLayerActive("Parkingspaces")) {
+        if (filterValue.includes("Distance")) {
+          return `selected ${value}`
+        }
+        return ''
+      }
+      else {
+        return "deactivated"
+      }
+    }
+    else if (value == "WC" || value == "Ramps") {
+      if (isLayerActive("Trainstations")) {
+        if (filterValue.includes(value)) {
+          return `selected ${value}`
+        }
+        return ''
+      }
+      else {
+        return "deactivated"
+      }
+    }
+  }
 
   return (
     <div className="filter-header">
-      <div className='filt-component'>
+      <div className='filter-component'>
         <label>What are you looking for?</label>
         <div className='buttons-component'>
-            <button
-              className={`filter-button ${isLayerActive('Trainstations') ? 'selected Trainstations' : ''}`}
-              onClick={() => handleLayerButtonClick('Trainstations')}            
-            >
-              Train Stations
-            </button>
-            <button
-              className={`filter-button ${isLayerActive('Parkingspaces') ? 'selected Parkingspaces' : ''}`}
-              onClick={() => handleLayerButtonClick('Parkingspaces')}
-            >
-              Parking Places
-            </button>
+          <button
+            className={`filter-button ${isLayerActive('Trainstations') ? 'selected Trainstations' : ''}`}
+            onClick={() => handleLayerButtonClick('Trainstations')}
+          >
+            Train Stations
+          </button>
+          <button
+            className={`filter-button ${isLayerActive('Parkingspaces') ? 'selected Parkingspaces' : ''}`}
+            onClick={() => handleLayerButtonClick('Parkingspaces')}
+          >
+            Parking Places
+          </button>
         </div>
-        
+
       </div>
       <div className='filt-component'>
         <label>Train station services</label>
         <div className='buttons-component'>
-            <button
-            className={`filter-button ${filterValue === 'WC' ? 'selected WC' : ''}`}
+          <button
+            className={`filter-button ${styleButton("WC")}`}
             onClick={() => handleFilterButtonClick('WC')}
-            >
+          >
             WCs for wheelchairs
-            </button>
-            <button
-            className={`filter-button ${filterValue === 'Ramps' ? 'selected Ramps' : ''}`}
+          </button>
+          <button
+            className={`filter-button ${styleButton("Ramps")}`}
             onClick={() => handleFilterButtonClick('Ramps')}
-            >
+          >
             Ramps for wheelchairs
-            </button>
-            <button
-            className={`filter-button ${filterValue === 'rampWC' ? 'selected rampWC' : ''}`}
-            onClick={() => handleFilterButtonClick('rampWC')}
-            >
-            Ramps & WCs
-            </button>
+          </button>
         </div>
       </div>
       <div className='filt-component'>
         <label>Parking near stations</label>
         <div className='buttons-component'>
-            <button
-        className={`filter-button ${filterValue === 'Distance' ? 'selected Distance' : ''}`}
+          <button
+            className={`filter-button ${styleButton("Distance")}`}
             onClick={handleDistanceFilterClick}
-            >
+          >
             Press me
-            </button>
+          </button>
         </div>
       </div>
       {/* Add more filt-components as needed */}

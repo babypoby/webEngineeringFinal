@@ -53,11 +53,16 @@
 
 .filter-button.selected.Trainstations,
 .filter-button.selected.WC,
-.filter-button.selected.Ramps,
-.filter-button.selected.rampWC{
+.filter-button.selected.Ramps{
     background-color: #0056b3;
     color: white;
     border-color: #054589;
+}
+
+.filter-button.deactivated {
+    background-color: #8d8d8d6f;
+    color: #495057;
+    border-color: #e9ecef;
 }
 
 .filter-button.selected.Parkingspaces {

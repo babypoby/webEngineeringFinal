@@ -14,14 +14,10 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
   };
 
   const handleDistanceFilterClick = () => {
-    // Add logic to toggle the selected state
-    if (filterValue === 'Distance') {
-      setFilterValue(null);
-    } else {
-      setFilterValue('Distance');
-    }
+    setFilterValue('Distance');
     onDistanceFilterClick(); // Call the callback for the distance filter
   };
+  
   const handleLayerButtonClick = (layerType) => {
     onLayerToggle(layerType);
   };
@@ -32,7 +28,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
 
   return (
     <div className="filter-header">
-      <div className='filter-component'>
+      <div className='filt-component'>
         <label>What are you looking for?</label>
         <div className='buttons-component'>
             <button

@@ -34,7 +34,10 @@ body, html {
 }
 
 .statistics-panel {
-    flex: 0.25; /* Take up the right portion of the screen */
+  /* Initial width of the panel */
+  flex: 0 0 25%; /* This means it starts at 25% width but does not grow or shrink */
+  max-width: 400px; /* Adjust as needed */
+  min-width: 250px; /* Adjust as needed */
 }
 
 /* Adjust the mapContainer height to fill the remaining space */

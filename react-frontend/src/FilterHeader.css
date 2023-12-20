@@ -83,7 +83,7 @@ background-color: rgb(211, 0, 0);
 }
 
 /* Responsive styling for smaller screens */
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
     .filter-button {
         padding: 5px 10px; /* Reduce padding */
         font-size: 14px; /* Reduce font size */

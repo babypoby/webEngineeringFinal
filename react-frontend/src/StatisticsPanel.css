@@ -1,6 +1,12 @@
 .statistics-panel {
-    width: 25%;
+    min-width: 300px; /* Or any minimum width you prefer */
     display: flex;
     flex-direction: column;
 }
 
+
+@media (max-width: 1000px) {
+    .statistics-panel {
+        flex: 0 1 25%; /* Now it can shrink if needed */
+    }
+}

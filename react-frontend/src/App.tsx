@@ -102,13 +102,14 @@ const App = () => {
     return null;
   };
 
+ 
+
+
   useEffect(() => {
-    if (bounds) {
-        compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
-    }
-}, [visibleLayers, bounds, traincoordinates, parkingcoordinates]);
+    updateBounds();
+    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
 
-
+  }, [visibleLayers, bounds]);
   
   
 
@@ -138,8 +139,6 @@ const App = () => {
           setParkingCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
-
-    updateBounds();
   }, []);
 
     function groupByAddress(features: any[]): { [key: string]: any[] } {
@@ -258,202 +257,202 @@ const App = () => {
                       onLayerToggle={toggleLayerVisibility}
                       visibleLayers={visibleLayers} />
         <div className="map">
-          <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
-          ref={mapRef}>
-            <MapEvents />
+        <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
+        ref={mapRef}>
+          <MapEvents />
 
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
-            />
-            {visibleLayers.has('Trainstations') && (
-                      <LayerGroup>
-                          {traincoordinates.map((item, index) => (
-                              <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                                  iconUrl: "/icons/icon-blue.png",
-                                  iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                                  iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                                  popupAnchor: [0, -14 * zoomLevel],
-                              })}>
-                                  <Popup className="train-popup">
-                                    {/* Custom close button */}
-                                    <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                                      &times;
-                                    </span>
-                                    {/* Header with station name */}
-                                    <div className="popup-header">
-                                      stationName 
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" className='tile-layer'
+          />
+          {visibleLayers.has('Trainstations') && (
+                    <LayerGroup>
+                        {traincoordinates.map((item, index) => (
+                            <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
+                                iconUrl: "/icons/icon-blue.png",
+                                iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                                iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                                popupAnchor: [0, -14 * zoomLevel],
+                            })}>
+                                <Popup className="train-popup">
+                                  {/* Custom close button */}
+                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                    &times;
+                                  </span>
+                                  {/* Header with station name */}
+                                  <div className="popup-header">
+                                    stationName 
+                                  </div>
+                                  {/* Container for rectangles */}
+                                  <div className="popup-container">
+                                    {/* Address Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Accessible WC</div>
+                                      <div className="value">{item.properties.rollstuhl_wc ? "Yes" : "No"}</div>
                                     </div>
-                                    {/* Container for rectangles */}
-                                    <div className="popup-container">
-                                      {/* Address Rectangle */}
-                                      <div className="rectangle">
-                                        <div className="header">Accessible WC</div>
-                                        <div className="value">{item.properties.rollstuhl_wc ? "Yes" : "No"}</div>
-                                      </div>
 
-                                      {/* Available Places Rectangle */}
-                                      <div className="rectangle">
-                                        <div className="header">Accessible stairs</div>
-                                        <div className="value">{item.properties.stufenloser_perronzugang ? "Yes" : "No"}</div>
-                                      </div>
+                                    {/* Available Places Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Accessible stairs</div>
+                                      <div className="value">{item.properties.stufenloser_perronzugang ? "Yes" : "No"}</div>
                                     </div>
-                                  </Popup>
-                              </Marker>
-                          ))}
-                      </LayerGroup>
-              )}
-              {visibleLayers.has('Parkingspaces') && (
-                      <LayerGroup>
-                          {parkingcoordinates.map((item, index) => (
-                              <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                                  iconUrl: "/icons/icon-orange.png",
-                                  iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                                  iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                                  popupAnchor: [0, -8 * zoomLevel],
-                              })}>
-                                  <Popup className="park-popup">
-                                    {/* Custom close button */}
-                                    <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                                      &times;
-                                    </span>
+                                  </div>
+                                </Popup>
+                            </Marker>
+                        ))}
+                    </LayerGroup>
+            )}
+            {visibleLayers.has('Parkingspaces') && (
+                    <LayerGroup>
+                        {parkingcoordinates.map((item, index) => (
+                            <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                                iconUrl: "/icons/icon-orange.png",
+                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                popupAnchor: [0, -8 * zoomLevel],
+                            })}>
+                                <Popup className="park-popup">
+                                  {/* Custom close button */}
+                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                    &times;
+                                  </span>
 
-                                    {/* Container for rectangles */}
-                                    <div className="popup-container">
-                                      {/* Address Rectangle */}
-                                      <div className="rectangle">
-                                        <div className="header">Address</div>
-                                        <div className="value">{item.properties.adresse}</div>
-                                      </div>
-
-                                      {/* Available Places Rectangle */}
-                                      <div className="rectangle">
-                                        <div className="header">Available</div>
-                                        <div className="value">{item.count}</div>
-                                      </div>
+                                  {/* Container for rectangles */}
+                                  <div className="popup-container">
+                                    {/* Address Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Address</div>
+                                      <div className="value">{item.properties.adresse}</div>
                                     </div>
-                                  </Popup>
-                              </Marker>
-                          ))}
-                      </LayerGroup>
-              )}
-              
-              {selectedFilter === 'WC' && (
-              <LayerGroup>
-                {traincoordinates
-                  .filter(item => item.properties.rollstuhl_wc === true)
-                  .map((item, index) => (
-                    <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                      iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
-                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                      popupAnchor: [0, -1.5 * zoomLevel],
-                    })}>
-                      <Popup className="train-popup">
-                        {/* Custom close button */}
-                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                          &times;
-                        </span>
-                        {/* Header with station name */}
-                        <div className="popup-header">
-                          stationName 
-                        </div>
-                      </Popup>
-                    </Marker>
-                  ))}
-              </LayerGroup>
+
+                                    {/* Available Places Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Available</div>
+                                      <div className="value">{item.count}</div>
+                                    </div>
+                                  </div>
+                                </Popup>
+                            </Marker>
+                        ))}
+                    </LayerGroup>
             )}
-            {selectedFilter === 'Ramps' && (
-              <LayerGroup>
-                {traincoordinates
-                  .filter(item => item.properties.stufenloser_perronzugang === true)
-                  .map((item, index) => (
-                    <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                      iconUrl: "/icons/icon-blue-ramp.png",
-                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                      popupAnchor: [0, -1.5 * zoomLevel],
-                    })}>
-                      <Popup className="train-popup">
-                        {/* Custom close button */}
-                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                          &times;
-                        </span>
-                        {/* Header with station name */}
-                        <div className="popup-header">
-                          stationName 
-                        </div>
-                      </Popup>
-                    </Marker>
-                  ))}
-              </LayerGroup>
-            )}
-            {selectedFilter === 'rampWC' && (
-              <LayerGroup>
-                {traincoordinates
-                  .filter(item => item.properties.stufenloser_perronzugang === true && item.properties.rollstuhl_wc === true)
-                  .map((item, index) => (
-                    <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                      iconUrl: "/icons/icon-blue-ramp-wc.png",
-                      iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                      iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
-                      popupAnchor: [0, -1.5 * zoomLevel],
-                    })}>
-                      <Popup className="train-popup">
-                        {/* Custom close button */}
-                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                          &times;
-                        </span>
-                        {/* Header with station name */}
-                        <div className="popup-header">
-                          stationName 
-                        </div>
-                      </Popup>
-                    </Marker>
-                  ))}
-              </LayerGroup>
-            )}
-            {selectedFilter === 'Distance' && (
-              <LayerGroup>
-                {filteredParking.map((item, index) => (
-                  <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                    iconUrl: "/icons/icon-red.png",
-                    iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                    iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                    popupAnchor: [0, -1 * zoomLevel],
-                })}>
-                    <Popup className="nearpark-popup">
+            
+            {selectedFilter === 'WC' && (
+            <LayerGroup>
+              {traincoordinates
+                .filter(item => item.properties.rollstuhl_wc === true)
+                .map((item, index) => (
+                  <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
+                    iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
+                    iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    popupAnchor: [0, -1.5 * zoomLevel],
+                  })}>
+                    <Popup className="train-popup">
                       {/* Custom close button */}
                       <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
                         &times;
                       </span>
-
-                      {/* Container for rectangles */}
-                      <div className="popup-container">
-                        {/* Address Rectangle */}
-                        <div className="rectangle">
-                          <div className="header">Address</div>
-                          <div className="value">{item.properties.adresse}</div>
-                        </div>
-
-                        {/* Available Places Rectangle */}
-                        <div className="rectangle">
-                          <div className="header">Available</div>
-                          <div className="value">{item.count}</div>
-                        </div>
-
-                        {/* Nearest Station Rectangle */}
-                        <div className="rectangle">
-                          <div className="header">Nearest Station</div>
-                          <div className="value">{getNearestStationName(item.nearestStationCoordinates)}</div>
-                        </div>
+                      {/* Header with station name */}
+                      <div className="popup-header">
+                        stationName 
                       </div>
                     </Popup>
                   </Marker>
                 ))}
-              </LayerGroup>
-            )}
-          </MapContainer>
+            </LayerGroup>
+          )}
+          {selectedFilter === 'Ramps' && (
+            <LayerGroup>
+              {traincoordinates
+                .filter(item => item.properties.stufenloser_perronzugang === true)
+                .map((item, index) => (
+                  <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
+                    iconUrl: "/icons/icon-blue-ramp.png",
+                    iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    popupAnchor: [0, -1.5 * zoomLevel],
+                  })}>
+                    <Popup className="train-popup">
+                      {/* Custom close button */}
+                      <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                        &times;
+                      </span>
+                      {/* Header with station name */}
+                      <div className="popup-header">
+                        stationName 
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+            </LayerGroup>
+          )}
+          {selectedFilter === 'rampWC' && (
+            <LayerGroup>
+              {traincoordinates
+                .filter(item => item.properties.stufenloser_perronzugang === true && item.properties.rollstuhl_wc === true)
+                .map((item, index) => (
+                  <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
+                    iconUrl: "/icons/icon-blue-ramp-wc.png",
+                    iconSize: [7 * zoomLevel, 7 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    popupAnchor: [0, -1.5 * zoomLevel],
+                  })}>
+                    <Popup className="train-popup">
+                      {/* Custom close button */}
+                      <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                        &times;
+                      </span>
+                      {/* Header with station name */}
+                      <div className="popup-header">
+                        stationName 
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+            </LayerGroup>
+          )}
+          {selectedFilter === 'Distance' && (
+            <LayerGroup>
+              {filteredParking.map((item, index) => (
+                <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                  iconUrl: "/icons/icon-red.png",
+                  iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                  iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                  popupAnchor: [0, -1 * zoomLevel],
+              })}>
+                  <Popup className="nearpark-popup">
+                    {/* Custom close button */}
+                    <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                      &times;
+                    </span>
+
+                    {/* Container for rectangles */}
+                    <div className="popup-container">
+                      {/* Address Rectangle */}
+                      <div className="rectangle">
+                        <div className="header">Address</div>
+                        <div className="value">{item.properties.adresse}</div>
+                      </div>
+
+                      {/* Available Places Rectangle */}
+                      <div className="rectangle">
+                        <div className="header">Available</div>
+                        <div className="value">{item.count}</div>
+                      </div>
+
+                      {/* Nearest Station Rectangle */}
+                      <div className="rectangle">
+                        <div className="header">Nearest Station</div>
+                        <div className="value">{getNearestStationName(item.nearestStationCoordinates)}</div>
+                      </div>
+                    </div>
+                  </Popup>
+                </Marker>
+              ))}
+            </LayerGroup>
+          )}
+        </MapContainer>
         </div>      
       </div>
       <StatisticsPanel statistics={statistics}/> 

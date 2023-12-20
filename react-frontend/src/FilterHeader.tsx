@@ -7,11 +7,23 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
   const [textFilterValue, setTextFilterValue] = useState('');
 
   const handleFilterButtonClick = (value) => {
+    if (value === filterValue) {
+      // If the button is already selected, deselect it
+      setFilterValue(null);
+      onFilterButtonClick(null, textFilterValue);
+      return;
+    }
     setFilterValue(value);
     onFilterButtonClick(value, textFilterValue);
   };
 
   const handleDistanceFilterClick = () => {
+    if (filterValue === 'Distance') {
+      // If the button is already selected, deselect it
+      setFilterValue(null);
+      onDistanceFilterClick();
+      return;
+    }
     setFilterValue('Distance');
     onDistanceFilterClick(); // Call the callback for the distance filter
   };

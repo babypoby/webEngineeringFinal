@@ -225,11 +225,19 @@ const App = () => {
   };
 
     const handleFilterButtonClick = (filterValue) => {
+      if (filterValue === selectedFilter) {
+        setSelectedFilter(null);
+        return;
+      }
       setSelectedFilter(filterValue);
     };
 
     // Callback function for the distance filter button
     const handleDistanceFilterClick = () => {
+      if (selectedFilter === 'Distance') {
+        setSelectedFilter(null);
+        return;
+      }
       const filteredParkingWithin200m = filterParkingWithin200m(
         traincoordinates,
         parkingcoordinates

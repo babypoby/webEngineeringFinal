@@ -283,7 +283,7 @@ const App = () => {
                                   </span>
                                   {/* Header with station name */}
                                   <div className="popup-header">
-                                    stationName 
+                                    {item.properties.name}
                                   </div>
                                   {/* Container for rectangles */}
                                   <div className="popup-container">
@@ -357,7 +357,7 @@ const App = () => {
                       </span>
                       {/* Header with station name */}
                       <div className="popup-header">
-                        stationName 
+                        {item.properties.name}
                       </div>
                     </Popup>
                   </Marker>
@@ -382,7 +382,7 @@ const App = () => {
                       </span>
                       {/* Header with station name */}
                       <div className="popup-header">
-                        stationName 
+                        {item.properties.name}
                       </div>
                     </Popup>
                   </Marker>
@@ -407,7 +407,7 @@ const App = () => {
                       </span>
                       {/* Header with station name */}
                       <div className="popup-header">
-                        stationName 
+                        {item.properties.name}
                       </div>
                     </Popup>
                   </Marker>

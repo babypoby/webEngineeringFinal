@@ -2,9 +2,9 @@
     min-width: 400px; /* Or any minimum width you prefer */
     display: flex;
     flex-direction: column;
-    background-color: rgb(213, 213, 213); /* Medium gray */
+    background-color: #e8e8e8; /* Medium gray */
     gap: 15px;
-
+    border-radius: 10px;
 }
 
 /* Title Styling */
@@ -33,7 +33,7 @@
 .divider-line {
     border: 0;
     height: 1.5px; /* Thickness of the line */
-    background-color: #252525; /* Color of the line */
+    background-color: #828282; /* Color of the line */
     margin: 10px 0; /* Space above and below the line */
 }
 

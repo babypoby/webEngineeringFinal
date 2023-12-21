@@ -309,8 +309,8 @@ const App = () => {
                         {parkingcoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                                 iconUrl: "/icons/icon-orange.png",
-                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                iconSize: [6 * zoomLevel, 6 * zoomLevel],
+                                iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
                                 popupAnchor: [0, 0],
                             })}>
                                 <Popup className="park-popup">
@@ -418,9 +418,9 @@ const App = () => {
             <LayerGroup>
               {filteredParking.map((item, index) => (
                 <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                  iconUrl: "/icons/icon-red.png",
-                  iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                  iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                  iconUrl: "/icons/icon-yellow.png",
+                  iconSize: [6 * zoomLevel, 6 * zoomLevel],
+                  iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
                   popupAnchor: [0, 0 * zoomLevel],
               })}>
                   <Popup className="nearpark-popup">

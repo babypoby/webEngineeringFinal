@@ -61,7 +61,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         if (filterValue.includes("Distance")) {
           return `selected ${value}`
         }
-        return ''
+        return 'Distance'
       }
       else {
         return "deactivated"
@@ -72,7 +72,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         if (filterValue.includes(value)) {
           return `selected ${value}`
         }
-        return ''
+        return 'Trainstations'
       }
       else {
         return "deactivated"
@@ -86,13 +86,13 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         <label>What are you looking for?</label>
         <div className='buttons-component'>
           <button
-            className={`filter-button ${isLayerActive('Trainstations') ? 'selected Trainstations' : ''}`}
+            className={`filter-button ${isLayerActive('Trainstations') ? 'selected Trainstations' : 'Trainstations'}`}
             onClick={() => handleLayerButtonClick('Trainstations')}
           >
             Train Stations
           </button>
           <button
-            className={`filter-button ${isLayerActive('Parkingspaces') ? 'selected Parkingspaces' : ''}`}
+            className={`filter-button ${isLayerActive('Parkingspaces') ? 'selected Parkingspaces' : 'Parkingspaces'}`}
             onClick={() => handleLayerButtonClick('Parkingspaces')}
           >
             Parking Places

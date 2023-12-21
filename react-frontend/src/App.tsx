@@ -252,11 +252,6 @@ const App = () => {
 
       updateBoundsRecompute();
     };
-    
-
-    useEffect(() => {
-      console.log(selectedFilter);
-    },[selectedFilter]);
 
     return(
     <div className='app-container'>

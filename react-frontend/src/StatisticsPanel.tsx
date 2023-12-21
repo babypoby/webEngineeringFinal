@@ -24,7 +24,7 @@ const StatisticsPanel = ({ statistics }: { statistics: PointLayer[] }) => {
             </div>
             {
                 statistics.map((layer, index) => (
-                    <div>
+                    <div key={layer.name}>
                     <div key={index} className='text-center'>
                     <h3 className="plot-title"><strong>{nameMap[layer.name] || layer.name}</strong></h3>
                         {(layer.name === "Trainstations") ? <Barplot data={layer.coordinates}/> : 

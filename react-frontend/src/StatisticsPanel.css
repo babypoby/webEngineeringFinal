@@ -2,7 +2,7 @@
     min-width: 400px; /* Or any minimum width you prefer */
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to top, #ffc48a, #ffef97);
+    background-color: rgb(213, 213, 213); /* Medium gray */
     gap: 15px;
 
 }
@@ -12,10 +12,8 @@
     font-size: 16px; /* Smaller font size */
     font-weight: normal; /* Normal font weight */
     color: #252525; /* Softer color */
-    background-color: #0000001a; /* Very light background */
     padding: 5px 10px; /* Padding around the title */
     margin-bottom: 10px; /* Margin below the title */
-    border-radius: 5px; /* Less pronounced rounded corners */
 }
 
 .barplot-title{

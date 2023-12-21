@@ -118,13 +118,13 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         </div>
       </div>
       <div className='filt-component'>
-        <label>Parking near stations</label>
+        <label>Localise parking spaces</label>
         <div className='buttons-component'>
           <button
             className={`filter-button ${styleButton("Distance")}`}
             onClick={handleDistanceFilterClick}
           >
-            Press me
+            Near to train station
           </button>
         </div>
       </div>

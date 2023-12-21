@@ -1,15 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './styles/tailwind.css';
 import 'leaflet/dist/leaflet.css';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl, LayerGroup } from 'react-leaflet';
-import L, { LatLngExpression, Layer } from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayerGroup } from 'react-leaflet';
+import L, { LatLngExpression } from 'leaflet';
 import StatisticsPanel from './StatisticsPanel';
 import type { Point, ParkingPoint, PointLayer } from './types/statistics';
-import Header from './Header';
 import './App.css';
 import FilterHeader from './FilterHeader';
-
-import { zoom } from 'd3';
 
 
 const App = () => {
@@ -89,7 +86,7 @@ const App = () => {
       return () => {
         map.removeEventListener("zoomend", handleZoomend);
       };
-    }, [map]);
+    },);
 
     return null;
   };
@@ -99,7 +96,7 @@ const App = () => {
     if(bounds){
       compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
     }
-  }, [bounds]);
+  }, [bounds, visibleLayers, traincoordinates, parkingcoordinates]);
   
   
 

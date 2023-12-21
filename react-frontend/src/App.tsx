@@ -64,7 +64,7 @@ const App = () => {
       setBounds(mapRef.current.getBounds());
     }
   };
-  // Function to uodate bound and statistics
+  // Function to update bound and statistics
   const updateBoundsRecompute = () => {
     updateBounds();
     compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
@@ -81,7 +81,6 @@ const App = () => {
       updateBoundsRecompute();
       const zoomLevel = map.getZoom();
       setZoomLevel(zoomLevel);
-      console.log(`Zoom Level: ${zoomLevel}`);
     };
 
     // Attach the zoomend event handler
@@ -237,6 +236,7 @@ const App = () => {
     };
 
     const toggleLayerVisibility = (layerType) => {
+
       if (visibleLayers.includes(layerType)) {
         setVisibleLayers(visibleLayers.filter(item => item !== layerType));
         if (layerType === "Trainstations") {
@@ -249,6 +249,8 @@ const App = () => {
       else {
         setVisibleLayers(visibleLayers.concat(layerType));
       }
+
+      updateBoundsRecompute();
     };
     
 

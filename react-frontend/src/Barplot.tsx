@@ -1,6 +1,14 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+const propertyNameMapping = {
+    rollstuhl_billet: "Accessible ticket counters",
+    rollstuhl_wc: "Accessible WC",
+    rollstuhl_verlad: "Wheelchair loading",
+    mobilift: "Mobilift",
+    stufenloser_perronzugang: "Step-free platform access",
+    autelca: "Machine Type"
+};
 
 const processDataForBarPlot = (dataArray) => {
     // Initialize an object to hold the counts
@@ -24,7 +32,7 @@ const processDataForBarPlot = (dataArray) => {
 
     // Transform the counts object into an array suitable for the bar plot
     const plotData = Object.keys(counts).map(property => ({
-        name: property,
+        name: propertyNameMapping[property],
         count: counts[property]
     }));
 
@@ -34,6 +42,19 @@ const processDataForBarPlot = (dataArray) => {
 
 
 const Barplot = ({ data }) => {
+
+    const CustomTooltip = ({ active, payload, label }) => {
+        if (active && payload && payload.length) {
+          return (
+            <div className="custom-tooltip" style={{ backgroundColor: '#fff', padding: '10px', border: '1px solid #ccc' }}>
+              <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p>
+              // You can add more content here as needed
+            </div>
+          );
+        }
+      
+        return null;
+      };
 
     const plotContainerStyle = {
         backgroundColor: 'f2f2f2', // White background

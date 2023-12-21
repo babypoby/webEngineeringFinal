@@ -16,23 +16,20 @@ const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);
   const [parkingcoordinates, setParkingCoordinates] = useState<ParkingPoint[]>([]);
+  /* Handle map zoom level */
   const [zoomLevel, setZoomLevel] = useState(13);
+  /* Handle buttons filtering */
   const [selectedFilter, setSelectedFilter] = useState<String[]>([]);
   const [filteredParking, setFilteredParking] = useState([]);
   const [visibleLayers, setVisibleLayers] = useState<String[]>([]);
-
-
   /* State to store the current map reference */
   const mapRef = useRef(null);
-
   /* State to store the current geopositional map bounds */
   const [bounds, setBounds] = useState(null);
-
   /* State to store the current statistics */
   const [statistics, setStatistics] = useState<PointLayer[]>([]);   
 
-  /* Logic to handle the gepositional bound state */
-
+  /* Function to compute statistics about train stations and parkin spaces */
   const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
     if (!bounds || !visibleLayers) return;
   
@@ -59,9 +56,7 @@ const App = () => {
   
     setStatistics(stats);
   };
-  
 
-  
 
   // Function to update bounds
   const updateBounds = () => {
@@ -69,13 +64,12 @@ const App = () => {
       setBounds(mapRef.current.getBounds());
     }
   };
-
+  // Function to uodate bound and statistics
   const updateBoundsRecompute = () => {
     updateBounds();
     compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
   };
 
-  // Map Event Handler
   // Map Event Handler
   const MapEvents = () => {
     const map = useMapEvents({
@@ -102,14 +96,10 @@ const App = () => {
   };
 
  
-
-
   useEffect(() => {
     if(bounds){
       compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
-
     }
-
   }, [bounds]);
   
   
@@ -143,23 +133,23 @@ const App = () => {
         updateBounds()
   }, []);
 
-    function groupByAddress(features: any[]): { [key: string]: any[] } {
-        const groups: { [key: string]: any[] } = {};
-        features.forEach((feature: any) => {
-            const address = feature.properties.adresse;
-            if (!groups[address]) {
-                groups[address] = [feature];
-            }
-            groups[address].push(feature);
-        });
-        return groups;
-    }
+  function groupByAddress(features: any[]): { [key: string]: any[] } {
+      const groups: { [key: string]: any[] } = {};
+      features.forEach((feature: any) => {
+          const address = feature.properties.adresse;
+          if (!groups[address]) {
+              groups[address] = [feature];
+          }
+          groups[address].push(feature);
+      });
+      return groups;
+  }
 
-    function ToReversed<T>(inp: T[]): T[] {
-        const copy = [...inp]
-        copy.reverse();
-        return copy;
-    }
+  function ToReversed<T>(inp: T[]): T[] {
+      const copy = [...inp]
+      copy.reverse();
+      return copy;
+  }
 
   const calculateDistance = (coord1, coord2) => {
     const [lat1, lon1] = coord1;
@@ -260,6 +250,7 @@ const App = () => {
         setVisibleLayers(visibleLayers.concat(layerType));
       }
     };
+    
 
     useEffect(() => {
       console.log(selectedFilter);

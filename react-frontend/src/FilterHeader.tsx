@@ -82,7 +82,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
 
   return (
     <div className="filter-header">
-      <div className='filter-component'>
+      <div className='filt-component'>
         <label>What are you looking for?</label>
         <div className='buttons-component'>
           <button

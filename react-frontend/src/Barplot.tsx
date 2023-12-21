@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const propertyNameMapping = {
     rollstuhl_billet: "Accessible ticket counters",
@@ -40,19 +40,7 @@ const processDataForBarPlot = (dataArray) => {
 
 
 const Barplot = ({ data }) => {
-
-    const CustomTooltip = ({ active, payload, label }) => {
-        if (active && payload && payload.length) {
-          return (
-            <div className="custom-tooltip" style={{ backgroundColor: '#fff', padding: '10px', border: '1px solid #ccc' }}>
-              <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p>
-            </div>
-          );
-        }
-      
-        return null;
-      };
-
+    
     const plotContainerStyle = {
         backgroundColor: 'f2f2f2', // White background
         borderRadius: '10px', // Rounded corners

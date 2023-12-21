@@ -1,7 +1,6 @@
 // FilterHeader.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './FilterHeader.css';
-import { style } from 'd3';
 
 const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers }) => {
   const [filterValue, setFilterValue] = useState<String[]>([]);
@@ -38,10 +37,10 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
       // If the button is already selected, deselect it
       setLayerValue(layerValue.filter((item) => item !== layerType));
       onLayerToggle(layerType);
-      if (layerType == "Trainstations") {
+      if (layerType === "Trainstations") {
         setFilterValue(filterValue.filter((item) => item !== 'WC' && item !== 'Ramps'));
       }
-      else if (layerType == "Parkingspaces") {
+      else if (layerType === "Parkingspaces") {
         setFilterValue(filterValue.filter((item) => item !== 'Distance'));
       }
       return;
@@ -56,7 +55,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
     return visibleLayers.includes(layerType);
   };
   const styleButton = (value: String) => {
-    if (value == "Distance") {
+    if (value === "Distance") {
       if (isLayerActive("Parkingspaces")) {
         if (filterValue.includes("Distance")) {
           return `selected ${value}`
@@ -67,7 +66,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         return "deactivated"
       }
     }
-    else if (value == "WC" || value == "Ramps") {
+    else if (value === "WC" || value === "Ramps") {
       if (isLayerActive("Trainstations")) {
         if (filterValue.includes(value)) {
           return `selected ${value}`

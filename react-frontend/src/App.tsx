@@ -8,7 +8,7 @@ import type { Point, ParkingPoint, PointLayer } from './types/statistics';
 import './App.css';
 import FilterHeader from './FilterHeader';
 
-
+/*test*/
 const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);

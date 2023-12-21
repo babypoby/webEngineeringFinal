@@ -6,14 +6,12 @@ const propertyNameMapping = {
     rollstuhl_wc: "Accessible WC",
     rollstuhl_verlad: "Wheelchair loading",
     mobilift: "Mobilift",
-    stufenloser_perronzugang: "Step-free platform access",
-    autelca: "Machine Type"
+    stufenloser_perronzugang: "Step-free platform access"
 };
 
 const processDataForBarPlot = (dataArray) => {
     // Initialize an object to hold the counts
     const counts = {
-        autelca: 0,
         mobilift: 0,
         rollstuhl_billet: 0,
         rollstuhl_verlad: 0,
@@ -48,7 +46,6 @@ const Barplot = ({ data }) => {
           return (
             <div className="custom-tooltip" style={{ backgroundColor: '#fff', padding: '10px', border: '1px solid #ccc' }}>
               <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p>
-              // You can add more content here as needed
             </div>
           );
         }

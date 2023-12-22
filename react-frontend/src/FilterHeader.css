@@ -52,15 +52,20 @@
 }
 
 .filter-button.Trainstations:hover {
-    background-color: #0061c976; /* Slightly darker grey on hover */
+    background-color: #0061c976; /* Slightly darker blue on hover */
     transform: translateY(-2px); /* Slight elevation effect on hover */
     color: white
 }
 
 .filter-button.Parkingspaces:hover {
-    background-color: #ff8c0076; /* Slightly darker grey on hover */
+    background-color: #ff8c0076; /* Slightly darker orange on hover */
     transform: translateY(-2px); /* Slight elevation effect on hover */
     color: white
+}
+.filter-button.Tramstations:hover{
+    background-color :#009b4e73 ; /* Slightly darker green on hover */
+    transform: translateY(-2px); /* Slight elevation effect on hover */
+    color: white;
 }
 
 .filter-button.Distance:hover {

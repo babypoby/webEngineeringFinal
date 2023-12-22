@@ -1,5 +1,5 @@
 apiVersion: v2
-name: lmeierhoefer_project_flask
+name: lmzcha
 description: My Example App #description for the app
 type: application
 version: 0.0.4 #for versioning of the helm chart, increase it when new release is built/deployed

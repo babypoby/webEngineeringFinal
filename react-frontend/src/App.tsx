@@ -7,6 +7,7 @@ import StatisticsPanel from './StatisticsPanel';
 import type { Point, ParkingPoint, PointLayer } from './types/statistics';
 import './App.css';
 import FilterHeader from './FilterHeader';
+import { zoom } from 'd3';
 
 /*test*/
 const App = () => {
@@ -27,8 +28,11 @@ const App = () => {
   /* State to store the current statistics */
   const [statistics, setStatistics] = useState<PointLayer[]>([]);   
 
+  const [tramLines, setTramLines] = useState<string[]>([]);
+  const [selectedTramLine, setSelectedTramLine] = useState<string>('');
+
   /* Function to compute statistics about train stations and parkin spaces */
-  const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
+  const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates) => {
     if (!bounds || !visibleLayers) return;
   
     const computeForLayer = (coordinates) => {
@@ -51,6 +55,18 @@ const App = () => {
     if (visibleLayers.includes('Parkingspaces') && parkingcoordinates.length > 0) {
       stats.push({ name: 'Parkingspaces', coordinates: computeForLayer(parkingcoordinates) });
     }
+
+   if (visibleLayers.includes('Tramstations') && tramcoordinates.length > 0) {
+      const filteredTramCoordinates = tramcoordinates.filter(item => {
+        if (selectedTramLine === '') {
+            return true; // If no line is selected, show all stations
+        }
+        const lines = item.properties.tram_line.split(',').map(line => line.trim());
+        return lines.includes(selectedTramLine); // Check if the selected line is in the list
+      })
+
+      stats.push({ name: 'Tramstations', coordinates: computeForLayer(filteredTramCoordinates)});
+   }
   
     setStatistics(stats);
   };
@@ -65,7 +81,7 @@ const App = () => {
   // Function to update bound and statistics
   const updateBoundsRecompute = () => {
     updateBounds();
-    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates);
   };
 
   // Map Event Handler
@@ -95,9 +111,9 @@ const App = () => {
  
   useEffect(() => {
     if(bounds){
-      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates);
     }
-  }, [bounds, visibleLayers, traincoordinates, parkingcoordinates]);
+  }, [bounds, visibleLayers, traincoordinates, parkingcoordinates, tramcoordinates]);
   
   
 
@@ -128,16 +144,19 @@ const App = () => {
         })
         .catch(error => console.error('Error fetching data: ', error));
 
-    fetch("http://localhost:8000/api/data/tramstations")
-      .then((response) => response.json())
+        fetch("http://localhost:8000/api/data/tramstations")
+        .then((response) => response.json())
         .then((geojson) => {
-          const formattedCoordinates: Point[] = geojson.features.map(x => ({
+          const lines = Array.from(new Set(geojson.features.flatMap(feature => 
+            feature.properties.tram_line.split(',').map(line => line.trim())
+          ))).sort() as string[];
+          setTramLines(lines);
+          setTramCoordinates(geojson.features.map(x => ({
             coordinates: ToReversed(x.geometry.coordinates),
             properties: x.properties
-          }));
-          setTramCoordinates(formattedCoordinates);
+          })));
         })
-        .catch(error => console.error('Error fetching data: ', error));
+        .catch(error => console.error('Error fetching tram line data: ', error));
         
         updateBounds()
   }, []);
@@ -246,20 +265,24 @@ const App = () => {
     };
 
     const toggleLayerVisibility = (layerType) => {
-
-      if (visibleLayers.includes(layerType)) {
-        setVisibleLayers(visibleLayers.filter(item => item !== layerType));
-        if (layerType === "Trainstations") {
-          setSelectedFilter(selectedFilter.filter(item => item !== 'WC' && item !== 'Ramps'));
+      setVisibleLayers(currentLayers => {
+        const isLayerActive = currentLayers.includes(layerType);
+        const newLayers = isLayerActive 
+          ? currentLayers.filter(layer => layer !== layerType)
+          : [...currentLayers, layerType];
+    
+        // Reset the selected tram line when toggling off the tram stations layer
+        if (layerType === "Tramstations" && isLayerActive) {
+          setSelectedTramLine('');
         }
-        else if (layerType === "Parkingspaces") {
-          setSelectedFilter(selectedFilter.filter(item => item !== 'Distance'));
-        }
-      }
-      else {
-        setVisibleLayers(visibleLayers.concat(layerType));
-      }
-
+    
+        return newLayers;
+      });
+    
+      updateBoundsRecompute();
+    };
+    const handleTramLineSelect = (line) => {
+      setSelectedTramLine(line);
       updateBoundsRecompute();
     };
 
@@ -270,7 +293,9 @@ const App = () => {
         <FilterHeader onFilterButtonClick={handleFilterButtonClick}
                       onDistanceFilterClick={handleDistanceFilterClick}
                       onLayerToggle={toggleLayerVisibility}
-                      visibleLayers={visibleLayers} />
+                      visibleLayers={visibleLayers} 
+                      tramLines={tramLines}
+                      onTramLineSelect={handleTramLineSelect}/>
         <div className="map">
         <MapContainer center={[47.36667, 8.55]} zoom={13} scrollWheelZoom={false} className='mapContainer'
         ref={mapRef}>
@@ -286,7 +311,7 @@ const App = () => {
                             <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                                 iconUrl: "/icons/icon-blue.png",
                                 iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                                iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                                iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                                 popupAnchor: [0, -.5 * zoomLevel],
                             })}>
                                 <Popup className="train-popup">
@@ -322,9 +347,9 @@ const App = () => {
                         {parkingcoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                                 iconUrl: "/icons/icon-orange.png",
-                                iconSize: [6 * zoomLevel, 6 * zoomLevel],
-                                iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
-                                popupAnchor: [0, 0],
+                                iconSize: [1.2 * zoomLevel, 1.6 * zoomLevel],
+                                iconAnchor: [0.6 * zoomLevel, 1.6 * zoomLevel],
+                                popupAnchor: [0, -.8 * zoomLevel],
                             })}>
                                 <Popup className="park-popup">
                                   {/* Custom close button */}
@@ -352,114 +377,71 @@ const App = () => {
                     </LayerGroup>
             )}
             {visibleLayers.includes('Tramstations') && (
-                    <LayerGroup>
-                        {tramcoordinates
-                        .filter(item => item.properties.wheelchair_boarding === 0)
-                        .map((item, index) => (
-                            <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                              iconUrl: "/icons/icon-green.png",
-                              iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                              iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                              popupAnchor: [0, 0 * zoomLevel],
-                          })}>
-                              <Popup className="tram-popup">
-                                {/* Custom close button */}
-                                <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                                  &times;
-                                </span>
-                                {/* Header with station name */}
-                                <div className="popup-header">
-                                  {item.properties.stop_name}
-                                </div>
-                                {/* Container for rectangles */}
-                                <div className="popup-container">
-                                  {/* Address Rectangle */}
-                                  <div className="rectangle">
-                                    <div className="header">Available Lines</div>
-                                    <div className="value">{item.properties.tram_line}</div>
-                                  </div>
+            <LayerGroup>
+              {tramcoordinates
+                .filter(item => {
+                  if (selectedTramLine === '') {
+                    return true; // If no line is selected, show all stations
+                  }
+                  const lines = item.properties.tram_line.split(',').map(line => line.trim());
+                  return lines.includes(selectedTramLine); // Check if the selected line is in the list
+                })
+                .map((item, index) => {
+                  let iconUrl = "/icons/icon-tram-green.png"; // default icon
+                  if (item.properties.wheelchair_boarding === 1) {
+                    iconUrl = "/icons/icon-tram-yellow.png"; // icon for stations accessible with help
+                  } else if (item.properties.wheelchair_boarding === 2) {
+                    iconUrl = "/icons/icon-tram-red.png"; // icon for stations not accessible
+                  }
 
-                                  {/* Available Places Rectangle */}
-                                  <div className="rectangle">
-                                    <div className="header">Accessibility</div>
-                                    <div className="value-a">{"Accessible without help"}</div>
-                                  </div>
-                                </div>
-                              </Popup>
-                          </Marker>
-                        ))}
-                        {tramcoordinates
-                          .filter(item => item.properties.wheelchair_boarding === 1)
-                          .map((item, index) => (
-                              <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                                iconUrl: "/icons/icon-yellow.png",
-                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                                popupAnchor: [0, 0 * zoomLevel],
-                            })}>
-                                <Popup className="tram-popup">
-                                  {/* Custom close button */}
-                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                                    &times;
-                                  </span>
-                                  {/* Header with station name */}
-                                  <div className="popup-header">
-                                    {item.properties.stop_name}
-                                  </div>
-                                  {/* Container for rectangles */}
-                                  <div className="popup-container">
-                                    {/* Address Rectangle */}
-                                    <div className="rectangle">
-                                      <div className="header">Available Lines</div>
-                                      <div className="value">{item.properties.tram_line}</div>
-                                    </div>
-  
-                                    {/* Available Places Rectangle */}
-                                    <div className="rectangle">
-                                      <div className="header">Accessibility</div>
-                                      <div className="value-awh">{"Accesible with help"}</div>
-                                    </div>
-                                  </div>
-                                </Popup>
-                            </Marker>
-                          ))}
-                          {tramcoordinates
-                          .filter(item => item.properties.wheelchair_boarding === 2)
-                          .map((item, index) => (
-                              <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                                iconUrl: "/icons/icon-red.png",
-                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
-                                popupAnchor: [0, 0 * zoomLevel],
-                            })}>
-                                <Popup className="tram-popup">
-                                  {/* Custom close button */}
-                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
-                                    &times;
-                                  </span>
-                                  {/* Header with station name */}
-                                  <div className="popup-header">
-                                    {item.properties.stop_name}
-                                  </div>
-                                  {/* Container for rectangles */}
-                                  <div className="popup-container">
-                                    {/* Address Rectangle */}
-                                    <div className="rectangle">
-                                      <div className="header">Available Lines</div>
-                                      <div className="value">{item.properties.tram_line}</div>
-                                    </div>
-  
-                                    {/* Available Places Rectangle */}
-                                    <div className="rectangle">
-                                      <div className="header">Accessibility</div>
-                                      <div className="value-na">{"Not Accessible"}</div>
-                                    </div>
-                                  </div>
-                                </Popup>
-                            </Marker>
-                          ))}
-                    </LayerGroup>
-            )}
+                  return (
+                    <Marker 
+                      key={index} 
+                      position={item.coordinates.reverse() as LatLngExpression} 
+                      icon={L.icon({
+                        iconUrl: iconUrl,
+                        iconSize: [1.8 * zoomLevel, 2.4 * zoomLevel],
+                        iconAnchor: [0.9 * zoomLevel, 2.4 * zoomLevel],
+                        popupAnchor: [0, -1.8 * zoomLevel]
+                      })}
+                    >
+                      <Popup className="tram-popup">
+                        {/* Custom close button */}
+                        <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                          &times;
+                        </span>
+                        {/* Header with station name */}
+                        <div className="popup-header">
+                          {item.properties.stop_name}
+                        </div>
+                        {/* Container for rectangles */}
+                        <div className="popup-container">
+                          {/* Address Rectangle */}
+                          <div className="rectangle">
+                            <div className="header">Available Lines</div>
+                            <div className="value">{item.properties.tram_line}</div>
+                          </div>
+                          {/* Accessibility Rectangle */}
+                          <div className="rectangle">
+                            <div className="header">Accessibility</div>
+                            <div className={
+                                item.properties.wheelchair_boarding === 0 ? "value-a" :
+                                item.properties.wheelchair_boarding === 1 ? "value-awh" :
+                                "value-na"
+                              }>
+                              {item.properties.wheelchair_boarding === 0 ? "Accessible without help" :
+                              item.properties.wheelchair_boarding === 1 ? "Accessible with help" :
+                              "Not Accessible"}
+                            </div>
+                          </div>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  );
+                })
+              }
+            </LayerGroup>
+          )}
             
             {selectedFilter.includes("WC") && (
             <LayerGroup>
@@ -469,7 +451,7 @@ const App = () => {
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                     iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
@@ -494,7 +476,7 @@ const App = () => {
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                     iconUrl: "/icons/icon-blue-ramp.png",
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -0.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
@@ -519,7 +501,7 @@ const App = () => {
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                     iconUrl: "/icons/icon-blue-ramp-wc.png",
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
-                    iconAnchor: [3.5 * zoomLevel, 3.5 * zoomLevel],
+                    iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -.5 * zoomLevel],
                   })}>
                     <Popup className="train-popup">
@@ -541,9 +523,9 @@ const App = () => {
               {filteredParking.map((item, index) => (
                 <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                   iconUrl: "/icons/icon-yellow.png",
-                  iconSize: [6 * zoomLevel, 6 * zoomLevel],
-                  iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
-                  popupAnchor: [0, 0 * zoomLevel],
+                  iconSize: [1.2 * zoomLevel, 1.6 * zoomLevel],
+                  iconAnchor: [0.6 * zoomLevel, 1.6 * zoomLevel],
+                  popupAnchor: [0, -.8 * zoomLevel],
               })}>
                   <Popup className="nearpark-popup">
                     {/* Custom close button */}

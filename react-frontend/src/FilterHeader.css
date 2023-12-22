@@ -11,7 +11,7 @@
 .filt-component {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally in a column layout */
     gap: 5px;
 }
 .filt-component label {
@@ -23,6 +23,8 @@
     text-transform: uppercase; /* Optional: Transform text to uppercase */
     min-width: 200px;
     max-width: 100%;
+    text-align: center; /* Center the text of the label */
+
 }
 
 .filter-button {
@@ -43,7 +45,10 @@
 .buttons-component {
     display: flex;
     flex-direction: row;
+    justify-content: center; /* Center the buttons */
     gap: 3px;
+    flex-wrap: wrap; /* Allow buttons to wrap if needed */
+    width: 100%; /* Take the full width of the parent container */
 }
 
 .filter-button.Trainstations:hover {
@@ -95,6 +100,27 @@
     color: white;
     border-color: green;
 }
+.dropdown-button {
+  background-color: #e9ecef; /* Same as filter-button */
+  color: #495057; /* Same as filter-button */
+  border: none;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer; /* To indicate it's clickable */
+  /* Add more styles as per your design */
+}
+
+/* Style for hover effect */
+.dropdown-button:hover {
+  background-color: #e9ecef; /* Slightly darker or different color */
+}
+
+/* Style to make it appear like a button */
+.dropdown-button {
+  text-align: center; /* Align text to the left */
+}
+
 
 /* Responsive styling for smaller screens */
 @media (max-width: 1300px) {
@@ -111,5 +137,7 @@
 
     .buttons-component {
         flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+        justify-content: center; /* Ensure buttons stay centered on smaller screens */
+
     }
 }

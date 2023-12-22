@@ -15,6 +15,7 @@ const ParkingSpaceData = ({data}: {data : ParkingPoint[]} ) => {
         backgroundColor: '#f5f5f5', // Light background color
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
         border: '2px solid #ff8c0090' // Gray border
+         
     };
 
 

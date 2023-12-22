@@ -96,9 +96,9 @@
 }
 
 .filter-button.selected.Tramstations{
-    background-color: green;
+    background-color: #009b4d;
     color: white;
-    border-color: green;
+    border-color: #009b4d;
 }
 .dropdown-button {
   background-color: #e9ecef; /* Same as filter-button */

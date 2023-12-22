@@ -1,0 +1,2847 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.502185856, 47.39210443 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:7:2:1",
+    "stop_name":"Zürich, Aargauerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.507378118,47.35198239 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:46:1:0",
+    "stop_name":"Zürich, Albisgütli",
+    "wheelchair_boarding":1,
+    "tram_line":"13,17",
+    "lines":"[13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.485010068,47.37436203 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:47:1:0",
+    "stop_name":"Zürich, Albisrieden",
+    "wheelchair_boarding":1,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.510522222,47.37818837 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:48:1:0",
+    "stop_name":"Zürich, Albisriederplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"2,3",
+    "lines":"[2,3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.507773377,47.39749227 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:67:1:0",
+    "stop_name":"Zürich, Alte Trotte",
+    "wheelchair_boarding":2,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.507144556,47.37768956 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1446:1:1",
+    "stop_name":"Zürich, Altes Krematorium",
+    "wheelchair_boarding":0,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.591361614,47.40554259 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:88:1:0",
+    "stop_name":"Zürich, Altried",
+    "wheelchair_boarding":0,
+    "tram_line":"9",
+    "lines":"[9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.568634238,47.41655811 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:132:2:1",
+    "stop_name":"Zürich, Auzelg",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.482997842,47.38899067 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:137:1:0",
+    "stop_name":"Zürich, Bachmattstrasse",
+    "wheelchair_boarding":2,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.52271236,47.37822487 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1234:1:0",
+    "stop_name":"Zürich, Bäckeranlage",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.53764236,47.40594994 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:144:1:0",
+    "stop_name":"Zürich, Bad Allenmoos",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.490480808,47.39202537 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:5001:2:0",
+    "stop_name":"Zürich, Bahnhof Altstetten N",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.531479918,47.36442684 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3026:1:1",
+    "stop_name":"Zürich, Bahnhof Enge",
+    "wheelchair_boarding":1,
+    "tram_line":"5,6,7",
+    "lines":"[5,6,7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.531902126,47.36414086 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3026:2:3",
+    "stop_name":"Zürich, Bahnhof Enge",
+    "wheelchair_boarding":1,
+    "tram_line":"6",
+    "lines":"[6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.530213293,47.36452419 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:199:1:0",
+    "stop_name":"Zürich, Bahnhof Enge/Bederstr.",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13",
+    "lines":"[5,13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.517340435,47.385305 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3029:1:11",
+    "stop_name":"Zürich, Bahnhof Hardbrücke",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.544460573,47.41138499 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3034:1:2",
+    "stop_name":"Zürich, Bahnhof Oerlikon",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.545709232,47.413616 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3447:1:1",
+    "stop_name":"Zürich, Bahnhof Oerlikon Ost",
+    "wheelchair_boarding":0,
+    "tram_line":"14",
+    "lines":"[14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.546391951,47.41358561 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3447:1:3",
+    "stop_name":"Zürich, Bahnhof Oerlikon Ost",
+    "wheelchair_boarding":0,
+    "tram_line":"10",
+    "lines":"[10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.531785345,47.37069967 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2551:1:0",
+    "stop_name":"Zürich, Bahnhof Selnau",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5472723,47.36616091 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3039:1:1",
+    "stop_name":"Zürich, Bahnhof Stadelhofen",
+    "wheelchair_boarding":0,
+    "tram_line":"8,11,15",
+    "lines":"[8,11,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.547847222,47.36602097 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3039:1:2",
+    "stop_name":"Zürich, Bahnhof Stadelhofen",
+    "wheelchair_boarding":0,
+    "tram_line":"8,11,15",
+    "lines":"[8,11,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.595673528,47.39692675 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2575:1:0",
+    "stop_name":"Zürich, Bahnhof Stettbach",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.561007541,47.35058868 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3041:1:1",
+    "stop_name":"Zürich, Bahnhof Tiefenbrunnen",
+    "wheelchair_boarding":1,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.523628642,47.37118029 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3042:1:0",
+    "stop_name":"Zürich, Bahnhof Wiedikon",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.533276548,47.34795938 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:7022:1:50",
+    "stop_name":"Zürich, Bahnhof Wollishofen",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539771368,47.37708125 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:412:1:0",
+    "stop_name":"Zürich, Bahnhofplatz/HB",
+    "wheelchair_boarding":0,
+    "tram_line":"3,10,14",
+    "lines":"[3,10,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.541666813,47.37737933 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:413:1:0",
+    "stop_name":"Zürich, Bahnhofquai/HB",
+    "wheelchair_boarding":1,
+    "tram_line":"4,11,13,14,17",
+    "lines":"[4,11,13,14,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539501873,47.37611403 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:416:1:1",
+    "stop_name":"Zürich, Bahnhofstrasse/HB",
+    "wheelchair_boarding":0,
+    "tram_line":"7,11,13,17",
+    "lines":"[7,11,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.57513804,47.35435589 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:421:1:0",
+    "stop_name":"Zürich, Balgrist",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.485234647,47.39627002 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:592:1:0",
+    "stop_name":"Zürich, Bündliweg",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.540400188,47.38393649 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:435:1:0",
+    "stop_name":"Zürich, Beckenhof",
+    "wheelchair_boarding":0,
+    "tram_line":"11,14",
+    "lines":"[11,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.545313973,47.36684844 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:440:1:0",
+    "stop_name":"Zürich, Bellevue",
+    "wheelchair_boarding":0,
+    "tram_line":"2,11",
+    "lines":"[2,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.545313973,47.36725001 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:440:1:3",
+    "stop_name":"Zürich, Bellevue",
+    "wheelchair_boarding":0,
+    "tram_line":"4,15",
+    "lines":"[4,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.544514472,47.36711007 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:440:1:4",
+    "stop_name":"Zürich, Bellevue",
+    "wheelchair_boarding":0,
+    "tram_line":"5,9",
+    "lines":"[5,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548107733,47.40388885 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:465:1:1",
+    "stop_name":"Zürich, Berninaplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"10,14",
+    "lines":"[10,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.508896271,47.39381935 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:467:1:0",
+    "stop_name":"Zürich, Bernoulli-Häuser",
+    "wheelchair_boarding":0,
+    "tram_line":"8,17",
+    "lines":"[8,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.525883413,47.37397877 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:478:1:0",
+    "stop_name":"Zürich, Bezirksgebüude",
+    "wheelchair_boarding":0,
+    "tram_line":"2,3",
+    "lines":"[2,3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.53219857,47.35592599 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:547:1:0",
+    "stop_name":"Zürich, Brunaustrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.533384346,47.39805778 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:564:1:0",
+    "stop_name":"Zürich, Bucheggplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"11,15",
+    "lines":"[11,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.571544779,47.35822019 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:580:1:1",
+    "stop_name":"Zürich, Burgwies",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.540957144,47.36646513 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:615:1:1",
+    "stop_name":"Zürich, Bürkliplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"2,5,9,11",
+    "lines":"[2,5,9,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.53037499,47.3410812 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:586:1:1",
+    "stop_name":"Zürich, Butzenstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54379582,47.37664935 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:619:1:7",
+    "stop_name":"Zürich, Central",
+    "wheelchair_boarding":1,
+    "tram_line":"3,4,6,7,10,15",
+    "lines":"[3,4,6,7,10,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.557674791,47.36649555 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:788:1:0",
+    "stop_name":"Zürich, Englischviertelstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5132531,47.39632475 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:800:1:0",
+    "stop_name":"Zürich, Eschergutweg",
+    "wheelchair_boarding":1,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.523601692,47.38996374 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:799:1:0",
+    "stop_name":"Zürich, Escher-Wyss-Platz",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.522290152,47.39044418 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:799:5:7",
+    "stop_name":"Zürich, Escher-Wyss-Platz",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54746993,47.377209 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:736:1:0",
+    "stop_name":"Zürich, ETH/Universitätsspital",
+    "wheelchair_boarding":0,
+    "tram_line":"6,10",
+    "lines":"[6,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548700622,47.37661893 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:736:2:1",
+    "stop_name":"Zürich, ETH/Universitätsspital",
+    "wheelchair_boarding":0,
+    "tram_line":"6,9",
+    "lines":"[6,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548233498,47.37779297 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:736:3:2",
+    "stop_name":"Zürich, ETH/Universitätsspital",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.478739827,47.39105842 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:821:4:2",
+    "stop_name":"Zürich, Farbhof",
+    "wheelchair_boarding":0,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.552042354,47.36048996 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:832:1:0",
+    "stop_name":"Zürich, Feldeggstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5522849,47.3602709 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:832:1:1",
+    "stop_name":"Zürich, Feldeggstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.487785862,47.3757247 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:840:1:1",
+    "stop_name":"Zürich, Fellenbergstrasse",
+    "wheelchair_boarding":1,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.561420766,47.41837557 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:6460:1:0",
+    "stop_name":"Zürich, Fernsehstudio",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.512103257,47.39371597 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:857:1:1",
+    "stop_name":"Zürich, Fischerweg",
+    "wheelchair_boarding":1,
+    "tram_line":"8,17",
+    "lines":"[8,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.51743925,47.39221998 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:927:1:0",
+    "stop_name":"Zürich, Fürrlibuckstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"8,17",
+    "lines":"[8,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.481416807,47.40564595 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:872:1:0",
+    "stop_name":"Zürich, Frankental",
+    "wheelchair_boarding":1,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.499841253,47.38301805 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:883:1:0",
+    "stop_name":"Zürich, Freihofstrasse",
+    "wheelchair_boarding":2,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.580563865,47.35099036 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:894:1:0",
+    "stop_name":"Zürich, Friedhof Enzenbühl",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.556992072,47.35511051 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:917:1:0",
+    "stop_name":"Zürich, Fröhlichstrasse",
+    "wheelchair_boarding":1,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.581695742,47.40161487 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:998:1:50",
+    "stop_name":"Zürich, Glattwiesen",
+    "wheelchair_boarding":2,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.51362141,47.37029205 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1012:1:0",
+    "stop_name":"Zürich, Goldbrunnenplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.490319111,47.3868985 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1026:1:0",
+    "stop_name":"Zürich, Grimselstrasse",
+    "wheelchair_boarding":2,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.48957351,47.39519977 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1041:1:1",
+    "stop_name":"Zürich, Grünaustrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.540301374,47.39589908 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1061:1:1",
+    "stop_name":"Zürich, Guggachstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,14",
+    "lines":"[7,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.519658088,47.38047553 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1076:1:1",
+    "stop_name":"Zürich, Güterbahnhof",
+    "wheelchair_boarding":2,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548071801,47.38011664 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1098:1:0",
+    "stop_name":"Zürich, Haldenbach",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.545008546,47.37914339 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1100:1:0",
+    "stop_name":"Zürich, Haldenegg",
+    "wheelchair_boarding":0,
+    "tram_line":"6,10",
+    "lines":"[6,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.544074298,47.38029913 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1100:2:3",
+    "stop_name":"Zürich, Haldenegg",
+    "wheelchair_boarding":0,
+    "tram_line":"7,15",
+    "lines":"[7,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.49769428,47.39620313 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1120:1:0",
+    "stop_name":"Zürich, Hardhof",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.515364141,47.38220908 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1122:1:2",
+    "stop_name":"Zürich, Hardplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.504548425,47.39414166 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2447:1:0",
+    "stop_name":"Zürich, Hardturm",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.504296897,47.39472544 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2447:1:3",
+    "stop_name":"Zürich, Hardturm",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.564834364,47.36038652 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1138:1:1",
+    "stop_name":"Zürich, Hedwigsteig",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.576449581,47.40486165 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1139:1:81",
+    "stop_name":"Zürich, Heerenwiesen",
+    "wheelchair_boarding":0,
+    "tram_line":"9",
+    "lines":"[9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54345446,47.36997568 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1157:1:1",
+    "stop_name":"Zürich, Helmhaus",
+    "wheelchair_boarding":1,
+    "tram_line":"",
+    "lines":"[]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.52607206,47.37616269 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1158:1:0",
+    "stop_name":"Zürich, Helvetiaplatz",
+    "wheelchair_boarding":2,
+    "tram_line":"4,15",
+    "lines":"[4,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.506767264,47.36945246 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1187:1:1",
+    "stop_name":"Zürich, Heuried",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54328378,47.4001495 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1215:1:0",
+    "stop_name":"Zürich, Hirschwiesenstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"10,14",
+    "lines":"[10,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.59106517,47.40312884 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1220:1:0",
+    "stop_name":"Zürich, Hirzenbach",
+    "wheelchair_boarding":1,
+    "tram_line":"9",
+    "lines":"[9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.562498744,47.36599055 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1278:1:0",
+    "stop_name":"Zürich, Hölderlinstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"3,8",
+    "lines":"[3,8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.55410848,47.3581776 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1286:1:1",
+    "stop_name":"Zürich, Höschgasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.554575603,47.36934903 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1251:1:0",
+    "stop_name":"Zürich, Hottingerplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.555258323,47.36928819 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1251:1:1",
+    "stop_name":"Zürich, Hottingerplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.499167517,47.37740974 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1252:1:0",
+    "stop_name":"Zürich, Hubertus",
+    "wheelchair_boarding":1,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539825267,47.36804704 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:601:1:0",
+    "stop_name":"Zürich, Kantonalbank",
+    "wheelchair_boarding":0,
+    "tram_line":"2,8,9,11",
+    "lines":"[2,8,9,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.550353522,47.37273772 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1359:1:0",
+    "stop_name":"Zürich, Kantonsschule",
+    "wheelchair_boarding":0,
+    "tram_line":"5,9",
+    "lines":"[5,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.550551151,47.37247613 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1359:1:1",
+    "stop_name":"Zürich, Kantonsschule",
+    "wheelchair_boarding":0,
+    "tram_line":"5,9",
+    "lines":"[5,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.49467594,47.38525634 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1364:1:1",
+    "stop_name":"Zürich, Kappeli",
+    "wheelchair_boarding":0,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.546382968,47.38880213 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1399:1:0",
+    "stop_name":"Zürich, Kinkelstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.559516338,47.37643644 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1407:1:1",
+    "stop_name":"Zürich, Kirche Fluntern",
+    "wheelchair_boarding":2,
+    "tram_line":"5,6",
+    "lines":"[5,6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.566397433,47.36413477 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1430:1:1",
+    "stop_name":"Zürich, Klusplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"3,8",
+    "lines":"[3,8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.554243227,47.36478582 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1453:1:0",
+    "stop_name":"Zürich, Kreuzplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"8,11",
+    "lines":"[8,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.549518088,47.36337419 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1456:1:0",
+    "stop_name":"Zürich, Kreuzstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.550012162,47.36288133 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1456:1:1",
+    "stop_name":"Zürich, Kreuzstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539232378,47.38828518 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1468:1:1",
+    "stop_name":"Zürich, Kronenstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"11,14",
+    "lines":"[11,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54861079,47.37078484 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1472:1:1",
+    "stop_name":"Zürich, Kunsthaus",
+    "wheelchair_boarding":2,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54909588,47.37038939 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1472:2:3",
+    "stop_name":"Zürich, Kunsthaus",
+    "wheelchair_boarding":2,
+    "tram_line":"5,9",
+    "lines":"[5,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54496363,47.39378895 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1507:1:1",
+    "stop_name":"Zürich, Langmauerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.517744677,47.35859748 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1519:1:1",
+    "stop_name":"Zürich, Laubegg",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13,17",
+    "lines":"[5,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.536456584,47.39485923 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1522:1:0",
+    "stop_name":"Zürich, Laubiweg",
+    "wheelchair_boarding":0,
+    "tram_line":"11,15",
+    "lines":"[11,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.503784857,47.38113854 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1548:1:0",
+    "stop_name":"Zürich, Letzigrund",
+    "wheelchair_boarding":0,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.545493636,47.39051108 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1550:1:0",
+    "stop_name":"Zürich, Letzistrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.551135056,47.41455822 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1552:2:0",
+    "stop_name":"Zürich, Leutschenbach",
+    "wheelchair_boarding":0,
+    "tram_line":"10,11",
+    "lines":"[10,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.531767378,47.38448998 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1557:1:0",
+    "stop_name":"Zürich, Limmatplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.486348558,47.38778038 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1570:1:0",
+    "stop_name":"Zürich, Lindenplatz",
+    "wheelchair_boarding":2,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.517825525,47.37536578 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1579:1:0",
+    "stop_name":"Zürich, Lochergut",
+    "wheelchair_boarding":0,
+    "tram_line":"2,3",
+    "lines":"[2,3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.525838498,47.38858319 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:648:1:1",
+    "stop_name":"Zürich, Löwenbräu",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.537166253,47.37584028 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1608:1:1",
+    "stop_name":"Zürich, Löwenplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"3,14",
+    "lines":"[3,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.58579206,47.40675247 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1587:1:1",
+    "stop_name":"Zürich, Luchswiesen",
+    "wheelchair_boarding":0,
+    "tram_line":"9",
+    "lines":"[9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.581498113,47.40607154 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1590:1:1",
+    "stop_name":"Zürich, Luegisland",
+    "wheelchair_boarding":0,
+    "tram_line":"9",
+    "lines":"[9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.591128052,47.39861112 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1620:1:1",
+    "stop_name":"Zürich, Mattenhof",
+    "wheelchair_boarding":2,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.499958034,47.40181552 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1626:1:0",
+    "stop_name":"Zürich, Meierhofplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.500398209,47.40169999 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1626:2:1",
+    "stop_name":"Zürich, Meierhofplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.550281656,47.41122086 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3154:2:1",
+    "stop_name":"Zürich, Messe/Hallenstadion",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.474329099,47.39313218 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1640:1:1",
+    "stop_name":"Zürich, Micafil",
+    "wheelchair_boarding":0,
+    "tram_line":"2",
+    "lines":"[2]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.541900375,47.3980821 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1643:4:20",
+    "stop_name":"Zürich, Milchbuck",
+    "wheelchair_boarding":0,
+    "tram_line":"7,9,10,14",
+    "lines":"[7,9,10,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.530366007,47.3432604 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1660:1:0",
+    "stop_name":"Zürich, Morgental",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.534740802,47.38233681 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1667:1:1",
+    "stop_name":"Zürich, Museum für Gestaltung",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.531578732,47.36052647 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1666:1:0",
+    "stop_name":"Zürich, Museum Rietberg",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.54744298,47.37264038 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1724:1:0",
+    "stop_name":"Zürich, Neumarkt",
+    "wheelchair_boarding":2,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.55410848,47.4178042 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:6459:1:1",
+    "stop_name":"Zürich, Oerlikerhus",
+    "wheelchair_boarding":0,
+    "tram_line":"10,11",
+    "lines":"[10,11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.547514845,47.36553422 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1845:1:1",
+    "stop_name":"Zürich, Opernhaus",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.542214785,47.38563343 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1856:1:0",
+    "stop_name":"Zürich, Ottikerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,15",
+    "lines":"[7,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.538765254,47.36957414 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1861:1:1",
+    "stop_name":"Zürich, Paradeplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"2,8,9",
+    "lines":"[2,8,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539097631,47.36982967 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1861:1:3",
+    "stop_name":"Zürich, Paradeplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"6,7,13",
+    "lines":"[6,7,13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539340176,47.36970799 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1861:1:4",
+    "stop_name":"Zürich, Paradeplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.552482529,47.37496428 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1889:1:0",
+    "stop_name":"Zürich, Platte",
+    "wheelchair_boarding":0,
+    "tram_line":"5,6",
+    "lines":"[5,6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.533016037,47.34462997 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2005:1:0",
+    "stop_name":"Zürich, Post Wollishofen",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.586259184,47.40028935 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2008:1:81",
+    "stop_name":"Zürich, Probstei",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.528910736,47.38660657 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2014:1:0",
+    "stop_name":"Zürich, Quellenstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.53499233,47.40204657 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2017:1:0",
+    "stop_name":"Zürich, Radiostudio",
+    "wheelchair_boarding":2,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.542726825,47.37184951 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2030:1:0",
+    "stop_name":"Zürich, Rathaus",
+    "wheelchair_boarding":0,
+    "tram_line":"4,15",
+    "lines":"[4,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.539079665,47.40851555 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2045:1:0",
+    "stop_name":"Zürich, Regensbergbrücke",
+    "wheelchair_boarding":0,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.583061181,47.35091733 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2549:1:0",
+    "stop_name":"Zürich, Rehalp",
+    "wheelchair_boarding":1,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.538307114,47.3733035 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2054:1:1",
+    "stop_name":"Zürich, Rennweg",
+    "wheelchair_boarding":0,
+    "tram_line":"6,7,11,13,17",
+    "lines":"[6,7,11,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.534606055,47.36345329 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2055:1:0",
+    "stop_name":"Zürich, Rentenanstalt",
+    "wheelchair_boarding":0,
+    "tram_line":"5",
+    "lines":"[5]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.56023499,47.36807746 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2124:1:0",
+    "stop_name":"Zürich, Römerhof",
+    "wheelchair_boarding":0,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.560288889,47.36770632 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2124:2:2",
+    "stop_name":"Zürich, Römerhof",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.540534936,47.38846155 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2128:1:0",
+    "stop_name":"Zürich, Röslistrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,15",
+    "lines":"[7,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.577347896,47.40288563 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2107:1:1",
+    "stop_name":"Zürich, Roswiesen",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.542753774,47.37375368 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2113:1:0",
+    "stop_name":"Zürich, Rudolf-Brun-Brücke",
+    "wheelchair_boarding":0,
+    "tram_line":"4,15",
+    "lines":"[4,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.520682168,47.35769077 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2550:1:1",
+    "stop_name":"Zürich, Saalsporthalle",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13,17",
+    "lines":"[5,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.538944918,47.3924085 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2158:1:1",
+    "stop_name":"Zürich, Schaffhauserplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"7,14",
+    "lines":"[7,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.538702372,47.39152061 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2158:4:2",
+    "stop_name":"Zürich, Schaffhauserplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"11,15",
+    "lines":"[11,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.502158907,47.36891707 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2160:1:1",
+    "stop_name":"Zürich, Schaufelbergerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.519783853,47.38792027 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:6759:1:0",
+    "stop_name":"Zürich, Schiffbau",
+    "wheelchair_boarding":0,
+    "tram_line":"4,8",
+    "lines":"[4,8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.519631139,47.36996352 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2256:1:1",
+    "stop_name":"Zürich, Schmiede Wiedikon",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.564061813,47.40604722 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2326:1:0",
+    "stop_name":"Zürich, Schörlistrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,9",
+    "lines":"[7,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.571877156,47.40460629 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2294:1:1",
+    "stop_name":"Zürich, Schwamendingerplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"7,9",
+    "lines":"[7,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.504925718,47.39964482 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2306:1:0",
+    "stop_name":"Zürich, Schwert",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.549958263,47.42169425 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2346:1:1",
+    "stop_name":"Zürich, Seebach",
+    "wheelchair_boarding":1,
+    "tram_line":"14",
+    "lines":"[14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548583841,47.4201018 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1275:1:1",
+    "stop_name":"Zürich, Seebacherplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"14",
+    "lines":"[14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548314346,47.38610784 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2367:1:1",
+    "stop_name":"Zürich, Seilbahn Rigiblick",
+    "wheelchair_boarding":1,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.494334581,47.37860201 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2385:1:0",
+    "stop_name":"Zürich, Siemens",
+    "wheelchair_boarding":0,
+    "tram_line":"3",
+    "lines":"[3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.557531061,47.36330726 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2388:1:1",
+    "stop_name":"Zürich, Signaustrasse",
+    "wheelchair_boarding":2,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.522820158,47.35989362 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2771:1:1",
+    "stop_name":"Zürich, Sihlcity Nord",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13,17",
+    "lines":"[5,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.533941301,47.37603494 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1366:1:1",
+    "stop_name":"Zürich, Sihlpost / HB",
+    "wheelchair_boarding":0,
+    "tram_line":"3,14",
+    "lines":"[3,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.537399815,47.37976384 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2395:1:0",
+    "stop_name":"Zürich, Sihlquai/HB",
+    "wheelchair_boarding":0,
+    "tram_line":"4,13,17",
+    "lines":"[4,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.53482165,47.37217194 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2396:1:0",
+    "stop_name":"Zürich, Sihlstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,9",
+    "lines":"[2,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.543490393,47.38275042 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2411:1:0",
+    "stop_name":"Zürich, Sonneggstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,15",
+    "lines":"[7,15]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.506093528,47.39150237 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2449:2:0",
+    "stop_name":"Zürich, Sportweg",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.542816656,47.38029913 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2474:1:1",
+    "stop_name":"Zürich, Stampfenbachplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"11,14",
+    "lines":"[11,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.530303125,47.37359551 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2556:1:0",
+    "stop_name":"Zürich, Stauffacher",
+    "wheelchair_boarding":0,
+    "tram_line":"2,3,9,14",
+    "lines":"[2,3,9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.529126331,47.37320008 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2556:2:3",
+    "stop_name":"Zürich, Stauffacher",
+    "wheelchair_boarding":0,
+    "tram_line":"8",
+    "lines":"[8]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.546248221,47.40967064 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2572:1:0",
+    "stop_name":"Zürich, Sternen Oerlikon",
+    "wheelchair_boarding":1,
+    "tram_line":"10,14",
+    "lines":"[10,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.546975856,47.4102421 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2572:2:3",
+    "stop_name":"Zürich, Sternen Oerlikon",
+    "wheelchair_boarding":1,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.534920465,47.36777933 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2582:1:2",
+    "stop_name":"Zürich, Stockerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,8,13,17",
+    "lines":"[7,8,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.536124208,47.36801662 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2582:2:1",
+    "stop_name":"Zürich, Stockerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"7,8,13,17",
+    "lines":"[7,8,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.511573251,47.35324827 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2596:1:1",
+    "stop_name":"Zürich, Strassenverkehrsamt",
+    "wheelchair_boarding":1,
+    "tram_line":"13,17",
+    "lines":"[13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.567637108,47.37852293 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2618:1:0",
+    "stop_name":"Zürich, Susenbergstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"6",
+    "lines":"[6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.509273564,47.36983575 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2638:1:0",
+    "stop_name":"Zürich, Talwiesenstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.515067697,47.38916095 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3453:1:1",
+    "stop_name":"Zürich, Technopark",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.552105236,47.40180944 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2666:1:0",
+    "stop_name":"Zürich, Tierspital",
+    "wheelchair_boarding":0,
+    "tram_line":"7,9",
+    "lines":"[7,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.559767866,47.37929546 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2673:1:1",
+    "stop_name":"Zürich, Toblerplatz",
+    "wheelchair_boarding":1,
+    "tram_line":"6",
+    "lines":"[6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.510477306,47.39024957 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:718:1:1",
+    "stop_name":"Zürich, Toni-Areal",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.495349677,47.36780976 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2680:1:1",
+    "stop_name":"Zürich, Triemli",
+    "wheelchair_boarding":1,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.494262715,47.39738281 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2707:1:0",
+    "stop_name":"Zürich, Tüffenwies",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.532593828,47.36620959 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2689:1:0",
+    "stop_name":"Zürich, Tunnelstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"6,7,13,17",
+    "lines":"[6,7,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.514088534,47.35691792 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2722:1:1",
+    "stop_name":"Zürich, Uetlihof",
+    "wheelchair_boarding":0,
+    "tram_line":"13,17",
+    "lines":"[13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.544514472,47.39628826 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1334:1:1",
+    "stop_name":"Zürich, Universität Irchel",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.554297126,47.37692309 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2788:1:1",
+    "stop_name":"Zürich, Voltastrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"5,6",
+    "lines":"[5,6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.524886283,47.36099502 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2795:1:0",
+    "stop_name":"Zürich, Waffenplatzstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13,17",
+    "lines":"[5,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.527024274,47.36244322 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2795:2:1",
+    "stop_name":"Zürich, Waffenplatzstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"5,13,17",
+    "lines":"[5,13,17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.519226897,47.39523625 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2800:1:0",
+    "stop_name":"Zürich, Waidfussweg",
+    "wheelchair_boarding":1,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.557162752,47.40377333 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2814:1:1",
+    "stop_name":"Zürich, Waldgarten",
+    "wheelchair_boarding":0,
+    "tram_line":"7,9",
+    "lines":"[7,9]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.491783365,47.40278835 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2831:1:1",
+    "stop_name":"Zürich, Wartau",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.527069189,47.3727073 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:6238:1:1",
+    "stop_name":"Zürich, Werd",
+    "wheelchair_boarding":1,
+    "tram_line":"9,14",
+    "lines":"[9,14]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.482054611,47.39779022 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2872:1:0",
+    "stop_name":"Zürich, Werdhölzli",
+    "wheelchair_boarding":0,
+    "tram_line":"17",
+    "lines":"[17]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.56818508,47.36024656 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2879:1:1",
+    "stop_name":"Zürich, Wetlistrasse",
+    "wheelchair_boarding":1,
+    "tram_line":"11",
+    "lines":"[11]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5588965,47.35310829 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2907:1:0",
+    "stop_name":"Zürich, Wildbachstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"2,4",
+    "lines":"[2,4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.548107733,47.3829998 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2924:1:0",
+    "stop_name":"Zürich, Winkelriedstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"9,10",
+    "lines":"[9,10]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.48655517,47.40365781 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2935:1:0",
+    "stop_name":"Zürich, Winzerstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.523691524,47.39249972 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2937:1:0",
+    "stop_name":"Zürich, Wipkingerplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.530797198,47.33831142 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:2950:1:0",
+    "stop_name":"Zürich, Wollishoferplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"7",
+    "lines":"[7]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.494541193,47.39210443 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:6648:1:1",
+    "stop_name":"Zürich, Würzgraben",
+    "wheelchair_boarding":0,
+    "tram_line":"4",
+    "lines":"[4]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.571607661,47.38167989 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3005:1:0",
+    "stop_name":"Zürich, Zoo",
+    "wheelchair_boarding":0,
+    "tram_line":"6",
+    "lines":"[6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.564331307,47.37868109 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3045:1:1",
+    "stop_name":"Zürich, Zürichbergstrasse",
+    "wheelchair_boarding":0,
+    "tram_line":"6",
+    "lines":"[6]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.496625284,47.40215601 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3015:1:0",
+    "stop_name":"Zürich, Zwielplatz",
+    "wheelchair_boarding":0,
+    "tram_line":"13",
+    "lines":"[13]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.513971753,47.37666152 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:3019:1:0",
+    "stop_name":"Zürich, Zypressenstrasse",
+    "wheelchair_boarding":2,
+    "tram_line":"2,3",
+    "lines":"[2,3]"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.521248106,47.37448978 ]
+    },
+    "properties": {
+    "stop_id":"gen:23026:1357:1:0",
+    "stop_name":"Zürich,Kalkbreite/Bhf.Wiedikon",
+    "wheelchair_boarding":0,
+    "tram_line":"2,3",
+    "lines":"[2,3]"
+    }
+  }
+]
+}

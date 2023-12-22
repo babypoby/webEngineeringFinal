@@ -86,6 +86,11 @@ background-color: rgb(211, 0, 0);
 .filter-button.selected.Trainstations:hover {
     background-color: #054589;
 }
+.filter-button.selected.Tramstations{
+    background-color: green;
+    color: white;
+    border-color: green;
+}
 
 /* Responsive styling for smaller screens */
 @media (max-width: 1300px) {

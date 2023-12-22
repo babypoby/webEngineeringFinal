@@ -528,7 +528,7 @@ const App = () => {
           {selectedFilter.includes("Distance") && (
             <LayerGroup>
               {filteredParking.map((item, index) => (
-                <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
                   iconUrl: nearParkingSpacesIcon,
                   iconSize: [1.2 * zoomLevel, 1.6 * zoomLevel],
                   iconAnchor: [0.6 * zoomLevel, 1.6 * zoomLevel],

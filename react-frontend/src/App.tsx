@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './styles/tailwind.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayerGroup } from 'react-leaflet';
 import L, { LatLngExpression } from 'leaflet';
@@ -7,7 +6,18 @@ import StatisticsPanel from './StatisticsPanel';
 import type { Point, ParkingPoint, PointLayer } from './types/statistics';
 import './App.css';
 import FilterHeader from './FilterHeader';
-import { zoom } from 'd3';
+import trainStationsIcon from './icons/icon-blue.png'
+import parkingSpacesIcon from './icons/icon-orange.png'
+import nearParkingSpacesIcon from './icons/icon-yellow.png'
+import tramYellowIcon from './icons/icon-tram-yellow.png'
+import tramGreenIcon from './icons/icon-tram-green.png'
+import tramRedIcon from './icons/icon-tram-red.png'
+import blueWcIcon from './icons/icon-blue-wc.png'
+import blueRampIcon from './icons/icon-blue-ramp.png'
+import blueRampWcIcon from './icons/icon-blue-ramp-wc.png'
+import tramstationsData from './resources/tramstations.json'
+import parkingSpaceData from './resources/taz.behindertenparkplaetze_dav_p.json'
+import accessiblityData from './resources/accessibility_1.json'
 
 /*test*/
 const App = () => {
@@ -119,20 +129,22 @@ const App = () => {
 
 
   /* Query the backend on mount to load the data into the state */
-  useEffect(() => {
+  useEffect(() => {/* 
     fetch("http://localhost:8000/api/data/trainstations")
-        .then((response) => response.json())
+        .then((response) => response.json()) */
+    Promise.resolve(accessiblityData)
         .then((geojson) => {
           const formattedCoordinates: Point[] = geojson.features.map(x => ({
-            coordinates: x.geometry.coordinates,
+            coordinates: x.geometry.coordinates.map(x => parseFloat(x)),
             properties: x.properties
           }));
           setTrainCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
 
-    fetch("http://localhost:8000/api/data/parkingspaces")
-        .then((response) => response.json())
+    /* fetch("http://localhost:8000/api/data/parkingspaces")
+        .then((response) => response.json()) */
+    Promise.resolve(parkingSpaceData)
         .then((geojson) => {
           const groups = groupByAddress(geojson.features);
           const formattedCoordinates: ParkingPoint[] = Object.values(groups).map(x => ({
@@ -144,8 +156,9 @@ const App = () => {
         })
         .catch(error => console.error('Error fetching data: ', error));
 
-        fetch("http://localhost:8000/api/data/tramstations")
-        .then((response) => response.json())
+        /* fetch("http://localhost:8000/api/data/tramstations")
+        .then((response) => response.json()) */
+      Promise.resolve(tramstationsData)
         .then((geojson) => {
           const lines = Array.from(new Set(geojson.features.flatMap(feature => 
             feature.properties.tram_line.split(',').map(line => line.trim())
@@ -309,7 +322,7 @@ const App = () => {
                     <LayerGroup>
                         {traincoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                                iconUrl: "/icons/icon-blue.png",
+                                iconUrl: trainStationsIcon,
                                 iconSize: [7 * zoomLevel, 7 * zoomLevel],
                                 iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                                 popupAnchor: [0, -.5 * zoomLevel],
@@ -345,8 +358,8 @@ const App = () => {
             {visibleLayers.includes('Parkingspaces') && (
                     <LayerGroup>
                         {parkingcoordinates.map((item, index) => (
-                            <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                                iconUrl: "/icons/icon-orange.png",
+                            <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
+                                iconUrl: parkingSpacesIcon,
                                 iconSize: [1.2 * zoomLevel, 1.6 * zoomLevel],
                                 iconAnchor: [0.6 * zoomLevel, 1.6 * zoomLevel],
                                 popupAnchor: [0, -.8 * zoomLevel],
@@ -387,17 +400,17 @@ const App = () => {
                   return lines.includes(selectedTramLine); // Check if the selected line is in the list
                 })
                 .map((item, index) => {
-                  let iconUrl = "/icons/icon-tram-green.png"; // default icon
+                  let iconUrl = tramGreenIcon; // default icon
                   if (item.properties.wheelchair_boarding === 1) {
-                    iconUrl = "/icons/icon-tram-yellow.png"; // icon for stations accessible with help
+                    iconUrl = tramYellowIcon; // icon for stations accessible with help
                   } else if (item.properties.wheelchair_boarding === 2) {
-                    iconUrl = "/icons/icon-tram-red.png"; // icon for stations not accessible
+                    iconUrl = tramRedIcon; // icon for stations not accessible
                   }
 
                   return (
                     <Marker 
                       key={index} 
-                      position={item.coordinates.reverse() as LatLngExpression} 
+                      position={item.coordinates as LatLngExpression} 
                       icon={L.icon({
                         iconUrl: iconUrl,
                         iconSize: [1.8 * zoomLevel, 2.4 * zoomLevel],
@@ -449,7 +462,7 @@ const App = () => {
                 .filter(item => item.properties.rollstuhl_wc === true)
                 .map((item, index) => (
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                    iconUrl: "/icons/icon-blue-wc.png", // Assuming you have an icon for WC
+                    iconUrl: blueWcIcon, // Assuming you have an icon for WC
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -.5 * zoomLevel],
@@ -474,7 +487,7 @@ const App = () => {
                 .filter(item => item.properties.stufenloser_perronzugang === true)
                 .map((item, index) => (
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                    iconUrl: "/icons/icon-blue-ramp.png",
+                    iconUrl: blueRampIcon,
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -0.5 * zoomLevel],
@@ -499,7 +512,7 @@ const App = () => {
                 .filter(item => item.properties.stufenloser_perronzugang === true && item.properties.rollstuhl_wc === true)
                 .map((item, index) => (
                   <Marker key={index} position={item.coordinates as LatLngExpression} icon={L.icon({
-                    iconUrl: "/icons/icon-blue-ramp-wc.png",
+                    iconUrl: blueRampWcIcon,
                     iconSize: [7 * zoomLevel, 7 * zoomLevel],
                     iconAnchor: [3.5 * zoomLevel, 4.5 * zoomLevel],
                     popupAnchor: [0, -.5 * zoomLevel],
@@ -522,7 +535,7 @@ const App = () => {
             <LayerGroup>
               {filteredParking.map((item, index) => (
                 <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                  iconUrl: "/icons/icon-yellow.png",
+                  iconUrl: nearParkingSpacesIcon,
                   iconSize: [1.2 * zoomLevel, 1.6 * zoomLevel],
                   iconAnchor: [0.6 * zoomLevel, 1.6 * zoomLevel],
                   popupAnchor: [0, -.8 * zoomLevel],

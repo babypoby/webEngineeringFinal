@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './FilterHeader.css';
 import { style } from 'd3';
 
-const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers }) => {
+const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers, tramLines, onTramLineSelect }) => {
   const [filterValue, setFilterValue] = useState<String[]>([]);
   const [layerValue, setLayerValue] = useState<String[]>([]);
 
@@ -79,6 +79,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
       }
     }
   }
+  
 
   return (
     <div className="filter-header">
@@ -104,7 +105,22 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
             Tram Stations
           </button>
         </div>
-
+      </div>
+      <div className='filt-component'>
+        <label>Tram Line:</label>
+        <select className="dropdown-button" onChange={(e) => onTramLineSelect(e.target.value)}>
+          <option value="">All lines</option>
+          {tramLines.sort((a, b) => {
+            // If both are numbers, sort numerically
+            if (!isNaN(Number(a)) && !isNaN(Number(b))) {
+              return Number(a) - Number(b);
+            }
+            // Otherwise, sort as strings
+            return a.localeCompare(b);
+          }).map(line => (
+            <option key={line} value={line}>{line}</option>
+          ))}
+        </select>
       </div>
       <div className='filt-component'>
         <label>Train station services</label>

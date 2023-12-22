@@ -77,7 +77,7 @@ deploy_app:
   - >-
     helm --namespace $k8s_namespace
     --kube-context $k8s_context
-    upgrade ${CI_PROJECT_NAME} ${CI_PROJECT_DIR}/helm
+    upgrade $(echo ${CI_PROJECT_NAME} | tr _ -) ${CI_PROJECT_DIR}/helm
     --install
     --history-max 5
     --set image.host=${ci_registry}

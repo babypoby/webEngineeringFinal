@@ -5,6 +5,7 @@ import './FilterHeader.css';
 const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggle, visibleLayers, tramLines, onTramLineSelect }) => {
   const [filterValue, setFilterValue] = useState<String[]>([]);
   const [layerValue, setLayerValue] = useState<String[]>([]);
+  const [enableTramLine, setEnableTramLine] = useState<boolean>(false);
 
   const handleFilterButtonClick = (value: String) => {
     if (!isLayerActive('Trainstations')) return;
@@ -77,8 +78,20 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
         return "deactivated"
       }
     }
+    else if (value === "Tramstations") {
+      if (isLayerActive("Tramstations")) {
+        return ''
+      }
+      else {
+        return "deactivated"
+      }
+    }
   }
-  
+
+  function handleTramTramStationsClick() {
+    handleLayerButtonClick('Tramstations')
+    setEnableTramLine(!enableTramLine)
+  }  
 
   return (
     <div className="filter-header">
@@ -98,8 +111,8 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
             Parking Places
           </button>
           <button
-            className={`filter-button ${isLayerActive('Tramstations') ? 'selected Tramstations' : ''}`}
-            onClick={() => handleLayerButtonClick('Tramstations')}
+            className={`filter-button ${isLayerActive('Tramstations') ? 'selected Tramstations' : 'Tramstations'}`}
+            onClick={() => handleTramTramStationsClick()}
           >
             Tram Stations
           </button>
@@ -107,7 +120,7 @@ const FilterHeader = ({ onFilterButtonClick, onDistanceFilterClick, onLayerToggl
       </div>
       <div className='filt-component'>
         <label>Tram Line:</label>
-        <select className="dropdown-button" onChange={(e) => onTramLineSelect(e.target.value)}>
+        <select className={`dropdown-button ${styleButton("Tramstations")}`}onChange={(e) => onTramLineSelect(e.target.value)} disabled={!enableTramLine}>
           <option value="">All lines</option>
           {tramLines.sort((a, b) => {
             // If both are numbers, sort numerically

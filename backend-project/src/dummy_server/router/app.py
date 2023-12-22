@@ -6,7 +6,8 @@ app = Flask(__name__)
 CORS(app) 
 geojson_paths = {
     'trainstations': 'dummy_server/resources/accessibility_1.geojson',
-    'parkingspaces': 'dummy_server/resources/taz.behindertenparkplaetze_dav_p.json'
+    'parkingspaces': 'dummy_server/resources/taz.behindertenparkplaetze_dav_p.json',
+    'tramstations' : 'dummy_server/resources/tramstations.json'
 }
 @app.route('/api/data/<file_name>', methods=['GET'])
 def get_geojson(file_name):

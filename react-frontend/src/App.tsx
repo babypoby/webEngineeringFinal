@@ -8,11 +8,12 @@ import type { Point, ParkingPoint, PointLayer } from './types/statistics';
 import './App.css';
 import FilterHeader from './FilterHeader';
 
-
+/*test*/
 const App = () => {
   /* Use the react state hook for initializing a responsive list of coordinates,information tuples */
   const [traincoordinates, setTrainCoordinates] = useState<Point[]>([]);
   const [parkingcoordinates, setParkingCoordinates] = useState<ParkingPoint[]>([]);
+  const [tramcoordinates, setTramCoordinates] = useState<Point[]>([]);
   /* Handle map zoom level */
   const [zoomLevel, setZoomLevel] = useState(13);
   /* Handle buttons filtering */
@@ -126,6 +127,18 @@ const App = () => {
           setParkingCoordinates(formattedCoordinates);
         })
         .catch(error => console.error('Error fetching data: ', error));
+
+    fetch("http://localhost:8000/api/data/tramstations")
+      .then((response) => response.json())
+        .then((geojson) => {
+          const formattedCoordinates: Point[] = geojson.features.map(x => ({
+            coordinates: ToReversed(x.geometry.coordinates),
+            properties: x.properties
+          }));
+          setTramCoordinates(formattedCoordinates);
+        })
+        .catch(error => console.error('Error fetching data: ', error));
+        
         updateBounds()
   }, []);
 
@@ -309,8 +322,8 @@ const App = () => {
                         {parkingcoordinates.map((item, index) => (
                             <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
                                 iconUrl: "/icons/icon-orange.png",
-                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                iconSize: [6 * zoomLevel, 6 * zoomLevel],
+                                iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
                                 popupAnchor: [0, 0],
                             })}>
                                 <Popup className="park-popup">
@@ -336,6 +349,115 @@ const App = () => {
                                 </Popup>
                             </Marker>
                         ))}
+                    </LayerGroup>
+            )}
+            {visibleLayers.includes('Tramstations') && (
+                    <LayerGroup>
+                        {tramcoordinates
+                        .filter(item => item.properties.wheelchair_boarding === 0)
+                        .map((item, index) => (
+                            <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                              iconUrl: "/icons/icon-green.png",
+                              iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                              iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                              popupAnchor: [0, 0 * zoomLevel],
+                          })}>
+                              <Popup className="tram-popup">
+                                {/* Custom close button */}
+                                <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                  &times;
+                                </span>
+                                {/* Header with station name */}
+                                <div className="popup-header">
+                                  {item.properties.stop_name}
+                                </div>
+                                {/* Container for rectangles */}
+                                <div className="popup-container">
+                                  {/* Address Rectangle */}
+                                  <div className="rectangle">
+                                    <div className="header">Available Lines</div>
+                                    <div className="value">{item.properties.tram_line}</div>
+                                  </div>
+
+                                  {/* Available Places Rectangle */}
+                                  <div className="rectangle">
+                                    <div className="header">Accessibility</div>
+                                    <div className="value-a">{"Accessible without help"}</div>
+                                  </div>
+                                </div>
+                              </Popup>
+                          </Marker>
+                        ))}
+                        {tramcoordinates
+                          .filter(item => item.properties.wheelchair_boarding === 1)
+                          .map((item, index) => (
+                              <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                                iconUrl: "/icons/icon-yellow.png",
+                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                popupAnchor: [0, 0 * zoomLevel],
+                            })}>
+                                <Popup className="tram-popup">
+                                  {/* Custom close button */}
+                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                    &times;
+                                  </span>
+                                  {/* Header with station name */}
+                                  <div className="popup-header">
+                                    {item.properties.stop_name}
+                                  </div>
+                                  {/* Container for rectangles */}
+                                  <div className="popup-container">
+                                    {/* Address Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Available Lines</div>
+                                      <div className="value">{item.properties.tram_line}</div>
+                                    </div>
+  
+                                    {/* Available Places Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Accessibility</div>
+                                      <div className="value-awh">{"Accesible with help"}</div>
+                                    </div>
+                                  </div>
+                                </Popup>
+                            </Marker>
+                          ))}
+                          {tramcoordinates
+                          .filter(item => item.properties.wheelchair_boarding === 2)
+                          .map((item, index) => (
+                              <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
+                                iconUrl: "/icons/icon-red.png",
+                                iconSize: [4 * zoomLevel, 4 * zoomLevel],
+                                iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                                popupAnchor: [0, 0 * zoomLevel],
+                            })}>
+                                <Popup className="tram-popup">
+                                  {/* Custom close button */}
+                                  <span className="custom-close-button" onClick={() => mapRef.current.closePopup()}>
+                                    &times;
+                                  </span>
+                                  {/* Header with station name */}
+                                  <div className="popup-header">
+                                    {item.properties.stop_name}
+                                  </div>
+                                  {/* Container for rectangles */}
+                                  <div className="popup-container">
+                                    {/* Address Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Available Lines</div>
+                                      <div className="value">{item.properties.tram_line}</div>
+                                    </div>
+  
+                                    {/* Available Places Rectangle */}
+                                    <div className="rectangle">
+                                      <div className="header">Accessibility</div>
+                                      <div className="value-na">{"Not Accessible"}</div>
+                                    </div>
+                                  </div>
+                                </Popup>
+                            </Marker>
+                          ))}
                     </LayerGroup>
             )}
             
@@ -418,9 +540,9 @@ const App = () => {
             <LayerGroup>
               {filteredParking.map((item, index) => (
                 <Marker key={index} position={item.coordinates.reverse() as LatLngExpression} icon={L.icon({
-                  iconUrl: "/icons/icon-red.png",
-                  iconSize: [4 * zoomLevel, 4 * zoomLevel],
-                  iconAnchor: [2 * zoomLevel, 2 * zoomLevel],
+                  iconUrl: "/icons/icon-yellow.png",
+                  iconSize: [6 * zoomLevel, 6 * zoomLevel],
+                  iconAnchor: [3 * zoomLevel, 3 * zoomLevel],
                   popupAnchor: [0, 0 * zoomLevel],
               })}>
                   <Popup className="nearpark-popup">

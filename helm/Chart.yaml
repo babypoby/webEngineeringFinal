@@ -1,5 +1,5 @@
 apiVersion: v2
-name: lmeierhoefer_project_flask
+name: test
 description: My Example App #description for the app
 type: application
 version: 0.0.3 #for versioning of the helm chart, increase it when new release is built/deployed

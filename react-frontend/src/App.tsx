@@ -57,7 +57,15 @@ const App = () => {
     }
 
    if (visibleLayers.includes('Tramstations') && tramcoordinates.length > 0) {
-      stats.push({ name: 'Tramstations', coordinates: computeForLayer(tramcoordinates)});
+      const filteredTramCoordinates = tramcoordinates.filter(item => {
+        if (selectedTramLine === '') {
+            return true; // If no line is selected, show all stations
+        }
+        const lines = item.properties.tram_line.split(',').map(line => line.trim());
+        return lines.includes(selectedTramLine); // Check if the selected line is in the list
+      })
+
+      stats.push({ name: 'Tramstations', coordinates: computeForLayer(filteredTramCoordinates)});
    }
   
     setStatistics(stats);
@@ -275,6 +283,7 @@ const App = () => {
     };
     const handleTramLineSelect = (line) => {
       setSelectedTramLine(line);
+      updateBoundsRecompute();
     };
 
     return(

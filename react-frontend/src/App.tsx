@@ -28,7 +28,7 @@ const App = () => {
   const [statistics, setStatistics] = useState<PointLayer[]>([]);   
 
   /* Function to compute statistics about train stations and parkin spaces */
-  const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates) => {
+  const compute_statistics = (visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates) => {
     if (!bounds || !visibleLayers) return;
   
     const computeForLayer = (coordinates) => {
@@ -51,6 +51,10 @@ const App = () => {
     if (visibleLayers.includes('Parkingspaces') && parkingcoordinates.length > 0) {
       stats.push({ name: 'Parkingspaces', coordinates: computeForLayer(parkingcoordinates) });
     }
+
+   if (visibleLayers.includes('Tramstations') && tramcoordinates.length > 0) {
+      stats.push({ name: 'Tramstations', coordinates: computeForLayer(tramcoordinates)});
+   }
   
     setStatistics(stats);
   };
@@ -65,7 +69,7 @@ const App = () => {
   // Function to update bound and statistics
   const updateBoundsRecompute = () => {
     updateBounds();
-    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+    compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates);
   };
 
   // Map Event Handler
@@ -95,9 +99,9 @@ const App = () => {
  
   useEffect(() => {
     if(bounds){
-      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates);
+      compute_statistics(visibleLayers, bounds, setStatistics, traincoordinates, parkingcoordinates, tramcoordinates);
     }
-  }, [bounds, visibleLayers, traincoordinates, parkingcoordinates]);
+  }, [bounds, visibleLayers, traincoordinates, parkingcoordinates, tramcoordinates]);
   
   
 

@@ -52,7 +52,7 @@ const Barplot = ({ data }) => {
     return (
         <div style={plotContainerStyle}>
             <h4 className="barplot-title">Total number of stations: {data.length}</h4>
-            <ResponsiveContainer width="100%" height={200}  className='barplot'>
+            <ResponsiveContainer width="100%" height={100}  className='barplot'>
                 <BarChart data={processDataForBarPlot(data)}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" hide={true} />

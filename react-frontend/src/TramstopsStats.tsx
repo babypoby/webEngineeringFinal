@@ -52,7 +52,7 @@ const TramstopsStats = ({ data }) => {
         borderRadius: '10px',
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
         padding: '10px',
-        border: '2px solid green'
+        border: '2px solid #009b4d'
     };
 
     // Function to calculate the accessibility ratio for tram lines

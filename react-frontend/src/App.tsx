@@ -129,9 +129,7 @@ const App = () => {
 
 
   /* Query the backend on mount to load the data into the state */
-  useEffect(() => {/* 
-    fetch("http://localhost:8000/api/data/trainstations")
-        .then((response) => response.json()) */
+  useEffect(() => {
     Promise.resolve(accessiblityData)
         .then((geojson) => {
           const formattedCoordinates: Point[] = geojson.features.map(x => ({
@@ -142,8 +140,6 @@ const App = () => {
         })
         .catch(error => console.error('Error fetching data: ', error));
 
-    /* fetch("http://localhost:8000/api/data/parkingspaces")
-        .then((response) => response.json()) */
     Promise.resolve(parkingSpaceData)
         .then((geojson) => {
           const groups = groupByAddress(geojson.features);
@@ -156,8 +152,6 @@ const App = () => {
         })
         .catch(error => console.error('Error fetching data: ', error));
 
-        /* fetch("http://localhost:8000/api/data/tramstations")
-        .then((response) => response.json()) */
       Promise.resolve(tramstationsData)
         .then((geojson) => {
           const lines = Array.from(new Set(geojson.features.flatMap(feature => 

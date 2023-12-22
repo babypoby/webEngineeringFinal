@@ -54,10 +54,11 @@ const Barplot = ({ data }) => {
       };
 
     const plotContainerStyle = {
-        backgroundColor: 'f2f2f2', // White background
+        backgroundColor: '#f5f5f5', // White background
         borderRadius: '10px', // Rounded corners
         boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Box shadow for depth
         padding: '10px', // Padding around the chart
+        border: '2px solid #0061c990' // Gray border
     };
 
     return (
@@ -69,7 +70,7 @@ const Barplot = ({ data }) => {
                     <XAxis dataKey="name" hide={true} />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="count" fill="#83a4d4" />
+                    <Bar dataKey="count" fill="#0061c9" />
                 </BarChart>
             </ResponsiveContainer>
         </div>

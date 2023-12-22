@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding: 10px 20px;
-    background-color: rgb(187, 187, 187); /* Darker gray for better contrast */
+    background-color: rgb(255, 255, 255); /* Darker gray for better contrast */
     gap: 5px;
 }
 
@@ -46,23 +46,36 @@
     gap: 3px;
 }
 
-.filter-button:hover {
-    background-color: #dee2e6; /* Slightly darker grey on hover */
+.filter-button.Trainstations:hover {
+    background-color: #0061c976; /* Slightly darker grey on hover */
     transform: translateY(-2px); /* Slight elevation effect on hover */
+    color: white
 }
+
+.filter-button.Parkingspaces:hover {
+    background-color: #ff8c0076; /* Slightly darker grey on hover */
+    transform: translateY(-2px); /* Slight elevation effect on hover */
+    color: white
+}
+
+.filter-button.Distance:hover {
+    background-color: #ffd00076; /* Slightly darker grey on hover */
+    transform: translateY(-2px); /* Slight elevation effect on hover */
+    color: white
+}   
 
 .filter-button.selected.Trainstations,
 .filter-button.selected.WC,
 .filter-button.selected.Ramps{
-    background-color: #0056b3;
+    background-color: #0061c9;
     color: white;
-    border-color: #054589;
+    border-color: #0061c9;
 }
 
 .filter-button.deactivated {
-    background-color: #8d8d8d6f;
-    color: #495057;
-    border-color: #e9ecef;
+    background-color: #00000035;
+    color: #00000035;
+    border-color: #00000035;
 }
 
 .filter-button.selected.Parkingspaces {
@@ -72,20 +85,11 @@
 }
 
 .filter-button.selected.Distance{
-    background-color: red;
+    background-color: #ffd000;
     color: white;
-    border-color: rgb(211, 0, 0);
-}
-.filter-button.selected.Distance:hover {
-background-color: rgb(211, 0, 0);
-}
-.filter-button.selected.Parkingspaces:hover {
-    background-color: #ff6b00;
+    border-color: #ffd000
 }
 
-.filter-button.selected.Trainstations:hover {
-    background-color: #054589;
-}
 .filter-button.selected.Tramstations{
     background-color: green;
     color: white;

@@ -1097,20 +1097,6 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 8.52607206,47.37616269 ]
-    },
-    "properties": {
-    "stop_id":"gen:23026:1158:1:0",
-    "stop_name":"Zürich, Helvetiaplatz",
-    "wheelchair_boarding":2,
-    "tram_line":"4,15",
-    "lines":"[4,15]"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
        "coordinates":  [ 8.506767264,47.36945246 ]
     },
     "properties": {
